@@ -1,0 +1,18 @@
+baseurl = "https://www.tomeggington.co.uk/"
+languageCode = "en-gb"
+title = "Tom Eggington"
+theme = "mainroad"
+
+[permalinks]
+  post = "/:title/"
+
+[params]
+  description = "Tom Eggington"
+  author = "Tom Eggington"
+  opengraph = true
+  authorbox = false
+  post_navigation = true
+
+[params.widgets]
+    search = false # Enable "Search" widget
+    recent_articles = true # Enable "Recent arcticles" widget
