@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On requiring an email address for registration</title>
+<meta name="description" content="Tom Eggington">
+<meta name="generator" content="Hugo 0.20.2" />
+<meta property="og:title" content="On requiring an email address for registration" />
+<meta property="og:description" content="This week I had intended to post a deep dive into the technical details of how PasteMonitor operates. However, in the middle of writing the first draft, something came up that I thought I should act upon. That thing was the registration process behind PasteMonitor.
+From the beginning, I had built PasteMonitor on the premise that a user would authenticate themselves with an email address and password. I didn&rsquo;t question this or consider why, it was just how things go; when a user registers for a service online, they use an email address and password to authenticate, whether directly or through a delegated OAuth system." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.tomeggington.co.uk/on-requiring-an-email-address-for-registration/" />
+
+
+
+<meta property="article:published_time" content="2015-03-04T14:52:23&#43;01:00"/>
+<meta property="article:modified_time" content="2015-03-04T14:52:23&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="http://www.tomeggington.co.uk/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="http://www.tomeggington.co.uk/js/scripts.js"></script>
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="http://www.tomeggington.co.uk/" title="Tom Eggington" rel="home">
+						<h1 class="logo__title">Tom Eggington</h1>
+						
+					</a>
+				</div>
+			</div>
+			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+	</ul>
+</nav>
+		</header>
+		<div class="wrapper clearfix">
+
+<div class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">On requiring an email address for registration</h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2015-03-04 14:52:23 &#43;0100 &#43;0100">March 04, 2015</time>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			<p>This week I had intended to post a deep dive into the technical details of how <a href="http://www.pastemonitor.com">PasteMonitor</a> operates. However, in the middle of writing the first draft, something came up that I thought I should act upon. That thing was the registration process behind PasteMonitor.</p>
+
+<p>From the beginning, I had built PasteMonitor on the premise that a user would authenticate themselves with an email address and password. I didn&rsquo;t question this or consider why, it was just how things go; when a user registers for a service online, they use an email address and password to authenticate, whether directly or through a delegated OAuth system.</p>
+
+<p>Last week I was looking through some comments on <a href="http://news.ycombinator.com">Hacker News</a>, and was struck by a clear pattern in the negative comments that people&rsquo;s projects received. It went something like this: <em>I&rsquo;m not going to give out my email address to try a service I know nothing about</em>. And of course, they were right.</p>
+
+<p>When did we start accepting that an email address is a suitable substitute for a username? Granted, there are exceptions. Some services still use usernames instead of email addresses (although even of these, many of them still <em>require</em> an email address to be held privately), and some services require an email address because it&rsquo;s fundamental to the service being offered. But PasteMonitor didn&rsquo;t fall into either of those categories. PasteMonitor uses email addresses for email alerts (which are optional), and to send a confirmation email, which is used to — you guessed it — verify the provided email address.</p>
+
+<p>Over the course of about four hours of work, I swapped out the use of email addresses as the unique identifier for an account, to use usernames instead, and in the process made the email address field optional. Potentially this could cause a problem for users who have forgotten their password and haven&rsquo;t registered an email address to their account, but I will deal with this as and when it becomes a problem. In the mean time, I consider it more important that the barrier to entry to the service is as low as possible. This should help to accomplish that, while at the same time, increasing confidence in the legitimacy of PasteMonitor as a service, and not just a collector of users&rsquo; personal data.</p>
+
+		</div>
+		
+
+	</article>
+	
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/pastemonitor-a-tracking-service-for-paste-sites/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">PasteMonitor: a tracking service for paste sites</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/a-look-inside-pastemonitor/" rel="next"><span class="post-nav__caption">Next»</span><p class="post-nav__post-title">A look inside PasteMonitor</p></a>
+	</div>
+</nav>
+
+	
+</div>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/on-passwords-biometrics-and-password-managers/">On Passwords, Biometrics, and Password Managers</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hardening-against-web-account-enumeration/">Hardening against web account enumeration</a></li>
+			<li class="widget__item"><a class="widget__link" href="/why-global-tracing-doesnt-work-in-azure-web-apps/">Why global tracing doesnt work in Azure web apps</a></li>
+			<li class="widget__item"><a class="widget__link" href="/trello-is-an-antidote-to-project-management-tools/">Trello is an antidote to project management tools</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-user-isnt-stupid/">The User isn&#39;t Stupid</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hsts-and-why-everything-you-serve-should-be-over-https/">HSTS and why everything you serve should be over HTTPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/moving-wordpress-media-to-azure-cdn/">Moving WordPress media to Azure CDN</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-browser-is-your-frienddefence-in-depth-via-the-client/">The browser is your friend—defence in depth via the client</a></li>
+			<li class="widget__item"><a class="widget__link" href="/eschewing-sql-in-favour-of-azure-tables/">Eschewing SQL in favour of Azure Tables</a></li>
+			<li class="widget__item"><a class="widget__link" href="/azure-standard-website-pricing/">Azure standard website pricing</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+</aside>
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2017 Tom Eggington. Based on <a href="//wordpress.org/themes/mh-magazine-lite/" target="_blank" rel="nofollow noopener noreferrer">MH Magazine lite</a>.</p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+</body>
+</html>

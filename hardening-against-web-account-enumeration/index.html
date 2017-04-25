@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hardening against web account enumeration</title>
+<meta name="description" content="Tom Eggington">
+<meta name="generator" content="Hugo 0.20.2" />
+<meta property="og:title" content="Hardening against web account enumeration" />
+<meta property="og:description" content="We all know by now how important it is to help users of our web services keep their accounts secure, by doing what we can to ensure they are using strong passwords. And the variety of methods at our disposal to assist them in this, from secure password policies to regular password expiration, are well documented.
+Perhaps less well documented is a tangential but equally important threat. Sometimes, we need to defend against more than just unauthorised access to users&rsquo; accounts, and instead defend against revealing the existence of an account at all." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.tomeggington.co.uk/hardening-against-web-account-enumeration/" />
+
+
+
+<meta property="article:published_time" content="2015-07-27T16:49:13&#43;01:00"/>
+<meta property="article:modified_time" content="2015-07-27T16:49:13&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="http://www.tomeggington.co.uk/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="http://www.tomeggington.co.uk/js/scripts.js"></script>
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="http://www.tomeggington.co.uk/" title="Tom Eggington" rel="home">
+						<h1 class="logo__title">Tom Eggington</h1>
+						
+					</a>
+				</div>
+			</div>
+			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+	</ul>
+</nav>
+		</header>
+		<div class="wrapper clearfix">
+
+<div class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">Hardening against web account enumeration</h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2015-07-27 16:49:13 &#43;0100 BST">July 27, 2015</time>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p>We all know by now how important it is to help users of our web services keep their accounts secure, by doing what we can to ensure they are using strong passwords. And the variety of methods at our disposal to assist them in this, from secure password policies to regular password expiration, are well documented.</p>
+
+<p>Perhaps less well documented is a tangential but equally important threat. Sometimes, we need to defend against more than just unauthorised access to users&rsquo; accounts, and instead defend against revealing the existence of an account at all.</p>
+
+<h4 id="ashley-madison-and-social-engineering">Ashley Madison and social engineering</h4>
+
+<p>The most recent and high profile example of this is the self-proclaimed &ldquo;infidelity service&rdquo; Ashley Madison, a website that assists would-be unfaithfuls in having affairs. Ashley Madison hit the headlines when their internal database of users was stolen, and purportedly offered for sale on the black market. What journalists generally failed to report was that the Ashley Madison website was already openly reporting which email addresses were and weren&rsquo;t registered to anyone willing to go looking. The forgotten password confirmation page was presented differently based on whether or not an entered email address was found in the system.</p>
+
+<p>Of course, there are other less scandalous scenarios where keeping the existence of accounts a secret might be important. In a business setting, it might be a condition of an NDA that it be kept under wraps that company A is a customer of company B. Exposing the existence of registered user accounts @secretbiz.com could cause big legal issues down the line.</p>
+
+<p>There&rsquo;s also a less dramatic and equally less obvious risk posed by allowing account enumeration on entirely innocuous websites. Any ability to discover a person&rsquo;s use of a service opens them up to more direct phishing and social engineering tactics. Once you know that someone uses a given service, you can confidently target them with fraudulent emails purporting to be from that service.</p>
+
+<p>When the privacy of the users of your service is of paramount importance, and the very knowledge of their existence must be kept under wraps, strong authentication methods are not enough. We need to defend against account enumeration attacks.</p>
+
+<p>But just what is account enumeration, and how do we go about defending against it? There are several common vectors for attacks, and all of them must be considered if the threat is to be mitigated.</p>
+
+<h4 id="login-form">Login form</h4>
+
+<p>The first line of defence is the service&rsquo;s login form. Ignoring the password field, what happens if someone enters a username or email address that isn&rsquo;t registered in the system? Do they receive a message informing them that no account exists? Yahoo works particularly strangely in this regard. If a registered username is used with an incorrect password, the non-disclosing message &ldquo;Invalid ID or password.&rdquo; is shown, presumably in an attempt not to reveal whether the account exists. But entering an unregistered username produces a completely different message.</p>
+
+<p><img src="https://az761005.vo.msecnd.net/uploads/2015/07/yahho_enum.png" alt="" /> Yahoo exposes the (non-)existence of accounts</p>
+
+<p>This message gives the game away, because we now know that if we get this message, then an account doesn&rsquo;t exist, but if we get the message &ldquo;Invalid ID or password.&rdquo;, what it actually means is that the username is registered, and we just got the password wrong. To correct this, it&rsquo;s important to show the same message for registered and unregistered failed login attempts.</p>
+
+<p>So we&rsquo;ve changed the message to show the same thing whether the user login is registered or not, which makes the login form safe, right? Well, not quite. Protecting against discovery of user accounts isn&rsquo;t just about the information shown on the page, it&rsquo;s about every piece of information we disclose. Just one difference in how we handle a registered account versus an unregistered account, and it&rsquo;s game over.</p>
+
+<p>Take a look at the response timings below for a different site when submitting the login form:</p>
+
+<p><img src="https://az761005.vo.msecnd.net/uploads/2015/07/timing_attack.png" alt="" /> Timings between a known registered account (top) and known unregistered account (bottom)</p>
+
+<p>We can observe that we waited approximately six times longer for a response on a registered account (261ms) than we did for an unregistered account (just 38ms). Even if the validation message we get back is the same, the message itself doesn&rsquo;t need to give anything away for the site to be vulnerable. We have all the information we need right here to tell whether or not an account exists. If the login form responds in less than 50ms, the account probably doesn&rsquo;t exist. If it takes more than 200ms, then it probably does.</p>
+
+<p>Mitigating this style of timing attack in our own applications comes down to identifying why there is a discrepancy between the processing duration of the two responses, and potentially building in some artificial delay on the server side to bring the two response times much closer together. Typical network variances means the two don&rsquo;t need to be exact. They just need to be close enough to prevent observation of a consistently different behaviour.</p>
+
+<h4 id="forgotten-password">Forgotten password</h4>
+
+<p>Once we have adopted the principle of providing the same observable behaviour for both registered accounts and unregistered accounts, the rest becomes an exercise in how best to handle that in situations where it appears counter-intuitive to expected behaviour.</p>
+
+<p>For example, how can the same observable behaviour realistically be applied to a forgotten password form? Usually, a user would enter their registered email address and receive an email that potentially provides a link for them to reset their password. The best way to handle this where an unregistered email address is entered is not so immediately obvious, but with a little thought we can come up with a solution.</p>
+
+<p><img src="https://az761005.vo.msecnd.net/uploads/2015/07/1800flowers.png" alt="" /> 1-800 Flowers exposing that an email address doesn&rsquo;t exist in their database</p>
+
+<p>One option here is to proceed regardless of whether the email address is valid or not. On the confirmation screen, the user is informed that they will receive an email <em>if</em> the address they provided is registered in the system. Again, we have to be careful in this scenario that we aren&rsquo;t vulnerable to timing attacks, by artificially adjusting response times if necessary.</p>
+
+<h4 id="account-lockout">Account lockout</h4>
+
+<p>While locking out accounts after a given number of incorrect login attempts, it&rsquo;s important to consider that this feature is potentially open to abuse with regard to account discovery. If failed logins against accounts that don&rsquo;t exist aren&rsquo;t tracked and reacted to in the same way as legitimate accounts, then this presents another avenue to work out whether or not an account is present in a system. If we warn a user that realuser@email.com has been locked out following five subsequent attempts, but 38fn438@invalid.com allows endless attempts because the account doesn&rsquo;t exist, all we&rsquo;ve done is expose the presence of one account over another.</p>
+
+<h4 id="registration-form">Registration form</h4>
+
+<p>Something similar can be achieved on account registration forms, where we send an email confirmation for a newly created account, or a reminder to the registered email address if the account already exists, reminding them that they already have an account.</p>
+
+<p><img src="https://az761005.vo.msecnd.net/uploads/2015/07/apple_enum.png" alt="" /> Apple tells the world that I have an Apple ID</p>
+
+<p>Registration forms should be of additional interest, because if your web service has an open and public account registration that allows users to sign up by themselves, then it&rsquo;s worth questioning whether account enumeration is something you should be concerned about.</p>
+
+<p>After all, if anyone can create an account with any email address (even if they can&rsquo;t verify the account with that address), then account enumeration attacks aren&rsquo;t of much use, because there&rsquo;s no way to know whether the account was created by the owner of that email address or not.</p>
+
+<h4 id="design-with-purpose-not-by-accident">Design with purpose, not by accident</h4>
+
+<p>You may decide that actually, account enumeration isn&rsquo;t all that big a risk for your service, and the cost of implementing specific defences against account discovery can&rsquo;t be justified by the risk posed. In many cases, this is a perfectly reasonable decision, but it should be just that: a decision.</p>
+
+<p>By making decisions like this upfront can have other benefits, such as improving usability by enabling you to inform a user on the login screen that it&rsquo;s the email address they&rsquo;re getting wrong, not the password. By making choices about design pro-actively rather than retroactively, we can both maintain the security of our users, and improve their experience.</p>
+
+		</div>
+		
+
+	</article>
+	
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/why-global-tracing-doesnt-work-in-azure-web-apps/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">Why global tracing doesnt work in Azure web apps</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/on-passwords-biometrics-and-password-managers/" rel="next"><span class="post-nav__caption">Next»</span><p class="post-nav__post-title">On Passwords, Biometrics, and Password Managers</p></a>
+	</div>
+</nav>
+
+	
+</div>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/on-passwords-biometrics-and-password-managers/">On Passwords, Biometrics, and Password Managers</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hardening-against-web-account-enumeration/">Hardening against web account enumeration</a></li>
+			<li class="widget__item"><a class="widget__link" href="/why-global-tracing-doesnt-work-in-azure-web-apps/">Why global tracing doesnt work in Azure web apps</a></li>
+			<li class="widget__item"><a class="widget__link" href="/trello-is-an-antidote-to-project-management-tools/">Trello is an antidote to project management tools</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-user-isnt-stupid/">The User isn&#39;t Stupid</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hsts-and-why-everything-you-serve-should-be-over-https/">HSTS and why everything you serve should be over HTTPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/moving-wordpress-media-to-azure-cdn/">Moving WordPress media to Azure CDN</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-browser-is-your-frienddefence-in-depth-via-the-client/">The browser is your friend—defence in depth via the client</a></li>
+			<li class="widget__item"><a class="widget__link" href="/eschewing-sql-in-favour-of-azure-tables/">Eschewing SQL in favour of Azure Tables</a></li>
+			<li class="widget__item"><a class="widget__link" href="/azure-standard-website-pricing/">Azure standard website pricing</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+</aside>
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2017 Tom Eggington. Based on <a href="//wordpress.org/themes/mh-magazine-lite/" target="_blank" rel="nofollow noopener noreferrer">MH Magazine lite</a>.</p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azure standard website pricing</title>
+<meta name="description" content="Tom Eggington">
+<meta name="generator" content="Hugo 0.20.2" />
+<meta property="og:title" content="Azure standard website pricing" />
+<meta property="og:description" content="If you&rsquo;ve read other posts of mine, you may have come to the conclusion that I&rsquo;m not a fan of Azure standard website pricing. With shared websites (now rebranded as &ldquo;app services&rdquo;) available on Azure for less than £6 a month, the jump up to a standard website app service at more than £40 a month looks ludicrous, at least on the surface. But I was wrong, and as of today, no longer have any sites on a shared plan." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.tomeggington.co.uk/azure-standard-website-pricing/" />
+
+
+
+<meta property="article:published_time" content="2015-03-24T18:14:48&#43;01:00"/>
+<meta property="article:modified_time" content="2015-03-24T18:14:48&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="http://www.tomeggington.co.uk/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="http://www.tomeggington.co.uk/js/scripts.js"></script>
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="http://www.tomeggington.co.uk/" title="Tom Eggington" rel="home">
+						<h1 class="logo__title">Tom Eggington</h1>
+						
+					</a>
+				</div>
+			</div>
+			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+	</ul>
+</nav>
+		</header>
+		<div class="wrapper clearfix">
+
+<div class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">Azure standard website pricing</h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2015-03-24 18:14:48 &#43;0100 &#43;0100">March 24, 2015</time>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p>If you&rsquo;ve read other posts of mine, you may have come to the conclusion that <a href="/a-look-inside-pastemonitor/#shared-trouble">I&rsquo;m not a fan of Azure standard website pricing</a>. With shared websites (now rebranded as &ldquo;app services&rdquo;) available on Azure for less than £6 a month, the jump up to a standard <del>website</del> app service at more than £40 a month looks ludicrous, at least on the surface. But I was wrong, and as of today, no longer have any sites on a shared plan. Here&rsquo;s why.</p>
+
+<h4 id="a-basic-misunderstanding">A basic misunderstanding</h4>
+
+<p>My opinion was based upon a basic misunderstanding of the difference between the two levels of service (shared and standard), not helped in any way by Microsoft&rsquo;s pricing page, nor by the full management portal (that&rsquo;s the one at manage.azure.com). In both of these places, Microsoft compares these two plans side by side, as though to say: &ldquo;you can create a website (I&rsquo;m not calling it an <em>app service</em>) in the shared tier, or you can create one in the standard tier.&rdquo;</p>
+
+<p>What this fails to make clear, is that what you are actually choosing between is not a website plan, but a web hosting plan. The former is the equivalent of old-school shared web hosting, where you are provided with a limited set of resources which you must shared with other users whose sites are located on the same physical box (or at least as &lsquo;physical&rsquo; as things can be in the cloud). In contrast, the standard plan provides you with a virtual machine all to yourself, on which you can run as many websites as you can practically fit within the limits of the container&rsquo;s resources.</p>
+
+<p>To put it another way, create two shared websites, and it&rsquo;ll cost you around £12 a month. Set up two standard websites, and as long as you choose the same web hosting plan for them, it&rsquo;ll still only cost £40 a month. As shown below, this distinction is much clearer in the new portal, where sites are more likely to be seen grouped under a plan.</p>
+
+<p><a href="https://az761005.vo.msecnd.net/uploads/2015/03/portals_compared.png"><img src="https://az761005.vo.msecnd.net/uploads/2015/03/portals_compared-1024x596.png" alt="portals_compared" /></a></p>
+
+<p>With the other benefits provided by the standard plan over shared, including free SSL support, auto scaling, and no more automatic suspension for exceeding resource limits, the standard plan starts to look like a much more attractive offer.</p>
+
+<p>Either I missed something obvious along the way, or Microsoft isn&rsquo;t making the distinction between websites and web hosting plans clear enough. It was only because I happened to be researching something else, and ended up on <a href="http://www.hanselman.com/blog/PennyPinchingInTheCloudWhenDoAzureWebsitesMakeSense.aspx">this Scott Hanselman article</a>, that I discovered this difference at all. It does appear that Microsoft are heading in the right direction with this in the new portal, and perhaps the name changes to &ldquo;web app&rdquo; and &ldquo;app service plan&rdquo; will help solidify the distinction going forward.</p>
+
+<h4 id="standard-websites-are-the-way-forward">Standard websites are the way forward</h4>
+
+<p>While it may be obvious that standard websites are more expensive because you&rsquo;re getting a whole virtual machine to yourself, what isn&rsquo;t made clear is that unlike with shared sites, multiple websites can be hosted inside a single standard plan, with all the same benefits provided by the platform as a service model. This make standard Azure websites a much more attractive offering, and I expect to be using them exclusively going forward.</p>
+
+		</div>
+		
+
+	</article>
+	
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/a-look-inside-pastemonitor/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">A look inside PasteMonitor</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/eschewing-sql-in-favour-of-azure-tables/" rel="next"><span class="post-nav__caption">Next»</span><p class="post-nav__post-title">Eschewing SQL in favour of Azure Tables</p></a>
+	</div>
+</nav>
+
+	
+</div>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/on-passwords-biometrics-and-password-managers/">On Passwords, Biometrics, and Password Managers</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hardening-against-web-account-enumeration/">Hardening against web account enumeration</a></li>
+			<li class="widget__item"><a class="widget__link" href="/why-global-tracing-doesnt-work-in-azure-web-apps/">Why global tracing doesnt work in Azure web apps</a></li>
+			<li class="widget__item"><a class="widget__link" href="/trello-is-an-antidote-to-project-management-tools/">Trello is an antidote to project management tools</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-user-isnt-stupid/">The User isn&#39;t Stupid</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hsts-and-why-everything-you-serve-should-be-over-https/">HSTS and why everything you serve should be over HTTPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/moving-wordpress-media-to-azure-cdn/">Moving WordPress media to Azure CDN</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-browser-is-your-frienddefence-in-depth-via-the-client/">The browser is your friend—defence in depth via the client</a></li>
+			<li class="widget__item"><a class="widget__link" href="/eschewing-sql-in-favour-of-azure-tables/">Eschewing SQL in favour of Azure Tables</a></li>
+			<li class="widget__item"><a class="widget__link" href="/azure-standard-website-pricing/">Azure standard website pricing</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+</aside>
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2017 Tom Eggington. Based on <a href="//wordpress.org/themes/mh-magazine-lite/" target="_blank" rel="nofollow noopener noreferrer">MH Magazine lite</a>.</p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+</body>
+</html>

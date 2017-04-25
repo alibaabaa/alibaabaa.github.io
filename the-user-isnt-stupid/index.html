@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The User isn&#39;t Stupid</title>
+<meta name="description" content="Tom Eggington">
+<meta name="generator" content="Hugo 0.20.2" />
+<meta property="og:title" content="The User isn&#39;t Stupid" />
+<meta property="og:description" content="It&rsquo;s a truth seemingly universally acknowledged in software that the user is stupid. Hang around in an office of developers for a while, and you&rsquo;ll hear it. It starts as a sigh or a condescending chuckle, followed by a widely announced proclamation that yet again a user has done something so completely stupid that it surely defies explanation. &ldquo;They can&rsquo;t even work out how to search.&rdquo; &ldquo;They&rsquo;re expecting it to save when there&rsquo;s a save button right there and they&rsquo;re not clicking it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.tomeggington.co.uk/the-user-isnt-stupid/" />
+
+
+
+<meta property="article:published_time" content="2015-06-25T20:44:08&#43;01:00"/>
+<meta property="article:modified_time" content="2015-06-25T20:44:08&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="http://www.tomeggington.co.uk/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="http://www.tomeggington.co.uk/js/scripts.js"></script>
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="http://www.tomeggington.co.uk/" title="Tom Eggington" rel="home">
+						<h1 class="logo__title">Tom Eggington</h1>
+						
+					</a>
+				</div>
+			</div>
+			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+	</ul>
+</nav>
+		</header>
+		<div class="wrapper clearfix">
+
+<div class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">The User isn&#39;t Stupid</h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2015-06-25 20:44:08 &#43;0100 BST">June 25, 2015</time>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p>It&rsquo;s a truth seemingly universally acknowledged in software that the user is stupid. Hang around in an office of developers for a while, and you&rsquo;ll hear it. It starts as a sigh or a condescending chuckle, followed by a widely announced proclamation that yet again a user has done something so completely stupid that it surely defies explanation. <em>&ldquo;They can&rsquo;t even work out how to search.&rdquo; &ldquo;They&rsquo;re expecting it to save when there&rsquo;s a save button right there and they&rsquo;re not clicking it.&rdquo; &ldquo;They&rsquo;re putting the customer phone number in the other details field again.&rdquo;</em></p>
+
+<h2 id="the-inconvenience-of-having-users">The inconvenience of having users</h2>
+
+<p>These particular examples aren&rsquo;t from real life, I&rsquo;ve conjured them from my imagination, and yet still they feel familiar. What it boils down to is a developer having built something so incredibly obvious, so blindingly foolproof, that no one could possibly mess it up. And yet still the user comes back for the <em>third time this week</em> to ask exactly the same question again. This situation is made even more frustrating, because under the hood what the poor software developer has built is <em>amazing</em>. It solves some difficult data look up problem that if programmed the obvious way, would take twenty seconds to return a result set. But through sheer talent and determination, the plucky engineer has the results returning in less than a second. <a href="http://bitstrips.com/r/VPV"><img src="https://az761005.vo.msecnd.net/uploads/2015/06/pebcak.png" alt="" /></a> Except the user still hasn&rsquo;t worked out that they have to click the button to actually kick off the search - they can&rsquo;t just press enter. There&rsquo;s also no obvious indicator of search progress, so they don&rsquo;t work out that nothing is happening, and instead report back that <em>the search isn&rsquo;t working again</em>. Now this is bad enough. How <em>stupid</em> do you have to be to not realise that you need to click the big obvious button labelled &lsquo;Search&rsquo; to actually start the search? What&rsquo;s more beguiling still, is that this is what was asked for. It&rsquo;s right there in your notes from the planning meeting - <em>a search box with a button</em>. This may be a slightly contrived example, but what it represents is all too real: a disconnect between the end user experience, and how the technical person perceives that experience. But it&rsquo;s more than a disconnect. It&rsquo;s a smarmy, self-righteous, high-horse contempt. There&rsquo;s no stopping to consider why the disconnect might exist. No. The user is just wrong. And don&rsquo;t forget stupid. A PEBCAK, or &ldquo;problem exists between chair and keyboard&rdquo;. What&rsquo;s even more shameful about this state of affairs is that it isn&rsquo;t some inside joke, some secret that&rsquo;s maintained amongst close colleagues. Instead, <em>the user is stupid</em> is practically a mantra by which some technical people live, and there&rsquo;s no attempt to shield the user from this belief system. It&rsquo;s truly endemic to the industry. I know this, because not only have I been witness to it in the workplace, I also have client users who regularly apologise, tell me they&rsquo;re stupid, shower me with praise for how patient I am with their constant <em>stupid</em> questions. These are users that I value professionally. Not only would I not <em>tell</em> them that I think they&rsquo;re stupid, but it simply wouldn&rsquo;t occur to me. After all, I&rsquo;m building products expressly for their use. If they can&rsquo;t work out how to use it, who&rsquo;s the stupid one?</p>
+
+<h2 id="the-customer-isn-t-always-right">The customer isn&rsquo;t always right</h2>
+
+<p>This contempt for our users is wrong. It has to stop. It&rsquo;s time to stand up and acknowledge that when a user does something wrong (or can&rsquo;t work out what to do at all), whether it be for the first time or the tenth, we are the ones to blame. We built software for them that they can&rsquo;t work out how to use. We&rsquo;re making their lives more difficult than necessary, and yet still they&rsquo;re the ones who invariably come apologising to us. <img src="https://az761005.vo.msecnd.net/uploads/2015/06/frustrated_computer_user-300x289.png" alt="Image of a user attacking a laptop with a hammer" /> Modern times have quite rightly shown us that the customer isn&rsquo;t always right, and there are plenty of examples out there of customers behaving badly and expecting the world from some innocent shop attendant, but let&rsquo;s be perfectly clear: we are not shop attendants, and usually our users are not our customers. Remember the user from back up the top who keeps putting the contact&rsquo;s phone number in the &ldquo;other&rdquo; field rather than in the phone number field? That&rsquo;s Joe over in Sales. Joe over in Sales didn&rsquo;t pay for the software that automatically splits the area code in the phone number field, even when he&rsquo;s trying to enter a South African contact number. He didn&rsquo;t write the spec, didn&rsquo;t sign off on the project, didn&rsquo;t pay you to build the product. But he has to use it. <em>Every day of his working life</em> he&rsquo;s using that thing that you created. Damn right he&rsquo;s going to put the South African number in the &ldquo;other&rdquo; field if it stops it splitting out the area code incorrectly. He doesn&rsquo;t care that this muddies the data model. He&rsquo;s never even heard the term &ldquo;data model&rdquo;. It&rsquo;s not his job to know this stuff. It&rsquo;s his job to bring in the money that the business uses to pay you to build the software that he struggles with every day.</p>
+
+<h2 id="we-exist-to-make-the-user-s-life-easier">We exist to make the user&rsquo;s life easier</h2>
+
+<p>The problem with technology is that none of us chose it. We got it whether we wanted it or not. People who are technically inclined are living in a golden era. We&rsquo;re in high demand and rightly so. But it&rsquo;s important to remember what our role is, and the role of technology. We exist merely to make the lives of non-technical people easier. We build products that make people richer, help them communicate easier, help them access the data they need to finds cures for cancers, and automate whole sectors of industry, allowing them to fire a thousand other non-technical people because they&rsquo;re no longer required. There&rsquo;s a strange parallel that can be drawn here between software developers and politicians. Both are brought in to serve the people, and both can easily become lost in a sense of natural entitlement and delusions of grandeur. It&rsquo;s not only in the workplace that this attitude is prevalent. Let&rsquo;s face it - who hasn&rsquo;t scoffed at someone using Internet Explorer with four different toolbars installed? We blame the user for being stupid. It&rsquo;s natural, but it&rsquo;s wrong. <a href="http://swiftonsecurity.tumblr.com/post/98675308034/a-story-about-jessica">We created this mess. We have a duty of care to help people through it.</a></p>
+
+<h2 id="less-technology-more-empathy">Less technology, more empathy</h2>
+
+<p><em>Brief aside: If you glossed over that last link, please go back and read it if you have time. It&rsquo;s important.</em> None of this is difficult to solve. It&rsquo;s not an insurmountable problem, or a bridge too burned to travel back across. But these problems can&rsquo;t be solved with technology. They require an ability far more human and far more important: empathy. Let&rsquo;s stop berating our users, but instead make renewed efforts to understand them. And I&rsquo;m not talking some superficial level of understanding where we change the search field to submit on enter, and modify the phone number field not to presume the contact is in the same country as us. That isn&rsquo;t empathy - that&rsquo;s just fixing a broken thing. We&rsquo;re already good at that. Let&rsquo;s instead try to go beyond just fixing technical problems and talk to our fellow human beings. Because our users are the same as us. They probably eat out at the same places as us, buy their groceries from the same places as us, do the same things at the weekend. But despite our work being perhaps the only thing that we have in common, it is likely to be the place where we have the least in common, and therefore presents the best opportunity for understanding each other&rsquo;s needs better. And if we can do that, we&rsquo;ll not only stop seeing the user as stupid, but head in a direction to intuit what it is that they really need from technology, when no one else can.</p>
+
+		</div>
+		
+
+	</article>
+	
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/hsts-and-why-everything-you-serve-should-be-over-https/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">HSTS and why everything you serve should be over HTTPS</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/trello-is-an-antidote-to-project-management-tools/" rel="next"><span class="post-nav__caption">Next»</span><p class="post-nav__post-title">Trello is an antidote to project management tools</p></a>
+	</div>
+</nav>
+
+	
+</div>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/on-passwords-biometrics-and-password-managers/">On Passwords, Biometrics, and Password Managers</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hardening-against-web-account-enumeration/">Hardening against web account enumeration</a></li>
+			<li class="widget__item"><a class="widget__link" href="/why-global-tracing-doesnt-work-in-azure-web-apps/">Why global tracing doesnt work in Azure web apps</a></li>
+			<li class="widget__item"><a class="widget__link" href="/trello-is-an-antidote-to-project-management-tools/">Trello is an antidote to project management tools</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-user-isnt-stupid/">The User isn&#39;t Stupid</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hsts-and-why-everything-you-serve-should-be-over-https/">HSTS and why everything you serve should be over HTTPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/moving-wordpress-media-to-azure-cdn/">Moving WordPress media to Azure CDN</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-browser-is-your-frienddefence-in-depth-via-the-client/">The browser is your friend—defence in depth via the client</a></li>
+			<li class="widget__item"><a class="widget__link" href="/eschewing-sql-in-favour-of-azure-tables/">Eschewing SQL in favour of Azure Tables</a></li>
+			<li class="widget__item"><a class="widget__link" href="/azure-standard-website-pricing/">Azure standard website pricing</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+</aside>
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2017 Tom Eggington. Based on <a href="//wordpress.org/themes/mh-magazine-lite/" target="_blank" rel="nofollow noopener noreferrer">MH Magazine lite</a>.</p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+</body>
+</html>

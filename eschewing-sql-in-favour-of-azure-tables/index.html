@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eschewing SQL in favour of Azure Tables</title>
+<meta name="description" content="Tom Eggington">
+<meta name="generator" content="Hugo 0.20.2" />
+<meta property="og:title" content="Eschewing SQL in favour of Azure Tables" />
+<meta property="og:description" content="With Azure Storage, Microsoft has provided a set of services for handling a variety of data in the big or the small. Naturally, Azure also comes with a robust set of SQL Server tiers for handling relational data in ways we&rsquo;re all familiar with, but today I intend to focus on what can be achieved with Azure Storage, and in particular, so-called &lsquo;Azure Tables&rsquo;.
+Azure Tables is Microsoft&rsquo;s NoSQL offering, putting it in the same class of products as Apache CouchDB and MongoDB." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.tomeggington.co.uk/eschewing-sql-in-favour-of-azure-tables/" />
+
+
+
+<meta property="article:published_time" content="2015-04-15T18:58:36&#43;01:00"/>
+<meta property="article:modified_time" content="2015-04-15T18:58:36&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="http://www.tomeggington.co.uk/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="http://www.tomeggington.co.uk/js/scripts.js"></script>
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="http://www.tomeggington.co.uk/" title="Tom Eggington" rel="home">
+						<h1 class="logo__title">Tom Eggington</h1>
+						
+					</a>
+				</div>
+			</div>
+			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+	</ul>
+</nav>
+		</header>
+		<div class="wrapper clearfix">
+
+<div class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">Eschewing SQL in favour of Azure Tables</h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2015-04-15 18:58:36 &#43;0100 BST">April 15, 2015</time>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p><a href="http://geekandpoke.typepad.com/geekandpoke/2011/01/nosql.html"><img src="https://az761005.vo.msecnd.net/uploads/2015/04/nosql_expert.png" alt="NoSQL comic" /></a></p>
+
+<p>With <a href="http://azure.microsoft.com/en-gb/services/storage/">Azure Storage</a>, Microsoft has provided a set of services for handling a variety of data in the big or the small. Naturally, Azure also comes with a robust set of <a href="http://azure.microsoft.com/en-gb/services/sql-database/">SQL Server</a> tiers for handling relational data in ways we&rsquo;re all familiar with, but today I intend to focus on what can be achieved with Azure Storage, and in particular, so-called &lsquo;Azure Tables&rsquo;.</p>
+
+<p>Azure Tables is Microsoft&rsquo;s NoSQL offering, putting it in the same class of products as Apache CouchDB and MongoDB. I&rsquo;ve had previous experience with MongoDB, in the form of trying to make it play nicely with various .NET projects in the past, never with any real success, and I also had a passing familiarity with CouchDB thanks to a talk from an ex-colleague at a NxtGenUG meet. And more recently, I built a web-based solution for a client that relies solely upon Azure Tables for data storage, so I knew that when it came to <a href="http://www.tomeggington.co.uk/pastemonitor-a-tracking-service-for-paste-sites/" title="PasteMonitor: a tracking service for paste sites">building PasteMonitor</a>, there was a good chance I could find a solution for the data that wouldn&rsquo;t require setting up a SQL database in Azure (after all, a basic Azure SQL database is a <em>massive</em> £3/month).</p>
+
+<h4 id="the-data-structure">The data structure</h4>
+
+<p>Many developers, myself included, have been working with SQL for long enough that it&rsquo;s almost second nature. The steps are pretty simple, and coming up with a functioning model goes something like this: consider the relationships between the different types of data entity, then de-normalise until it works / is sane to work with.</p>
+
+<p>If PasteMonitor&rsquo;s data was to live in a SQL database, it would probably look something like this.</p>
+
+<p><a href="https://az761005.vo.msecnd.net/uploads/2015/04/pastemonitor_erd.png"><img src="https://az761005.vo.msecnd.net/uploads/2015/04/pastemonitor_erd.png" alt="PasteMonitor ERD" /></a></p>
+
+<p>As you can see, there&rsquo;s certainly no rocket science going on here. Three related tables to handle the core presentation, with supporting tables to hold data fulfilling tertiary services. A keyword would have a foreign key to a user, and a match would have a foreign key to a keyword. Potentially another relationship might exist to join a match to the download it came from, but the point is illustrated. This is relational design 101, classroom fodder.</p>
+
+<p>Having never experienced a smooth and pain-free experience while working with an ORM library (although that&rsquo;s a topic all of its own), I would&rsquo;ve then gone on to interact with this data layer via calls to stored procedures. But let&rsquo;s not dwell on what might have been.</p>
+
+<h4 id="thinking-the-azure-tables-way">Thinking the Azure Tables way</h4>
+
+<p>While Azure Tables appear similar to any other SQL table at first glance, there are some key differences that are important to consider.</p>
+
+<ul>
+<li>Every row has a PartitionKey column and a RowKey column. The combined values of these two columns must be unique per row for any given table.</li>
+<li>Other than the PartitionKey and RowKey columns, no two rows in a table are required to have the same columns.</li>
+<li>PartitionKey and RowKey columns are the only indexed columns available. Looking up data by any other column requires pulling down the contents of the entire table and reading the data row by row.</li>
+<li>There is no concept of relationships between tables.</li>
+</ul>
+
+<p>While there are many other differences, such as the available data structures, and methodology behind the underlying logical storage, these are the three real killer points to bear in mind when designing a data model for Azure Tables.</p>
+
+<p>When it comes to pulling data out, requesting by PartitionKey and RowKey values together is super fast, and unaffected by the number of rows in the table. Did I mention that there is no practical limit to the number of rows any given table can contain? The limiting factor is data capacity, and a single table is limited to a maximum of 500TB of data. But let&rsquo;s get back on track.</p>
+
+<h4 id="a-practical-example">A practical example</h4>
+
+<p>The User table is a pretty good place to start, because there is only a small difference to how I would&rsquo;ve designed a SQL table for holding user data. If designing a SQL solution, I would probably have an ID identity column as the primary key, and apply a unique index to the username column to prevent duplicates and improve lookup performance.</p>
+
+<p>In an Azure Table, I have two columns that I need to populate with a unique combination of values (PartitionKey and RowKey). In addition to this, I want to aim to end up with a range of partition key values that are neither all the same, nor all different, because the value of the partition key column is used by Azure when deciding how and where to store your underlying data. <a href="https://msdn.microsoft.com/en-us/library/azure/hh508997.aspx">There&rsquo;s much more info on designing scalable tables on MSDN</a>.</p>
+
+<p>In PasteMonitor, I split the user&rsquo;s chosen username over the two columns, taking the first two characters as the partition key, and the whole username as the row key. This provides a range of partition key values, while ensuring a unique combination of the two key columns for each user. It also means I can always query out a user by specifying both keys. If I was looking up a user called &lsquo;tomeggington&rsquo;, I would request the row with partition key &lsquo;to&rsquo; and row key &lsquo;tomeggington&rsquo;.</p>
+
+<p>It&rsquo;s worth noting here that there&rsquo;s no reason I couldn&rsquo;t have arbitrarily decided that all partition key values in the user table would just be the value &lsquo;user&rsquo; or anything else, and just kept the row key with the actual username. For a table like &lsquo;users&rsquo;, which is never going to grow terrifically large, this would&rsquo;ve been a perfectly acceptable approach with no real downsides.</p>
+
+<p>Another obvious side effect of this design is that there is no numeric auto incrementing column as there would&rsquo;ve been in a SQL design. I&rsquo;ve found that these are rarely useful when designing for Azure Tables (aside from the fact that it would require manually keeping track of the last used number, as there is no built-in mechanism for auto incrementing).</p>
+
+<h4 id="another-practical-but-more-interesting-example">Another practical, but more interesting, example</h4>
+
+<p>Aside from having to split the username value across two columns to satisfy the key column requirements, I&rsquo;ll admit there&rsquo;s not much interesting going on in the design of the User table. So let&rsquo;s examine a table that requires something we can&rsquo;t have in Azure Table land: a relationship.</p>
+
+<p><img src="https://az761005.vo.msecnd.net/uploads/2015/04/keyword_table.png" alt="Keyword table" /></p>
+
+<p>In PasteMonitor, a user will set up one or more &lsquo;keywords&rsquo; that they want to watch for on paste sites. They also get to choose some other options, such as whether it&rsquo;s a regular expression, should be treated as case sensitive, etc. Naturally, when designing a table like this in a SQL database, you would key the keyword back to a user with a foreign key (UserId). After all, a keyword with no user makes no sense. But with no concept of relationships in Azure Tables, and no UserId column to refer back to, what can be done?</p>
+
+<p>To solve this problem, we have to create and maintain these relationships manually. They have to be designed into the structure of the table columns, while also considering the bullet points listed earlier.</p>
+
+<p>For example, in the most naïve approach, a column &lsquo;username&rsquo; could be included on each row, populated with the username of the user the keyword belongs to. The problem with doing this lies in the way that the data will probably be queried. It&rsquo;s safe to assume that somewhere, I will want to provide a user with a list of their keywords. In this approach, doing this would require iterating over every row in the keyword table in our application to check if the username matches that of the current user.</p>
+
+<p>A better approach would be to use either the partition key or row key for this purpose, because we know that we can query by either of these columns. This is exactly what I do in PasteMonitor, where in the keyword table, the partition key is the username of the user to whom the keyword belongs. This has another benefit, in that all the keyword rows for a given user will exist in the same partition (because they have the same partition key value) and so the same logical storage location, making them faster to retrieve.</p>
+
+<p>It would then follow that the logical choice for the row key value would be the keyword value itself. However, due to the <a href="https://msdn.microsoft.com/library/azure/dd179338.aspx">character set restrictions on Azure Table key columns</a>, it&rsquo;s not possible to use the keyword value without severely limiting what users could set up as a keyword. It would also introduce other problems where there is a requirement to directly reference a given keyword. Just imagine the potential horrors of trying to pass it as a query parameter in a GET request. Instead, the keyword value itself resides in its own column, and the row key is populated with a random ten-digit alphanumeric string. This makes for much more manageable queries from the client browser and a unique value that can in turn be referenced by the match table.</p>
+
+<p><img src="https://az761005.vo.msecnd.net/uploads/2015/04/keyword_row.png" alt="A row from the PasteMonitor 'Keyword' Azure Table" /> A row from the PasteMonitor &lsquo;Keyword&rsquo; Azure Table</p>
+
+<h4 id="a-different-approach">A different approach</h4>
+
+<p>It took some time to initially get my head around Azure table storage, the key columns, and coming up with effective strategies for laying out data. It can still be a challenge designing a solution that will last, when it&rsquo;s not always possible to predict how data may need to be queried out and manipulated in the future. But for the most part it&rsquo;s a fun challenge, requiring a different mindset to the relational way of thinking.</p>
+
+<p>I wrote briefly at the beginning about pulling data from SQL databases using stored procedures, and my next post will cover strategies for querying Azure Tables, and updating the data records retrieved.</p>
+
+		</div>
+		
+
+	</article>
+	
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/azure-standard-website-pricing/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">Azure standard website pricing</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="http://www.tomeggington.co.uk/the-browser-is-your-frienddefence-in-depth-via-the-client/" rel="next"><span class="post-nav__caption">Next»</span><p class="post-nav__post-title">The browser is your friend—defence in depth via the client</p></a>
+	</div>
+</nav>
+
+	
+</div>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/on-passwords-biometrics-and-password-managers/">On Passwords, Biometrics, and Password Managers</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hardening-against-web-account-enumeration/">Hardening against web account enumeration</a></li>
+			<li class="widget__item"><a class="widget__link" href="/why-global-tracing-doesnt-work-in-azure-web-apps/">Why global tracing doesnt work in Azure web apps</a></li>
+			<li class="widget__item"><a class="widget__link" href="/trello-is-an-antidote-to-project-management-tools/">Trello is an antidote to project management tools</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-user-isnt-stupid/">The User isn&#39;t Stupid</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hsts-and-why-everything-you-serve-should-be-over-https/">HSTS and why everything you serve should be over HTTPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/moving-wordpress-media-to-azure-cdn/">Moving WordPress media to Azure CDN</a></li>
+			<li class="widget__item"><a class="widget__link" href="/the-browser-is-your-frienddefence-in-depth-via-the-client/">The browser is your friend—defence in depth via the client</a></li>
+			<li class="widget__item"><a class="widget__link" href="/eschewing-sql-in-favour-of-azure-tables/">Eschewing SQL in favour of Azure Tables</a></li>
+			<li class="widget__item"><a class="widget__link" href="/azure-standard-website-pricing/">Azure standard website pricing</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+</aside>
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2017 Tom Eggington. Based on <a href="//wordpress.org/themes/mh-magazine-lite/" target="_blank" rel="nofollow noopener noreferrer">MH Magazine lite</a>.</p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Tom Eggington</title>
+    <link>http://www.tomeggington.co.uk/post/</link>
+    <description>Recent content in Posts on Tom Eggington</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 26 Feb 2016 16:43:15 +0100</lastBuildDate>
+    
+	<atom:link href="http://www.tomeggington.co.uk/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>On Passwords, Biometrics, and Password Managers</title>
+      <link>http://www.tomeggington.co.uk/on-passwords-biometrics-and-password-managers/</link>
+      <pubDate>Fri, 26 Feb 2016 16:43:15 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/on-passwords-biometrics-and-password-managers/</guid>
+      <description>What is a password? It seems a ridiculous question to even pose. Computers, and more specifically the networking of computers, has made the password ubiquitous in society. We all know what they are, and the vast majority of us encounter them on a daily basis as part of our lives. We&amp;rsquo;ve become so familiar—some may say _overly familiar_—with passwords that the very meaning of them becomes lost. Somewhat like repeating the same word over and over until it sounds like gibberish.</description>
+    </item>
+    
+    <item>
+      <title>Hardening against web account enumeration</title>
+      <link>http://www.tomeggington.co.uk/hardening-against-web-account-enumeration/</link>
+      <pubDate>Mon, 27 Jul 2015 16:49:13 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/hardening-against-web-account-enumeration/</guid>
+      <description>We all know by now how important it is to help users of our web services keep their accounts secure, by doing what we can to ensure they are using strong passwords. And the variety of methods at our disposal to assist them in this, from secure password policies to regular password expiration, are well documented.
+Perhaps less well documented is a tangential but equally important threat. Sometimes, we need to defend against more than just unauthorised access to users&amp;rsquo; accounts, and instead defend against revealing the existence of an account at all.</description>
+    </item>
+    
+    <item>
+      <title>Why global tracing doesnt work in Azure web apps</title>
+      <link>http://www.tomeggington.co.uk/why-global-tracing-doesnt-work-in-azure-web-apps/</link>
+      <pubDate>Wed, 22 Jul 2015 20:01:41 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/why-global-tracing-doesnt-work-in-azure-web-apps/</guid>
+      <description>Having spent a couple of hours troubleshooting this before finally finding a solution, I thought I&amp;rsquo;d provide a brief write up in the hope it might save someone else the pain. Of course, tracing does work in Azure, but there&amp;rsquo;s a common scenario gotcha that doesn&amp;rsquo;t seem to be covered in any of the major documentation.
+Scenario  You want to make use of Azure&amp;rsquo;s Application Logging, whether it be to the file system, table storage, or blob storage.</description>
+    </item>
+    
+    <item>
+      <title>Trello is an antidote to project management tools</title>
+      <link>http://www.tomeggington.co.uk/trello-is-an-antidote-to-project-management-tools/</link>
+      <pubDate>Sat, 18 Jul 2015 20:31:39 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/trello-is-an-antidote-to-project-management-tools/</guid>
+      <description>If you&amp;rsquo;re anything like me, then you&amp;rsquo;re not the greatest fan of project management tools. When I say &amp;ldquo;project management tools&amp;rdquo;, I&amp;rsquo;m referring to large, sprawling application systems such as JIRA that businesses large and small alike seem to gravitate toward for project and issue tracking. As a side effect of being designed primarily around enterprise use cases, the feature sets are often labyrinthine and overwhelming.
+For certain types of users, such as business analysts, this can be a boon; workflows can be infinitely tweaked and modified, issues can be categorised and filtered, moved in and out of sprints.</description>
+    </item>
+    
+    <item>
+      <title>The User isn&#39;t Stupid</title>
+      <link>http://www.tomeggington.co.uk/the-user-isnt-stupid/</link>
+      <pubDate>Thu, 25 Jun 2015 20:44:08 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/the-user-isnt-stupid/</guid>
+      <description>It&amp;rsquo;s a truth seemingly universally acknowledged in software that the user is stupid. Hang around in an office of developers for a while, and you&amp;rsquo;ll hear it. It starts as a sigh or a condescending chuckle, followed by a widely announced proclamation that yet again a user has done something so completely stupid that it surely defies explanation. &amp;ldquo;They can&amp;rsquo;t even work out how to search.&amp;rdquo; &amp;ldquo;They&amp;rsquo;re expecting it to save when there&amp;rsquo;s a save button right there and they&amp;rsquo;re not clicking it.</description>
+    </item>
+    
+    <item>
+      <title>HSTS and why everything you serve should be over HTTPS</title>
+      <link>http://www.tomeggington.co.uk/hsts-and-why-everything-you-serve-should-be-over-https/</link>
+      <pubDate>Sat, 06 Jun 2015 15:01:40 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/hsts-and-why-everything-you-serve-should-be-over-https/</guid>
+      <description>Something I&amp;rsquo;ve wanted to add to PasteMonitor for a while is HSTS (or HTTP Strict Transport Security), and today I actually got around to doing it. As of today, PasteMonitor is serving up Strict-Transport-Security response headers for all requests.
+I&amp;rsquo;ve written previously about how the browser can be a valuable ally in securing your web applications, and HSTS is a great example of one of these mechanisms in action. But what is HSTS, and what does it offer that&amp;rsquo;s missing with plain old https?</description>
+    </item>
+    
+    <item>
+      <title>Moving WordPress media to Azure CDN</title>
+      <link>http://www.tomeggington.co.uk/moving-wordpress-media-to-azure-cdn/</link>
+      <pubDate>Tue, 19 May 2015 20:25:31 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/moving-wordpress-media-to-azure-cdn/</guid>
+      <description>This post charts the process I took in migrating the static media content of my blog posts out of WordPress and into Azure CDN. Before exploring how I went about it, or even why I would want to do it, I want to take a moment to explain what exactly I mean.
+As of writing, this website runs on the WordPress platform, and as such I write in the WordPress editor, and use the WordPress media library for managing in-post media.</description>
+    </item>
+    
+    <item>
+      <title>The browser is your friend—defence in depth via the client</title>
+      <link>http://www.tomeggington.co.uk/the-browser-is-your-frienddefence-in-depth-via-the-client/</link>
+      <pubDate>Thu, 30 Apr 2015 16:29:54 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/the-browser-is-your-frienddefence-in-depth-via-the-client/</guid>
+      <description>When thinking about the security of applications we build for the web, the scale and breadth of attacks an application might face can be overwhelming.
+ How should the server OS be configured? How should the web server be configured? What security defaults does my chosen web framework come with, and do I need to change them? What use cases am I not considering? Am I making assumptions anywhere about user input?</description>
+    </item>
+    
+    <item>
+      <title>Eschewing SQL in favour of Azure Tables</title>
+      <link>http://www.tomeggington.co.uk/eschewing-sql-in-favour-of-azure-tables/</link>
+      <pubDate>Wed, 15 Apr 2015 18:58:36 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/eschewing-sql-in-favour-of-azure-tables/</guid>
+      <description>With Azure Storage, Microsoft has provided a set of services for handling a variety of data in the big or the small. Naturally, Azure also comes with a robust set of SQL Server tiers for handling relational data in ways we&amp;rsquo;re all familiar with, but today I intend to focus on what can be achieved with Azure Storage, and in particular, so-called &amp;lsquo;Azure Tables&amp;rsquo;.
+Azure Tables is Microsoft&amp;rsquo;s NoSQL offering, putting it in the same class of products as Apache CouchDB and MongoDB.</description>
+    </item>
+    
+    <item>
+      <title>Azure standard website pricing</title>
+      <link>http://www.tomeggington.co.uk/azure-standard-website-pricing/</link>
+      <pubDate>Tue, 24 Mar 2015 18:14:48 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/azure-standard-website-pricing/</guid>
+      <description>If you&amp;rsquo;ve read other posts of mine, you may have come to the conclusion that I&amp;rsquo;m not a fan of Azure standard website pricing. With shared websites (now rebranded as &amp;ldquo;app services&amp;rdquo;) available on Azure for less than £6 a month, the jump up to a standard website app service at more than £40 a month looks ludicrous, at least on the surface. But I was wrong, and as of today, no longer have any sites on a shared plan.</description>
+    </item>
+    
+    <item>
+      <title>A look inside PasteMonitor</title>
+      <link>http://www.tomeggington.co.uk/a-look-inside-pastemonitor/</link>
+      <pubDate>Sun, 15 Mar 2015 16:15:50 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/a-look-inside-pastemonitor/</guid>
+      <description>PasteMonitor is a service I built to improve the monitoring possibilities for paste sites. I worked on and built PasteMonitor in early 2015 and it went live at the end of February. This post covers the technical aspects of PasteMonitor and the technology it runs on. If you haven&amp;rsquo;t already, you might first wish to read my introduction to PasteMonitor.
+Overall architecture PasteMonitor is a made up of separate Azure components that work together to drive the functionality behind the user interface.</description>
+    </item>
+    
+    <item>
+      <title>On requiring an email address for registration</title>
+      <link>http://www.tomeggington.co.uk/on-requiring-an-email-address-for-registration/</link>
+      <pubDate>Wed, 04 Mar 2015 14:52:23 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/on-requiring-an-email-address-for-registration/</guid>
+      <description>This week I had intended to post a deep dive into the technical details of how PasteMonitor operates. However, in the middle of writing the first draft, something came up that I thought I should act upon. That thing was the registration process behind PasteMonitor.
+From the beginning, I had built PasteMonitor on the premise that a user would authenticate themselves with an email address and password. I didn&amp;rsquo;t question this or consider why, it was just how things go; when a user registers for a service online, they use an email address and password to authenticate, whether directly or through a delegated OAuth system.</description>
+    </item>
+    
+    <item>
+      <title>PasteMonitor: a tracking service for paste sites</title>
+      <link>http://www.tomeggington.co.uk/pastemonitor-a-tracking-service-for-paste-sites/</link>
+      <pubDate>Thu, 26 Feb 2015 07:07:07 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/pastemonitor-a-tracking-service-for-paste-sites/</guid>
+      <description>I&amp;rsquo;ve been working with the Azure platform for a couple of years now, yet still feel I&amp;rsquo;ve barely scratched the surface of available services. One of the areas that I was particularly interested in getting up to speed with was WebJobs. In Azure, a WebJob is a separate process that sits underneath a website and runs either on a trigger (such as a new message in a queue), a schedule (i.</description>
+    </item>
+    
+    <item>
+      <title>Deploying Azure Websites with git continuous delivery</title>
+      <link>http://www.tomeggington.co.uk/deploying-azure-websites-with-git-continuous-delivery/</link>
+      <pubDate>Fri, 20 Feb 2015 18:03:08 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/deploying-azure-websites-with-git-continuous-delivery/</guid>
+      <description>Microsoft&amp;rsquo;s Azure &amp;lsquo;Websites&amp;rsquo; platform as a service is a great way for me to host websites because of how easy it makes monotonous tasks. Even something as obvious as setting up a new website is just a couple of clicks, compared to what might be hours of configuration in other less integrated platforms. One aspect of software development and delivery that I despise is deployment, so anything I can do to mitigate the impact it has upon my working time is a positive.</description>
+    </item>
+    
+    <item>
+      <title>Resolving &#39;The target &#34;ResolveWebJobFiles&#34; does not exist in the project.&#39;</title>
+      <link>http://www.tomeggington.co.uk/resolving-the-target-resolvewebjobfiles-does-not-exist-in-the-project./</link>
+      <pubDate>Mon, 09 Feb 2015 19:48:16 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/resolving-the-target-resolvewebjobfiles-does-not-exist-in-the-project./</guid>
+      <description>When deploying a new Azure WebJob direct from git to an Azure Website, my deployment was failing with the message:
+ error MSB4057: The target &amp;ldquo;ResolveWebJobFiles&amp;rdquo; does not exist in the project.
+ The unusual thing about this particular message is that searching Google for it yields very few results. The only real clues were in this Twitter conversation and this GitHub gist. The second of these resources isn&amp;rsquo;t even specifically about this error, but contains a reference to &amp;ldquo;ResolveWebJobFiles&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>NanoNumbers: An Azure Backed Project</title>
+      <link>http://www.tomeggington.co.uk/nanonumbers-an-azure-backed-project/</link>
+      <pubDate>Thu, 11 Dec 2014 16:36:43 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/nanonumbers-an-azure-backed-project/</guid>
+      <description>Every November, hundreds of thousands of people get involved in Nanowrimo, where each tries to write a 50,000 novel in a month. The aim is to help wannabe novelists to actually commit something to paper/screen, and as the target is numbers based (1,666⅓ words a day are required to hit the goal). This lends itself to statistics, charting, and competition. Naturally, being about writing and writers, the official Nanowrimo site only provides a limited set of online stats for those who like numbers.</description>
+    </item>
+    
+    <item>
+      <title>Good Programming</title>
+      <link>http://www.tomeggington.co.uk/good-programming/</link>
+      <pubDate>Fri, 28 Mar 2014 14:59:43 +0100</pubDate>
+      
+      <guid>http://www.tomeggington.co.uk/good-programming/</guid>
+      <description>I&amp;rsquo;ve had a feeling creeping up on me for a while now. It&amp;rsquo;s a discontentment, a niggling resentment of the code-bases I work in. It&amp;rsquo;s my fault, and it&amp;rsquo;s other people&amp;rsquo;s fault as well. And the problem? Horrible code.
+I&amp;rsquo;m talking about working, production code. Code that&amp;rsquo;s battle proven in the field. Code that I&amp;rsquo;ve written, that colleagues have written, and that strangers I&amp;rsquo;ve never known have written, that services the original business requirements it was built for.</description>
+    </item>
+    
+  </channel>
+</rss>
