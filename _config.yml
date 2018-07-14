@@ -1,0 +1,20 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      rouge
+
+# Permalinks
+permalink:        /:title
+
+# Setup
+title:            Tom Eggington
+tagline:          ''
+description:      'Thoughts and observations of a software developer'
+url:              https://www.tomeggington.co.uk/
+
+author:
+  name:           'Tom Eggington'
+  url:            https://twitter.com/alibaabaa
+
+paginate:         1
+
+plugins:          [jekyll-paginate]
