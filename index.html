@@ -1,271 +1,37 @@
-<!DOCTYPE html>
-<html lang="en-gb">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tom Eggington</title>
-<meta name="description" content="Tom Eggington">
-<meta name="generator" content="Hugo 0.20.2" />
-<meta property="og:title" content="Tom Eggington" />
-<meta property="og:description" content="Tom Eggington" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.tomeggington.co.uk/" />
+---
+layout: default
+title: Home
+---
 
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
 
+    <span class="post-date">{{ post.date | date_to_string }}</span>
 
-<meta property="og:updated_time" content="2016-02-26T16:43:15&#43;01:00"/>
-
-
-
-
-
-
-
-
-
-
-<link rel="dns-prefetch" href="//fonts.googleapis.com" />
-<link rel="alternate" type="application/rss+xml" title="Tom Eggington Feed" href="https://www.tomeggington.co.uk/index.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
-<link rel="stylesheet" href="https://www.tomeggington.co.uk/css/style.css" type="text/css" media="all" />
-<script type="text/javascript" src="https://www.tomeggington.co.uk/js/scripts.js"></script>
-</head>
-<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
-	<div class="container container-outer">
-		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-			<div class="container container-inner clearfix">
-				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
-					<a class="logo__link" href="https://www.tomeggington.co.uk/" title="Tom Eggington" rel="home">
-						<h1 class="logo__title">Tom Eggington</h1>
-						
-					</a>
-				</div>
-			</div>
-			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-	<ul class="menu__list">
-	</ul>
-</nav>
-		</header>
-		<div class="wrapper clearfix">
-
-	<div class="main-content loop content" role="main">
-		<article class="loop__item post clearfix">
-			<figure class="loop__thumbnail">
-				<a href="https://www.tomeggington.co.uk/on-passwords-biometrics-and-password-managers/">
-					<img src="https://az761005.vo.msecnd.net/uploads/2016/02/iris-79893_960_720-300x225.jpg" alt="On Passwords, Biometrics, and Password Managers" />
-				</a>
-			</figure>
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/on-passwords-biometrics-and-password-managers/" rel="bookmark">On Passwords, Biometrics, and Password Managers</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2016-02-26 16:43:15 &#43;0100 &#43;0100">February 26, 2016</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					What is a password? It seems a ridiculous question to even pose. Computers, and more specifically the networking of computers, has made the password ubiquitous in society. We all know what they are, and the vast majority of us encounter them on a daily basis as part of our lives. We&rsquo;ve become so familiar—some may say _overly familiar_—with passwords that the very meaning of them becomes lost. Somewhat like repeating the same word over and over until it sounds like gibberish.
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/hardening-against-web-account-enumeration/" rel="bookmark">Hardening against web account enumeration</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-07-27 16:49:13 &#43;0100 BST">July 27, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					We all know by now how important it is to help users of our web services keep their accounts secure, by doing what we can to ensure they are using strong passwords. And the variety of methods at our disposal to assist them in this, from secure password policies to regular password expiration, are well documented.
-Perhaps less well documented is a tangential but equally important threat. Sometimes, we need to defend against more than just unauthorised access to users&rsquo; accounts, and instead defend against revealing the existence of an account at all.
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/why-global-tracing-doesnt-work-in-azure-web-apps/" rel="bookmark">Why global tracing doesnt work in Azure web apps</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-07-22 20:01:41 &#43;0100 BST">July 22, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					Having spent a couple of hours troubleshooting this before finally finding a solution, I thought I&rsquo;d provide a brief write up in the hope it might save someone else the pain. Of course, tracing does work in Azure, but there&rsquo;s a common scenario gotcha that doesn&rsquo;t seem to be covered in any of the major documentation.
-Scenario  You want to make use of Azure&rsquo;s Application Logging, whether it be to the file system, table storage, or blob storage.
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/trello-is-an-antidote-to-project-management-tools/" rel="bookmark">Trello is an antidote to project management tools</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-07-18 20:31:39 &#43;0100 BST">July 18, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					If you&rsquo;re anything like me, then you&rsquo;re not the greatest fan of project management tools. When I say &ldquo;project management tools&rdquo;, I&rsquo;m referring to large, sprawling application systems such as JIRA that businesses large and small alike seem to gravitate toward for project and issue tracking. As a side effect of being designed primarily around enterprise use cases, the feature sets are often labyrinthine and overwhelming.
-For certain types of users, such as business analysts, this can be a boon; workflows can be infinitely tweaked and modified, issues can be categorised and filtered, moved in and out of sprints.
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/the-user-isnt-stupid/" rel="bookmark">The User isn&#39;t Stupid</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-06-25 20:44:08 &#43;0100 BST">June 25, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					It&rsquo;s a truth seemingly universally acknowledged in software that the user is stupid. Hang around in an office of developers for a while, and you&rsquo;ll hear it. It starts as a sigh or a condescending chuckle, followed by a widely announced proclamation that yet again a user has done something so completely stupid that it surely defies explanation. &ldquo;They can&rsquo;t even work out how to search.&rdquo; &ldquo;They&rsquo;re expecting it to save when there&rsquo;s a save button right there and they&rsquo;re not clicking it.
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/hsts-and-why-everything-you-serve-should-be-over-https/" rel="bookmark">HSTS and why everything you serve should be over HTTPS</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-06-06 15:01:40 &#43;0100 BST">June 06, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					Something I&rsquo;ve wanted to add to PasteMonitor for a while is HSTS (or HTTP Strict Transport Security), and today I actually got around to doing it. As of today, PasteMonitor is serving up Strict-Transport-Security response headers for all requests.
-I&rsquo;ve written previously about how the browser can be a valuable ally in securing your web applications, and HSTS is a great example of one of these mechanisms in action. But what is HSTS, and what does it offer that&rsquo;s missing with plain old https?
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/moving-wordpress-media-to-azure-cdn/" rel="bookmark">Moving WordPress media to Azure CDN</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-05-19 20:25:31 &#43;0100 BST">May 19, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					This post charts the process I took in migrating the static media content of my blog posts out of WordPress and into Azure CDN. Before exploring how I went about it, or even why I would want to do it, I want to take a moment to explain what exactly I mean.
-As of writing, this website runs on the WordPress platform, and as such I write in the WordPress editor, and use the WordPress media library for managing in-post media.
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/the-browser-is-your-frienddefence-in-depth-via-the-client/" rel="bookmark">The browser is your friend—defence in depth via the client</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-04-30 16:29:54 &#43;0100 BST">April 30, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					When thinking about the security of applications we build for the web, the scale and breadth of attacks an application might face can be overwhelming.
- How should the server OS be configured? How should the web server be configured? What security defaults does my chosen web framework come with, and do I need to change them? What use cases am I not considering? Am I making assumptions anywhere about user input?
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/eschewing-sql-in-favour-of-azure-tables/" rel="bookmark">Eschewing SQL in favour of Azure Tables</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-04-15 18:58:36 &#43;0100 BST">April 15, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					With Azure Storage, Microsoft has provided a set of services for handling a variety of data in the big or the small. Naturally, Azure also comes with a robust set of SQL Server tiers for handling relational data in ways we&rsquo;re all familiar with, but today I intend to focus on what can be achieved with Azure Storage, and in particular, so-called &lsquo;Azure Tables&rsquo;.
-Azure Tables is Microsoft&rsquo;s NoSQL offering, putting it in the same class of products as Apache CouchDB and MongoDB.
-				</div>
-			</div>
-		</article>
-		<article class="loop__item post clearfix">
-			<div class="loop__content clearfix">
-				<header class="loop__header">
-					<h3 class="loop__title post__title ">
-						<a href="https://www.tomeggington.co.uk/azure-standard-website-pricing/" rel="bookmark">Azure standard website pricing</a>
-					</h3>
-					<div class="loop__meta meta">
-						<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-						<time class="loop__meta-date" datetime="2015-03-24 18:14:48 &#43;0100 &#43;0100">March 24, 2015</time>
-					</div>
-				</header>
-				<div class="loop__excerpt">
-					If you&rsquo;ve read other posts of mine, you may have come to the conclusion that I&rsquo;m not a fan of Azure standard website pricing. With shared websites (now rebranded as &ldquo;app services&rdquo;) available on Azure for less than £6 a month, the jump up to a standard website app service at more than £40 a month looks ludicrous, at least on the surface. But I was wrong, and as of today, no longer have any sites on a shared plan.
-				</div>
-			</div>
-		</article>
-
-		
-<div class="pagination clearfix">
-	<span class="pagination__item pagination__item--current">1/2</span>
-	<a class="pagination__item pagination__item--next" href="/page/2/">»</a>
+    {{ post.content }}
+  </div>
+  {% endfor %}
 </div>
 
-	</div>
-
-<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-	
-	
-<div class="widget-recent widget">
-	<h4 class="widget__title">Recent Posts</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/on-passwords-biometrics-and-password-managers/">On Passwords, Biometrics, and Password Managers</a></li>
-			<li class="widget__item"><a class="widget__link" href="/hardening-against-web-account-enumeration/">Hardening against web account enumeration</a></li>
-			<li class="widget__item"><a class="widget__link" href="/why-global-tracing-doesnt-work-in-azure-web-apps/">Why global tracing doesnt work in Azure web apps</a></li>
-			<li class="widget__item"><a class="widget__link" href="/trello-is-an-antidote-to-project-management-tools/">Trello is an antidote to project management tools</a></li>
-			<li class="widget__item"><a class="widget__link" href="/the-user-isnt-stupid/">The User isn&#39;t Stupid</a></li>
-			<li class="widget__item"><a class="widget__link" href="/hsts-and-why-everything-you-serve-should-be-over-https/">HSTS and why everything you serve should be over HTTPS</a></li>
-			<li class="widget__item"><a class="widget__link" href="/moving-wordpress-media-to-azure-cdn/">Moving WordPress media to Azure CDN</a></li>
-			<li class="widget__item"><a class="widget__link" href="/the-browser-is-your-frienddefence-in-depth-via-the-client/">The browser is your friend—defence in depth via the client</a></li>
-			<li class="widget__item"><a class="widget__link" href="/eschewing-sql-in-favour-of-azure-tables/">Eschewing SQL in favour of Azure Tables</a></li>
-			<li class="widget__item"><a class="widget__link" href="/azure-standard-website-pricing/">Azure standard website pricing</a></li>
-		</ul>
-	</div>
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="/page{{paginator.next_page}}">&lt; Previous</a>
+  {% else %}
+    <span class="pagination-item older">Previous</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="/">Next &gt;</a>
+    {% else %}
+      <a class="pagination-item newer" href="/page{{paginator.previous_page}}">Next &gt;</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Next</span>
+  {% endif %}
 </div>
-	
-	
-</aside>
-	</div>
-		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-			<div class="container container-inner">
-				<p class="footer__copyright">&copy; 2017 Tom Eggington. Based on <a href="//wordpress.org/themes/mh-magazine-lite/" target="_blank" rel="nofollow noopener noreferrer">MH Magazine lite</a>.</p>
-			</div>
-		</footer>
-	</div>
-
-<script>
-	var navigation = responsiveNav(".menu", {
-		navClass: "menu--collapse",
-	});
-</script>
-
-</body>
-</html>
