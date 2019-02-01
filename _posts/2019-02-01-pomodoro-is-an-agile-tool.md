@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Pomodoro is an Agile Tool"
+---
+
+For those unfamiliar, the "Pomodoro Technique" is a practice with its origins in time management. It was developed in the late eighties by a guy called Francesco Cirillo who apparently couldn't quite convince himself to sit down and study as a student for any extended period. His answer to this was to go grab a kitchen timer (in this case, a wind up tomato), set it to 25 minutes. He'd write the task he planned to accomplish in that 25 minute block and then start the timer going. Winding the timer became something of a "promise" to himself that he would spend the time focused on that task. Interruptions were noted down and put aside until the "pomodoro" ended.
+
+It sounds like something that could be straight out of the "getting things done" manifesto, but it turns out that the Pomodoro Technique isn't just useful for procrastinators, but also highly effective for improving an agile workflow.
+
+In agile, we plan and estimate our sprint, we sprint, and then we review achievements during a retrospective. Agile is of course a lot more than this, but it's that plan -> do -> review loop that helps to improve our future planning and estimation, with the continuous feedback loop holding us to account and guiding us, however unwilling, to more accurate estimates. It's not a big leap to envision how the Pomodoro Technique fits into this at the micro scale.
+
+The Pomodoro Technique has some additional rules that give it more strength than may at first be apparent. You must write down the task you will work on during the 25 minute "pomodoro". This is your oath to yourself to spend 25 focused minutes on this task. Interruptions are not permitted. Things that can be delayed should be noted and put to one side. If an interruption cannot be delayed, then the entire pomodoro is considered to be void. It is an atomic unit and cannot be split into two parts. It should be restarted after the interruption. After every pomodoro, take a five minute break and after every four, take a longer break. At the end of each pomodoro, note progress.
+
+You might see that this atomic, planned, estimated unit of work has similarities to a sprint. I like to add a rule of my own to the mix to make the pomodoro even more sprint-like. If a task is too large to fit into one pomodoro, then it must be broken up. I also like to make a note of whether I achieved the task in the allotted time and if not, I make a note of this.
+
+Splitting the day into pomodoros, I find I can fit anything between ten and 14 into a working day. At the end of the day (or the start of the next) I can then look back at the previous day and look for patterns, especially in the pomodoros where I didn't achieve what I expected. For example, if I find multiple examples of "Code review took longer than expected", then I can use this to inform my future estimates.
+
+Breaking the day into micro sprints using the Pomodoro Technique is like an estimating superpower. Rather than reviewing estimates at the end of a sprint every two or three weeks, you're reviewing your estimates ten or more times _a day_. Over time, I found this relentless focus on breaking down and estimating tasks become a natural part of my working day and it's honed my perception of what is achievable in 25 minutes. It also has the added benefit of forcing me to take regular breaks which ultimately leads to improved productivity.
