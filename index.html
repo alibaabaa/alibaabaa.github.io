@@ -3,35 +3,29 @@ layout: default
 title: Home
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+<header>
+  <h2>Tom Eggington</h2>
+  <h3>
+    I ❤️ software development<br />
+    F# &#183; C#
+  </h3>
+</header>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    {{ post.content }}
-  </div>
-  {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="/page{{paginator.next_page}}">&lt; Previous</a>
-  {% else %}
-    <span class="pagination-item older">Previous</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="/">Next &gt;</a>
-    {% else %}
-      <a class="pagination-item newer" href="/page{{paginator.previous_page}}">Next &gt;</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Next</span>
-  {% endif %}
-</div>
+<main>
+  <p>
+    I'm a senior software developer, solving global water security problems at <a href="//en.i2owater.com/">i2O Water</a> in Southampton. Before that, I was building solutions to digitise and deliver consumer product data to the largest supermarkets in the UK and abroad at <a href="//brandbank.com">Nielsen Brandbank</a>.
+  </p>
+  <p>
+    I'm also creator and maintainer of <a href="//pastemonitor.com/">Paste Monitor</a>, a free service that processes all public pastes to Pastebin and sends users alerts for matches against their search list. You can read more about that <a href="/paste-monitor-a-tracking-service">here</a> and read a technical overview <a href="/a-look-inside-pastemonitor">here</a>.
+  </p>
+  <p>
+    I've been writing code professionally with .net technologies for 12 years, and building on the web since 1997. 
+  </p>
+</main>
+  <aside>
+    <a href="//github.com/alibaabaa"><i class="fab fa-github fa-2x"></i></a>
+    <a href="//twitter.com/alibaabaa"><i class="fab fa-twitter fa-2x"></i></a>
+    <a href="mailto:tom@tomeggington.co.uk"><i class="fas fa-at fa-2x"></i></a>
+    <a href="//keybase.io/tomeggington"><i class="fab fa-keybase fa-2x"></i></a>
+  </aside>
