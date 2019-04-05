@@ -3,13 +3,9 @@
     margin: 0 auto;
 }
 
-.sidebar-about h1 {
-    font-family: Nunito, sans-serif;
-    font-size: 3rem;
-}
-
-html, .pagination {
-    font-family: "Source Sans Pro", sans-serif
+html, body, .pagination {
+    background: url(/public/crossword.png) repeat;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 header, aside {
@@ -27,9 +23,18 @@ header h3 {
     margin-top: 0.5em;
 }
 
+.content {
+    margin: 0 auto;
+}
+
 aside a {
     color: #000;
     padding: 10px;
+}
+
+footer {
+    margin-top: 10px;
+    text-align: center;
 }
 
 main {
