@@ -7,7 +7,7 @@ title: "Authentication bypass in a library lending app"
 
 On September 3rd 2019 I discovered an authentication bypass vulnerability in a mobile app that facilitates borrowing of digital content for members of participating libraries. The publisher of the app requested I not make reference to the name of either the app or the publisher, so I shall not. Suffice to say, this app appears to be popular amongst libraries both in the UK and further afield.
 
-For members of participating libraries, the process is pretty straigth forward. Download the app, provide your library card number and create an account. This then provides the user access to their library's digital collection, including ebooks, and audiobooks.
+For members of participating libraries, the process is pretty straight forward. Download the app, provide your library card number and create an account. This then provides the user access to their library's digital collection, including ebooks, and audiobooks.
 
 ## The vulnerability
 
