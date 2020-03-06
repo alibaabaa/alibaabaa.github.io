@@ -2,7 +2,7 @@
 highlighter:      rouge
 
 # Permalinks
-permalink:        /:title
+permalink:        /:categories/:title
 
 # Setup
 title:            Tom Eggington
