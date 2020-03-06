@@ -7,6 +7,7 @@ title: All posts
   {% if post.categories contains "running" %}
   
   {% else %}
-    <a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_string }}</small>
+    [{{ post.title }}]({{ post.url }}) <small>{{ post.date | date_to_string }}</small>
+    <!-- <a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_string }}</small> -->
   {% endif %}
 {% endfor %}
