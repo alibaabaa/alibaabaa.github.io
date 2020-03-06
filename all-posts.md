@@ -3,6 +3,7 @@ layout: page
 title: All posts
 ---
 
+<b>Test</b>
 {% for post in site.posts %}
   {% if post.categories contains "running" %}
     <b>No</b>
