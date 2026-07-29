@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Page head — inner pages
+   The fold's quieter sibling for services, about, writing and article pages.
+   Same strata logic, one column, no outcome line.
+   ========================================================================== */
+
+.page-head{
+  background:var(--c-surface-2);
+  border-bottom:1px solid var(--c-line);
+}
+.page-head__inner{
+  padding-top:clamp(48px, 8vh, 96px);
+  padding-bottom:clamp(38px, 5.6vh, 62px);
+}
+.page-head__title{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(2.1rem, 4.6vw, 4rem);
+  line-height:1.02;
+  letter-spacing:-.017em;
+  margin:0;
+  max-width:18ch;
+}
+.page-head__standfirst{
+  margin:clamp(20px, 3vh, 30px) 0 0;
+  max-width:52ch;
+  font-size:clamp(15.5px, 1.2vw, 18px);
+  line-height:1.55;
+  color:var(--c-ink-muted);
+}

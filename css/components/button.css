@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Button
+   One button style. It appears once per page, in the closing stratum.
+   If a second, quieter action is ever needed, add a .btn--ghost modifier
+   here rather than restyling this one in place.
+   ========================================================================== */
+
+.btn{
+  display:inline-flex; align-items:center; gap:12px;
+  padding:15px 25px 15px 22px;
+  border-radius:2px;
+  background:var(--c-surface-1);
+  color:var(--c-ink);
+  font-size:16px; font-weight:500; letter-spacing:-.004em;
+  text-decoration:none;
+  transition:transform .35s var(--ease), background .35s var(--ease);
+}
+.btn__arrow{ display:inline-block; transition:transform .35s var(--ease); }
+.btn:hover{ transform:translateY(-2px); background:#fff; }
+.btn:hover .btn__arrow{ transform:translateX(4px); }

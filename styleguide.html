@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F8F6F2">
+<title>Component reference | Bedrock Cyber</title>
+<meta name="description" content="Every component in the Bedrock Cyber design system, with its markup.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+
+<style>
+  /* Styleguide chrome only. Not part of the site. */
+  .sg-swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:0;padding:0;list-style:none;}
+  .sg-swatch{border:1px solid var(--c-line);border-radius:2px;overflow:hidden;}
+  .sg-swatch span{display:block;height:64px;}
+  .sg-swatch code{display:block;padding:9px 11px;font-size:11.5px;color:var(--c-ink-muted);}
+  .sg-item{padding-block:clamp(30px,4vh,46px);border-top:1px solid var(--c-line);}
+  .sg-item:first-of-type{border-top:0;}
+  .sg-name{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-ink-faint);margin:0 0 6px;}
+  .sg-note{font-size:14.5px;line-height:1.6;color:var(--c-ink-muted);max-width:62ch;margin:0 0 22px;}
+  .sg-demo{margin-bottom:18px;}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;}
+  .sg-code{background:var(--c-surface-2);border:1px solid var(--c-line);border-radius:2px;
+    padding:13px 15px;font-size:12.5px;line-height:1.6;color:var(--c-ink-muted);
+    overflow-x:auto;white-space:pre;margin:0;}
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html" aria-label="Bedrock Cyber, home">
+      <img src="assets/logo.png" alt="Bedrock Cyber" width="520" height="75">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="index.html">Homepage</a>
+      <a class="site-nav__link" href="page-template.html">Page template</a>
+      <a class="site-nav__link" href="styleguide.html" aria-current="page">Components</a>
+    </nav>
+  </div>
+</div>
+
+<div class="page-head">
+  <div class="wrap page-head__inner">
+    <p class="eyebrow eyebrow--lead label">Reference</p>
+    <h1 class="page-head__title">Every component, and the markup that makes it.</h1>
+    <p class="page-head__standfirst">Copy from here when building a new page. If something you need is not on this page, it is not in the system yet. Add it as a new file in <code>css/components/</code> and document it here.</p>
+  </div>
+</div>
+
+<main class="stratum stratum--pale">
+<div class="wrap stratum__inner">
+
+  <section class="sg-item">
+    <p class="sg-name">Colour tokens</p>
+    <p class="sg-note">Defined once in <code>css/tokens.css</code>. Nothing else in the codebase contains a hex value.</p>
+    <ul class="sg-swatches">
+      <li class="sg-swatch"><span style="background:var(--c-surface-1)"></span><code>--c-surface-1</code></li>
+      <li class="sg-swatch"><span style="background:var(--c-surface-2)"></span><code>--c-surface-2</code></li>
+      <li class="sg-swatch"><span style="background:var(--c-surface-3)"></span><code>--c-surface-3</code></li>
+      <li class="sg-swatch"><span style="background:var(--c-line)"></span><code>--c-line</code></li>
+      <li class="sg-swatch"><span style="background:var(--c-ink)"></span><code>--c-ink</code></li>
+      <li class="sg-swatch"><span style="background:var(--c-ink-muted)"></span><code>--c-ink-muted</code></li>
+      <li class="sg-swatch"><span style="background:var(--c-ink-faint)"></span><code>--c-ink-faint</code></li>
+      <li class="sg-swatch"><span style="background:var(--c-accent)"></span><code>--c-accent</code></li>
+      <li class="sg-swatch"><span style="background:var(--c-slate)"></span><code>--c-slate</code></li>
+    </ul>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Type roles</p>
+    <p class="sg-note">Three, and only three. A fourth role is usually a sign that a section is doing too much.</p>
+    <div class="sg-demo">
+      <p class="lede">Display serif. Section-opening statements.</p>
+      <div class="prose" style="margin-top:20px"><p>Body sans. Running prose, held to a 56 character measure.</p></div>
+      <p class="label" style="margin-top:20px">Micro label. Eyebrows, credentials, jump links.</p>
+    </div>
+    <pre class="sg-code">&lt;p class="lede"&gt;…&lt;/p&gt;             .lede--tight  .lede--lg
+&lt;div class="prose"&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt;  .prose--narrow
+&lt;p class="label"&gt;…&lt;/p&gt;</pre>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Eyebrow</p>
+    <p class="sg-note">Accent rule above a micro label. Opens a section, or a page with the <code>--lead</code> modifier.</p>
+    <div class="sg-demo"><p class="eyebrow label">Point of view</p></div>
+    <pre class="sg-code">&lt;p class="eyebrow label"&gt;Point of view&lt;/p&gt;</pre>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Rule list</p>
+    <p class="sg-note">A set of items, not a sequence. Unnumbered on purpose.</p>
+    <ul class="rule-list sg-demo" style="margin-top:0">
+      <li class="rule-list__item"><span class="dot" aria-hidden="true"></span><span>Product security operating model</span></li>
+      <li class="rule-list__item"><span class="dot" aria-hidden="true"></span><span>Threat modelling and secure development practice</span></li>
+    </ul>
+    <pre class="sg-code">&lt;ul class="rule-list"&gt;
+  &lt;li class="rule-list__item"&gt;&lt;span class="dot" aria-hidden="true"&gt;&lt;/span&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Article card</p>
+    <p class="sg-note">The whole card is the link. Three per row, collapsing to one below 880px.</p>
+    <div class="article-grid sg-demo" style="margin-top:0">
+      <a class="article-card" href="#">
+        <h3 class="article-card__title">The headline of the piece, set in the display serif</h3>
+        <p class="article-card__standfirst">One or two sentences saying what the reader gets from it.</p>
+      </a>
+      <a class="article-card" href="#">
+        <h3 class="article-card__title">A second piece</h3>
+        <p class="article-card__standfirst">Hover either card to see the accent rule draw across the top edge.</p>
+      </a>
+      <a class="article-card" href="#">
+        <h3 class="article-card__title">A third piece</h3>
+        <p class="article-card__standfirst">Two or three cards per row read best. Four crowds the measure.</p>
+      </a>
+    </div>
+    <pre class="sg-code">&lt;div class="article-grid"&gt;
+  &lt;a class="article-card" href="…"&gt;
+    &lt;h3 class="article-card__title"&gt;…&lt;/h3&gt;
+    &lt;p class="article-card__standfirst"&gt;…&lt;/p&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</pre>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Links and button</p>
+    <p class="sg-note">One link style closes a section, one micro style jumps within a page, one button per page.</p>
+    <div class="sg-demo" style="display:flex;flex-wrap:wrap;gap:34px;align-items:center">
+      <a class="link-arrow" href="#">How an engagement works <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="jump-link label" href="#">What I do <span class="link-arrow__arrow" aria-hidden="true">&darr;</span></a>
+    </div>
+    <div class="sg-demo" style="background:var(--c-ink);padding:26px;border-radius:2px">
+      <a class="btn" href="#"><span class="dot" aria-hidden="true"></span>Start a conversation <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+    <pre class="sg-code">&lt;a class="link-arrow" href="…"&gt;… &lt;span class="link-arrow__arrow" aria-hidden="true"&gt;&amp;rarr;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="jump-link label" href="#…"&gt;… &lt;span class="link-arrow__arrow" aria-hidden="true"&gt;&amp;darr;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="btn" href="…"&gt;&lt;span class="dot"&gt;&lt;/span&gt;… &lt;span class="btn__arrow"&gt;&amp;rarr;&lt;/span&gt;&lt;/a&gt;</pre>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Credential</p>
+    <p class="sg-note">Takes its type from the context it sits in. Micro label in the fold, footer meta below.</p>
+    <div class="sg-demo">
+      <span class="credential label">
+        <span class="credential__mark" aria-hidden="true">CE</span>
+        <span>Cyber Essentials certified</span>
+      </span>
+    </div>
+    <pre class="sg-code">&lt;span class="credential label"&gt;
+  &lt;span class="credential__mark" aria-hidden="true"&gt;CE&lt;/span&gt;
+  &lt;span&gt;Cyber Essentials certified&lt;/span&gt;
+&lt;/span&gt;</pre>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Datum marker</p>
+    <p class="sg-note">Hangs on a stratum boundary at the content rail. Its parent needs <code>position:relative</code>, which <code>.stratum</code> already has. Use it once or twice per page. Two markers close together read as a fault.</p>
+    <pre class="sg-code">&lt;span class="datum" aria-hidden="true"&gt;
+  &lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M4 7.6 H20"/&gt;&lt;path d="M12 8.4 L5.2 19"/&gt;
+  &lt;path d="M12 8.4 L18.8 19"/&gt;&lt;path d="M12 8.4 V19"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+
+&lt;!-- on a bedrock boundary --&gt;  &lt;span class="datum datum--sunken"&gt;…&lt;/span&gt;</pre>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Strata</p>
+    <p class="sg-note">Sections are bands of the core sample. Alternate <code>--pale</code> and <code>--warm</code> down a page and close on <code>--bedrock</code>. Reversed type is handled for you inside the bedrock stratum.</p>
+    <pre class="sg-code">&lt;section class="stratum stratum--pale"&gt;
+  &lt;div class="wrap stratum__inner duo"&gt;…&lt;/div&gt;   &lt;!-- two columns --&gt;
+&lt;/section&gt;
+
+&lt;section class="stratum stratum--warm"&gt;
+  &lt;div class="wrap stratum__inner"&gt;…&lt;/div&gt;       &lt;!-- one column --&gt;
+&lt;/section&gt;</pre>
+  </section>
+
+  <section class="sg-item">
+    <p class="sg-name">Motion utilities</p>
+    <p class="sg-note"><code>.u-enter</code> runs on page load, staggered with <code>--delay</code>, and is used above the fold only. <code>.u-reveal</code> fades in on scroll, staggered with <code>--i</code>, and is used everywhere below it. Both are switched off under reduced motion, and <code>.u-reveal</code> content stays visible if JavaScript fails.</p>
+    <pre class="sg-code">&lt;p class="u-enter" style="--delay:.2s"&gt;…&lt;/p&gt;
+&lt;div class="u-reveal" style="--i:1"&gt;…&lt;/div&gt;</pre>
+  </section>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <a class="site-footer__brand" href="index.html" aria-label="Bedrock Cyber, home">
+        <img src="assets/logo-reversed.png" alt="Bedrock Cyber" width="520" height="75">
+      </a>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <a class="site-footer__link" href="index.html">Homepage</a>
+        <a class="site-footer__link" href="page-template.html">Page template</a>
+        <a class="site-footer__link" href="styleguide.html">Components</a>
+      </nav>
+    </div>
+    <div class="site-footer__meta">
+      <span>Component reference. Not a public page.</span>
+      <span>&copy; 2026 Bedrock Cyber</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

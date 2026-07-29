@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Tokens
+   Every colour, typeface, space and easing used on the site. Nothing else in
+   the codebase should contain a raw hex value or a hard-coded typeface.
+   ========================================================================== */
+
+:root{
+  /* --- Surfaces: the strata, lightest at the top of the core sample ------ */
+  --c-surface-1:#F8F6F2;   /* nav band, first section                       */
+  --c-surface-2:#F1EEE7;   /* hero band, alternate section                  */
+  --c-surface-3:#E8E3D9;   /* hero base band                                */
+  --c-line:#DCD6C9;        /* hairline between strata, list rules           */
+
+  /* --- Ink -------------------------------------------------------------- */
+  --c-ink:#14151A;         /* headings, primary text, bedrock background    */
+  --c-ink-muted:#6B675D;   /* body copy, nav links                          */
+  --c-ink-faint:#948F83;   /* micro labels, credential                      */
+
+  /* --- Accent and hardware ---------------------------------------------- */
+  --c-accent:#2E82FF;      /* brand blue. Rules and dots only, never text.  */
+  --c-slate:#5A5E66;       /* datum marker disc                             */
+
+  /* --- Reversed: bedrock sections and the footer ------------------------- */
+  --c-inv-ink:rgba(241,238,231,1);
+  --c-inv-muted:rgba(241,238,231,.68);
+  --c-inv-faint:rgba(241,238,231,.58);
+  --c-inv-line:rgba(241,238,231,.17);
+
+  /* --- Type ------------------------------------------------------------- */
+  --font-display:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-sans:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* --- Space ------------------------------------------------------------ */
+  --gutter:clamp(20px, 4.4vw, 58px);   /* page side padding                 */
+  --measure:1200px;                    /* max content width                 */
+  --band:clamp(66px, 10.5vh, 124px);   /* vertical padding of a section     */
+  --datum-size:clamp(28px, 2.5vw, 34px);
+
+  /* Distance from the viewport edge to the content edge. Used to hang the
+     datum marker on the same vertical line as the content. */
+  --rail:max(var(--gutter), calc((100vw - var(--measure)) / 2 + var(--gutter)));
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease:cubic-bezier(.2,.7,.2,1);        /* hover and micro-interaction    */
+  --ease-out:cubic-bezier(.16,.84,.3,1);  /* entrances                      */
+}
+
+@media (max-width:880px){
+  :root{ --datum-size:28px; }
+}

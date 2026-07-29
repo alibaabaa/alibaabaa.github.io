@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Site header
+   Used on every page. On narrow screens the brand and the call to action
+   hold the first row and the section links wrap onto a second row, so no
+   navigation is hidden and no JavaScript is needed to reach it.
+   ========================================================================== */
+
+.site-header{
+  background:var(--c-surface-1);
+  border-bottom:1px solid var(--c-line);
+}
+.site-header__inner{
+  display:flex;
+  align-items:center;
+  gap:clamp(18px, 2.6vw, 38px);
+  padding-block:clamp(20px, 2.6vw, 30px);
+}
+
+.brand{ display:block; margin-right:auto; }
+.brand img{ height:clamp(19px, 1.95vw, 24px); width:auto; display:block; }
+
+.site-nav{ display:flex; align-items:center; gap:clamp(18px, 2.6vw, 38px); }
+
+.site-nav__link{
+  position:relative;
+  font-size:15px;
+  color:var(--c-ink-muted);
+  text-decoration:none;
+  padding:6px 0;
+}
+.site-nav__link::after{
+  content:""; position:absolute; left:0; right:0; bottom:2px; height:1px;
+  background:var(--c-ink);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .3s var(--ease);
+}
+.site-nav__link:hover{ color:var(--c-ink); }
+.site-nav__link:hover::after{ transform:scaleX(1); }
+
+/* Current page marker. Add aria-current="page" in the markup. */
+.site-nav__link[aria-current="page"]{ color:var(--c-ink); }
+.site-nav__link[aria-current="page"]::after{ transform:scaleX(1); background:var(--c-line); }
+
+.site-nav__cta{
+  display:inline-flex; align-items:center; gap:9px;
+  color:var(--c-ink); font-weight:500; text-decoration:none;
+}
+
+@media (max-width:880px){
+  .site-header__inner{ flex-wrap:wrap; row-gap:4px; }
+  .site-nav{ order:3; width:100%; gap:22px; }
+  .site-nav__link{ padding:11px 0; }   /* 44px touch target */
+}

@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Eyebrow
+   Blue rule above a micro label. Marks the start of a section or a page.
+   Pair with .label for the type: <p class="eyebrow label">What I do</p>
+   ========================================================================== */
+
+.eyebrow{ display:block; margin:0 0 clamp(16px, 2.2vh, 22px); }
+.eyebrow::before{
+  content:"";
+  display:block;
+  width:28px; height:2px;
+  background:var(--c-accent);
+  margin-bottom:13px;
+}
+
+/* Slightly more air when it opens a page rather than a section */
+.eyebrow--lead{ margin-bottom:clamp(20px, 3vh, 32px); }
+.eyebrow--lead::before{ margin-bottom:14px; }

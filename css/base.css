@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Base
+   Document defaults and accessibility. No component styling lives here.
+   ========================================================================== */
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+  -webkit-text-size-adjust:100%;   /* stop iOS inflating type in landscape */
+}
+
+html,body{ margin:0; padding:0; }
+
+body{
+  background:var(--c-surface-1);
+  color:var(--c-ink);
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  -webkit-tap-highlight-color:rgba(46,130,255,.14);
+  overflow-wrap:break-word;
+}
+
+img{ max-width:100%; height:auto; }
+
+h1,h2,h3,h4{ margin:0; font-weight:400; }
+
+/* --- Focus ------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--c-accent);
+  outline-offset:4px;
+  border-radius:2px;
+}
+/* On reversed surfaces the accent is too close to the background */
+.stratum--bedrock a:focus-visible,
+.site-footer a:focus-visible{ outline-color:#7DB0FF; }
+
+/* --- Skip link --------------------------------------------------------- */
+.skip-link{
+  position:absolute; left:-9999px; top:0; z-index:20;
+  background:var(--c-ink); color:var(--c-surface-1);
+  padding:12px 18px; text-decoration:none; font-size:14px;
+}
+.skip-link:focus{ left:var(--gutter); top:12px; }
+
+/* --- Motion preferences -------------------------------------------------
+   The prefers-reduced-motion overrides live at the foot of utilities.css,
+   after the animations they switch off. Source order matters there.
+   ------------------------------------------------------------------------ */

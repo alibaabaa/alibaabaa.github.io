@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Typography objects
+   Three roles, and only three. Display serif, body sans, micro label.
+   Anything that needs a fourth role probably needs rethinking instead.
+   ========================================================================== */
+
+/* --- Display: the serif. Section-opening statements. -------------------- */
+.lede{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(1.42rem, 2.62vw, 2.28rem);
+  line-height:1.16;
+  letter-spacing:-.015em;
+  margin:0;
+  max-width:20ch;
+  text-wrap:pretty;
+}
+.lede--tight{ max-width:19ch; }              /* longer lines, same size     */
+.lede--lg{                                    /* the closing question       */
+  font-size:clamp(1.55rem, 3vw, 2.7rem);
+  line-height:1.08;
+  max-width:19ch;
+}
+
+/* --- Body: running prose ------------------------------------------------ */
+.prose{ max-width:56ch; }
+.prose--narrow{ max-width:50ch; }
+.prose p{
+  margin:0 0 18px;
+  font-size:clamp(15.5px, 1.1vw, 17px);
+  line-height:1.65;
+  color:var(--c-ink-muted);
+}
+.prose p:last-child{ margin-bottom:0; }
+.prose strong{ color:var(--c-ink); font-weight:600; }
+
+/* --- Micro label: eyebrows, credentials, jump links --------------------- */
+.label{
+  font-size:clamp(11px, .85vw, 12px);
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  font-weight:500;
+  line-height:1.5;
+  color:var(--c-ink-faint);
+}
+
+@media (max-width:880px){
+  .lede{ max-width:26ch; }
+  .lede--tight{ max-width:24ch; }
+  .lede--lg{ max-width:22ch; }
+}
+@media (max-width:480px){
+  .label{ letter-spacing:.14em; }   /* stop long labels overflowing */
+}

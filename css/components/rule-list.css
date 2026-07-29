@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Rule list
+   Hairline-ruled list with an accent dot. Deliberately unnumbered: the items
+   are a set, not a sequence. If you ever need a real sequence, that is a
+   different component.
+   ========================================================================== */
+
+.rule-list{
+  list-style:none;
+  margin:clamp(28px, 3.8vh, 42px) 0 0;
+  padding:0;
+  border-top:1px solid var(--c-line);
+}
+.rule-list__item{
+  display:flex; align-items:flex-start; gap:14px;
+  padding:clamp(13px, 1.7vh, 17px) 0;
+  border-bottom:1px solid var(--c-line);
+  font-size:clamp(15.5px, 1.14vw, 17.5px);
+  line-height:1.38;
+  color:var(--c-ink);
+}
+.rule-list__item .dot{ margin-top:.52em; }   /* optical alignment to the cap */

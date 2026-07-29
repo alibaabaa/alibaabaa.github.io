@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Links
+   .link-arrow  section-closing link, body size, hairline underline
+   .jump-link   micro-label link, used for in-page jumps
+   ========================================================================== */
+
+.link-arrow{
+  display:inline-flex; align-items:center; gap:11px;
+  font-size:15px; font-weight:500;
+  color:var(--c-ink);
+  text-decoration:none;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--c-line);
+  transition:border-color .35s var(--ease);
+}
+.link-arrow__arrow{ display:inline-block; transition:transform .35s var(--ease); }
+.link-arrow:hover{ border-color:var(--c-ink); }
+.link-arrow:hover .link-arrow__arrow{ transform:translateX(5px); }
+
+.jump-link{
+  display:inline-flex; align-items:center; gap:10px;
+  color:var(--c-ink-faint);
+  text-decoration:none;
+  padding-bottom:5px;
+  border-bottom:1px solid transparent;
+  transition:color .3s var(--ease), border-color .3s var(--ease);
+}
+.jump-link .link-arrow__arrow{ transition:transform .35s var(--ease); }
+.jump-link:hover{ color:var(--c-ink); border-bottom-color:var(--c-line); }
+.jump-link:hover .link-arrow__arrow{ transform:translateY(3px); }
+
+@media (max-width:480px){
+  .jump-link{ margin-left:auto; }   /* stays right when the row wraps */
+}

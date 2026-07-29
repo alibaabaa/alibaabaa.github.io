@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Datum marker
+   The disc that straddles a stratum boundary, and the accent dot it shares a
+   colour language with. The marker is decorative: keep aria-hidden on it.
+
+   Its parent must be position:relative. Use sparingly. Two markers close
+   together read as a rendering fault rather than a motif.
+   ========================================================================== */
+
+.datum{
+  position:absolute; top:0; right:var(--rail); z-index:4;
+  width:var(--datum-size); height:var(--datum-size);
+  border-radius:50%;
+  background:var(--c-slate);
+  display:grid; place-items:center;
+  transform:translateY(-50%);
+  opacity:.88;
+  pointer-events:none;
+}
+.datum svg{ width:56%; height:56%; display:block; }
+.datum svg *{
+  stroke:var(--c-surface-2);
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
+
+/* On a bedrock boundary the disc sinks into the section below it */
+.datum--sunken{ background:var(--c-ink); opacity:1; }
+
+/* --- Accent dot --------------------------------------------------------- */
+.dot{
+  width:7px; height:7px;
+  border-radius:50%;
+  background:var(--c-accent);
+  flex:none;
+  display:inline-block;
+}

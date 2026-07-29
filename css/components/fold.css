@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Fold — homepage only
+   Three stacked strata: header band, hero band, base band. The hero band is
+   sized by its own content plus deliberate air, never by viewport height, so
+   the composition is identical on a phone and on a 27in display.
+   ========================================================================== */
+
+.fold{ display:flex; flex-direction:column; }
+
+/* --- Hero band ---------------------------------------------------------- */
+.fold__hero{
+  position:relative;
+  background:var(--c-surface-2);
+  border-bottom:1px solid var(--c-line);
+}
+.fold__hero-inner{
+  padding-top:clamp(58px, 10.5vh, 124px);
+  padding-bottom:clamp(38px, 5.6vh, 62px);
+}
+
+/* Headline left, outcome right, both sitting on the same bottom line. The
+   outcome's hairline hugs its own text rather than spanning to the top of the
+   headline, so it never reads as a rule floating on its own. */
+.fold__lockup{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,.42fr);
+  gap:clamp(30px, 4.4vw, 72px);
+  align-items:end;
+}
+
+.fold__title{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(2.5rem, 6.05vw, 5.6rem);
+  line-height:.955;
+  letter-spacing:-.019em;
+  margin:0;
+}
+
+.fold__outcome{
+  align-self:end;
+  margin:0;
+  padding-top:clamp(14px, 1.8vh, 18px);
+  border-top:1px solid var(--c-line);
+  max-width:34ch;
+  font-size:clamp(15.5px, 1.2vw, 18px);
+  line-height:1.5;
+  letter-spacing:-.004em;
+  color:var(--c-ink);
+}
+
+/* --- Base band ---------------------------------------------------------- */
+.fold__base{
+  position:relative;
+  background:var(--c-surface-3);
+}
+.fold__base-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:22px;
+  padding-block:clamp(22px, 3.6vh, 38px);
+}
+
+@media (max-width:880px){
+  .fold__break{ display:none; }          /* let the headline wrap naturally */
+  .fold__lockup{ grid-template-columns:1fr; gap:clamp(24px, 3.4vh, 32px); }
+  .fold__outcome{ max-width:38ch; padding-top:clamp(18px, 2.4vh, 24px); }
+}
+@media (max-width:480px){
+  .fold__base-inner{ flex-wrap:wrap; row-gap:14px; }
+}

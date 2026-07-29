@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Layout
+   The page scaffolding. Sections are strata: horizontal bands of the core
+   sample, descending from palest at the top to bedrock at the bottom.
+   ========================================================================== */
+
+/* --- Content rail -------------------------------------------------------- */
+.wrap{
+  width:100%;
+  max-width:var(--measure);
+  margin-inline:auto;
+  padding-inline:
+    max(var(--gutter), env(safe-area-inset-left))
+    max(var(--gutter), env(safe-area-inset-right));
+}
+
+/* --- Stratum: one full-width section ------------------------------------ */
+.stratum{ position:relative; }
+.stratum__inner{ padding-block:var(--band); }
+
+.stratum--pale{    background:var(--c-surface-1); border-top:1px solid var(--c-line); }
+.stratum--warm{    background:var(--c-surface-2); border-top:1px solid var(--c-line); }
+.stratum--bedrock{ background:var(--c-ink); color:var(--c-inv-ink); }
+
+/* Reversed type inside the bedrock stratum */
+.stratum--bedrock .lede{ color:var(--c-inv-ink); }
+.stratum--bedrock .prose p{ color:var(--c-inv-muted); }
+.stratum--bedrock .prose strong{ color:var(--c-inv-ink); }
+
+/* --- Duo: the asymmetric two-column reading grid ------------------------ */
+.duo{
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);
+  gap:clamp(28px, 5vw, 80px);
+  align-items:start;
+}
+
+@media (max-width:880px){
+  .duo{ grid-template-columns:1fr; gap:30px; }
+}
