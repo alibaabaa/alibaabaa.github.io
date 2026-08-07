@@ -60,11 +60,40 @@
   padding-block:clamp(22px, 3.6vh, 38px);
 }
 
+/* The four things a prospect is quietly wondering, answered before they ask.
+   Hairlines separate rather than bullets, so the row reads as one object
+   rather than four assertions. Colour and type come from .label. */
+.proof-strip{
+  display:flex; flex-wrap:wrap; align-items:center;
+  gap:12px clamp(11px, 1.5vw, 22px);
+  margin:0; padding:0;
+  list-style:none;
+}
+.proof-strip li{
+  display:flex; align-items:center;
+  gap:clamp(11px, 1.5vw, 22px);
+}
+.proof-strip li + li::before{
+  content:"";
+  width:1px; height:11px; flex:none;
+  background:var(--c-line);
+}
+
 @media (max-width:880px){
   .fold__break{ display:none; }          /* let the headline wrap naturally */
   .fold__lockup{ grid-template-columns:1fr; gap:clamp(24px, 3.4vh, 32px); }
   .fold__outcome{ max-width:38ch; padding-top:clamp(18px, 2.4vh, 24px); }
+
+  /* Once the outcome drops beneath the title the fold is a single column, and
+     the strip goes with it rather than wrapping to two lines. Only the band's
+     contents are hidden: .fold__base keeps no height of its own, so it
+     collapses to the hero's foot while the datum disc stays anchored to that
+     boundary. Hero padding equalises, so the hero reads as a symmetrical
+     block once nothing sits beneath it. */
+  .fold__base-inner{ display:none; }
+  .fold__hero{ border-bottom:0; }        /* .stratum--pale owns the boundary now */
+  .fold__hero-inner{ padding-block:clamp(58px, 10.5vh, 124px); }
 }
 @media (max-width:480px){
-  .fold__base-inner{ flex-wrap:wrap; row-gap:14px; }
+  .proof-strip li + li::before{ height:9px; }
 }
