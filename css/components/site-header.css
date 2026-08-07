@@ -51,3 +51,12 @@
   .site-nav{ order:3; width:100%; gap:22px; }
   .site-nav__link{ padding:11px 0; }   /* 44px touch target */
 }
+
+/* The two-row header only holds while the brand and the call to action fit
+   one line together. Below about 360px they stop fitting, the call to action
+   takes a row of its own and the header becomes three rows deep. Buying back
+   roughly 20px here keeps it to two rows on every phone still in use. */
+@media (max-width:400px){
+  .site-header__inner{ gap:12px; }
+  .site-nav__cta{ font-size:14px; }
+}
