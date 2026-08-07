@@ -28,13 +28,15 @@
   align-items:end;
 }
 
-/* The floor governs everything below about 790px, so raising it is a
-   narrow-screen change only. Instrument Serif ships one weight, so size and
-   leading are the only means of making the title dominate its screen. */
+/* The floor governs everything below about 925px, so raising it is a
+   narrow-screen change only — desktop still runs off the 6.05vw term. A phone
+   viewport is small enough that the title needs to be proportionally larger
+   there, not smaller, if it is to hold the screen on its own. 3.5rem is the
+   ceiling before "team can prove." stops fitting one line at 390px. */
 .fold__title{
   font-family:var(--font-display);
   font-weight:400;
-  font-size:clamp(3rem, 6.05vw, 5.6rem);
+  font-size:clamp(3.5rem, 6.05vw, 5.6rem);
   line-height:.955;
   letter-spacing:-.019em;
   margin:0;
@@ -95,4 +97,14 @@
   .fold__base-inner{ display:none; }
   .fold__hero{ border-bottom:0; }        /* .stratum--pale owns the boundary now */
   .fold__hero-inner{ padding-block:clamp(58px, 10.5vh, 124px); }
+}
+
+@media (max-width:480px){
+  /* Dropping the nav row returns about 100px. Left alone it would simply pull
+     the section below into view, which is what made the fold feel busy in the
+     first place — so the hero absorbs it rather than the page scrolling up.
+     The boundary then lands near the foot of the screen and the lede beneath
+     it is left half-covered by the browser chrome: enough to say there is
+     more, not enough to read as a second headline. */
+  .fold__hero-inner{ padding-block:clamp(72px, 13vh, 124px); }
 }

@@ -52,10 +52,20 @@
   .site-nav__link{ padding:11px 0; }   /* 44px touch target */
 }
 
-/* The two-row header only holds while the brand and the call to action fit
-   one line together. Below about 360px they stop fitting, the call to action
-   takes a row of its own and the header becomes three rows deep. Buying back
-   roughly 20px here keeps it to two rows on every phone still in use. */
+/* On a phone the section links go, and the header is one row: brand left,
+   call to action right. A visitor who has just arrived has no use for them,
+   and the second row cost 45px of a 764px screen. Nothing becomes
+   unreachable — the footer carries every one of these links, plus the CRA
+   factsheet — so the no-hidden-navigation rule above still holds; the links
+   sit at the end of the document rather than behind a control. */
+@media (max-width:480px){
+  .site-nav{ display:none; }
+}
+
+/* The one-row header only holds while the brand and the call to action fit
+   a line together. Below about 360px they stop fitting and the call to
+   action drops to a row of its own. Buying back roughly 20px here keeps it
+   to one row on every phone still in use. */
 @media (max-width:400px){
   .site-header__inner{ gap:12px; }
   .site-nav__cta{ font-size:14px; }
