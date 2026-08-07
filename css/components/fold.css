@@ -55,16 +55,41 @@
   background:var(--c-surface-3);
 }
 .fold__base-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:22px;
-  padding-block:clamp(22px, 3.6vh, 38px);
+  display:flex; align-items:center;
+  padding-block:clamp(16px, 2.3vh, 26px);
+}
+
+/* The four things a prospect is quietly wondering, answered before they ask.
+   Distributed across the full measure so the row is flush at both edges
+   rather than trailing off two thirds of the way across. The separators are
+   markup rather than ::before, because space-between can only centre them in
+   the gaps if they are flex items in their own right. Type and colour come
+   from .label. */
+.proof-strip{
+  display:flex; flex-wrap:wrap; align-items:center;
+  justify-content:space-between;
+  flex:1;
+  gap:12px 14px;
+  margin:0; padding:0;
+  list-style:none;
+}
+.proof-strip__rule{
+  width:1px; height:11px; flex:none;
+  background:var(--c-line);
 }
 
 @media (max-width:880px){
   .fold__break{ display:none; }          /* let the headline wrap naturally */
   .fold__lockup{ grid-template-columns:1fr; gap:clamp(24px, 3.4vh, 32px); }
   .fold__outcome{ max-width:38ch; padding-top:clamp(18px, 2.4vh, 24px); }
-}
-@media (max-width:480px){
-  .fold__base-inner{ flex-wrap:wrap; row-gap:14px; }
+
+  /* Once the outcome drops beneath the title the fold is a single column, and
+     the strip goes with it rather than wrapping to two lines. Only the band's
+     contents are hidden: .fold__base keeps no height of its own, so it
+     collapses to the hero's foot while the datum disc stays anchored to that
+     boundary. Hero padding equalises, so the hero reads as a symmetrical
+     block once nothing sits beneath it. */
+  .fold__base-inner{ display:none; }
+  .fold__hero{ border-bottom:0; }        /* .stratum--pale owns the boundary now */
+  .fold__hero-inner{ padding-block:clamp(58px, 10.5vh, 124px); }
 }
