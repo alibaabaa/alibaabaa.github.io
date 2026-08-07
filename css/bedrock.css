@@ -1,0 +1,25 @@
+---
+# Build-time concatenation. Jekyll processes the Liquid below and publishes
+# the result as a single /css/bedrock.css — one request instead of fifteen.
+# The source files stay in css/ (excluded from the built site) so
+# styleguide.html keeps working offline and main.css remains the dev entry
+# point. Import order matches css/main.css; keep the two lists in step.
+---
+{% if site.local_fonts %}{% include_relative fonts.css %}{% endif %}
+{% include_relative tokens.css %}
+{% include_relative base.css %}
+{% include_relative typography.css %}
+{% include_relative layout.css %}
+{% include_relative components/site-header.css %}
+{% include_relative components/fold.css %}
+{% include_relative components/page-head.css %}
+{% include_relative components/eyebrow.css %}
+{% include_relative components/datum.css %}
+{% include_relative components/rule-list.css %}
+{% include_relative components/article-card.css %}
+{% include_relative components/article.css %}
+{% include_relative components/link.css %}
+{% include_relative components/button.css %}
+{% include_relative components/credential.css %}
+{% include_relative components/site-footer.css %}
+{% include_relative utilities.css %}

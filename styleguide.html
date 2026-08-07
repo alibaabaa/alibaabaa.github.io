@@ -182,6 +182,21 @@
   </section>
 
   <section class="sg-item">
+    <p class="sg-name">Article prose</p>
+    <p class="sg-note">Extensions to <code>.prose</code> for long-form Markdown bodies (<code>css/components/article.css</code>). Jekyll renders a post's Markdown inside a <code>.prose</code> wrapper in the article layout, so headings, lists, links, quotes and code need no classes. Headings are the sans at 600 — the serif appears once per article, as the title in the page head. Links underline in the hairline colour and darken to ink on hover; the accent stays out of text.</p>
+    <div class="sg-demo prose">
+      <h2>A body heading</h2>
+      <p>Running prose with <a href="#">an inline link</a> and <code>inline code</code>.</p>
+      <ul><li>An unordered list item</li><li>Another</li></ul>
+      <blockquote><p>A quotation against a hairline rule.</p></blockquote>
+    </div>
+    <pre class="sg-code">&lt;div class="prose"&gt;
+  &lt;h2&gt;…&lt;/h2&gt;  &lt;p&gt;…&lt;/p&gt;  &lt;ul&gt;…&lt;/ul&gt;  &lt;blockquote&gt;…&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;!-- In a post, just write Markdown; the article layout adds the wrapper. --&gt;</pre>
+  </section>
+
+  <section class="sg-item">
     <p class="sg-name">Motion utilities</p>
     <p class="sg-note"><code>.u-enter</code> runs on page load, staggered with <code>--delay</code>, and is used above the fold only. <code>.u-reveal</code> fades in on scroll, staggered with <code>--i</code>, and is used everywhere below it. Both are switched off under reduced motion, and <code>.u-reveal</code> content stays visible if JavaScript fails.</p>
     <pre class="sg-code">&lt;p class="u-enter" style="--delay:.2s"&gt;…&lt;/p&gt;

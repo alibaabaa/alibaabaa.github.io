@@ -11,9 +11,11 @@
    5. components  one file per named block. Add new files here.
    6. utilities   small single-purpose helpers. Always last.
 
-   For production, concatenate these into one file to avoid serial requests.
-   Any static site generator or `cat` will do it, e.g.
-     cat css/tokens.css css/base.css ... > css/bedrock.min.css
+   In production, Jekyll concatenates these into a single /css/bedrock.css
+   at build time (see bedrock.css in this directory). Pages link that file.
+   This entry point remains for offline use: styleguide.html and
+   page-template.html load it directly from disk. If you add an import here,
+   add the matching include_relative line to bedrock.css.
    ========================================================================== */
 
 @import url("tokens.css");
@@ -28,6 +30,7 @@
 @import url("components/datum.css");
 @import url("components/rule-list.css");
 @import url("components/article-card.css");
+@import url("components/article.css");
 @import url("components/link.css");
 @import url("components/button.css");
 @import url("components/credential.css");
