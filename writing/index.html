@@ -1,0 +1,23 @@
+---
+layout: page
+title: Written to be useful on its own.
+eyebrow: Writing
+permalink: /writing/
+description: >-
+  Writing from Bedrock Cyber on product security, third-party risk and the
+  EU Cyber Resilience Act.
+---
+<section class="stratum stratum--pale">
+  <div class="wrap stratum__inner">
+    <div class="article-grid">
+      {%- for post in site.posts %}
+      <a class="article-card u-reveal" style="--i:{{ forloop.index0 }}" href="{{ post.url }}">
+        <h3 class="article-card__title">{{ post.title }}</h3>
+        <p class="article-card__standfirst">{{ post.standfirst }}</p>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include stratum-cta.html %}

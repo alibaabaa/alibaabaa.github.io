@@ -1,42 +1,15 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-<!-- partials/head.html -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F8F6F2">
-<title>Bedrock Cyber | Product security for teams building critical product solutions</title>
-<meta name="description" content="Answer whatever a customer or a regulator asks, from what your engineers already do. Product security, threat modelling and evidence for teams building critical product solutions.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
-
-<script>document.documentElement.classList.add('js');</script>
-</head>
-<body>
-
-<a class="skip-link" href="#main">Skip to content</a>
-
+---
+layout: default
+fold: true
+browser_title: Bedrock Cyber | Product security for teams building critical product solutions
+description: >-
+  Answer whatever a customer or a regulator asks, from what your engineers
+  already do. Product security, threat modelling and evidence for teams
+  building critical product solutions.
+---
 <header class="fold">
 
-  <!-- partials/site-header.html -->
-  <div class="site-header">
-    <div class="wrap site-header__inner">
-      <a class="brand" href="/" aria-label="Bedrock Cyber, home">
-        <img src="assets/logo.png" alt="Bedrock Cyber" width="520" height="75">
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a class="site-nav__link" href="/writing/">Writing</a>
-        <a class="site-nav__link" href="/services/">Services</a>
-        <a class="site-nav__link" href="/about/">About</a>
-      </nav>
-      <a class="site-nav__link site-nav__cta" href="#start">
-        <span class="dot" aria-hidden="true"></span>Start a conversation
-      </a>
-    </div>
-  </div>
+  {% include site-header.html %}
 
   <!-- Hero band -->
   <div class="fold__hero">
@@ -94,7 +67,7 @@
     </div>
   </section>
 
-  <!-- Block 3: point of view -->
+  <!-- Block 3: point of view. Cards fill automatically from _posts/. -->
   <section class="stratum stratum--warm" aria-labelledby="pov-lede">
     <div class="wrap stratum__inner">
       <div class="u-reveal" style="--i:0">
@@ -103,19 +76,12 @@
       </div>
 
       <div class="article-grid">
-        <a class="article-card u-reveal" style="--i:1" href="/writing/utility-third-party-risk/">
-          <h3 class="article-card__title">Regulatory pressure on utility third-party risk means suppliers are falling behind</h3>
-          <p class="article-card__standfirst">Operator risk reviews have stopped being a procurement event. What that means for whoever answers them.</p>
+        {%- for post in site.posts limit: 3 %}
+        <a class="article-card u-reveal" style="--i:{{ forloop.index }}" href="{{ post.url }}">
+          <h3 class="article-card__title">{{ post.title }}</h3>
+          <p class="article-card__standfirst">{{ post.standfirst }}</p>
         </a>
-        <!-- Placeholder: swap for the published headline once the ML integrity piece is live. -->
-        <a class="article-card u-reveal" style="--i:2" href="/writing/">
-          <h3 class="article-card__title">[ML integrity piece, published title]</h3>
-          <p class="article-card__standfirst">When a model's output sends a crew to a site, stealing the data is the least interesting thing an attacker could do.</p>
-        </a>
-        <a class="article-card u-reveal" style="--i:3" href="/eu-cyber-resilience-act/">
-          <h3 class="article-card__title">The EU Cyber Resilience Act: what it asks of you, and by when</h3>
-          <p class="article-card__standfirst">A factsheet for suppliers with a hardware or connected-product element.</p>
-        </a>
+        {%- endfor %}
       </div>
 
       <a class="link-arrow u-space-l u-reveal" style="--i:4" href="/writing/">More <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
@@ -138,8 +104,8 @@
           <p>You describe where you are today and what's being asked of you.</p>
           <p>If the work is better suited to someone else, you'll hear that on the call rather than in a follow-up email, and a pointer in the right direction.</p>
         </div>
-        <a class="btn u-space-m" href="/contact/">
-          <span class="dot" aria-hidden="true"></span>Start a conversation
+        <a class="btn u-space-m" href="{{ site.data.nav.cta.url }}">
+          <span class="dot" aria-hidden="true"></span>{{ site.data.nav.cta.label }}
           <span class="btn__arrow" aria-hidden="true">&rarr;</span>
         </a>
       </div>
@@ -147,31 +113,3 @@
   </section>
 
 </main>
-
-<!-- partials/site-footer.html -->
-<footer class="site-footer">
-  <div class="wrap site-footer__inner">
-    <div class="site-footer__top">
-      <a class="site-footer__brand" href="/" aria-label="Bedrock Cyber, home">
-        <img src="assets/logo-reversed.png" alt="Bedrock Cyber" width="520" height="75">
-      </a>
-      <nav class="site-footer__nav" aria-label="Footer">
-        <a class="site-footer__link" href="/writing/">Writing</a>
-        <a class="site-footer__link" href="/services/">Services</a>
-        <a class="site-footer__link" href="/about/">About</a>
-        <a class="site-footer__link" href="/eu-cyber-resilience-act/">EU Cyber Resilience Act</a>
-      </nav>
-    </div>
-    <div class="site-footer__meta">
-      <span class="credential">
-        <span class="credential__mark" aria-hidden="true">CE</span>
-        <span>Cyber Essentials certified</span>
-      </span>
-      <span>&copy; 2026 Bedrock Cyber</span>
-    </div>
-  </div>
-</footer>
-
-<script src="js/reveal.js" defer></script>
-</body>
-</html>
