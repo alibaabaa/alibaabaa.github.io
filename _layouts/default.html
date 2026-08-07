@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+{% include head.html %}
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+{% unless page.fold %}{% include site-header.html %}{% endunless %}
+{{ content }}
+
+{% include site-footer.html %}
+
+<script src="/js/reveal.js" defer></script>
+</body>
+</html>

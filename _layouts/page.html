@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<div class="page-head">
+  <div class="wrap page-head__inner">
+    {% if page.eyebrow %}<p class="eyebrow eyebrow--lead label u-enter" style="--delay:.08s">{{ page.eyebrow }}</p>
+    {% endif %}<h1 class="page-head__title u-enter" style="--delay:.2s">{{ page.title }}</h1>
+    {% if page.standfirst %}<p class="page-head__standfirst u-enter" style="--delay:.34s">{{ page.standfirst }}</p>
+    {% endif %}</div>
+</div>
+
+<main id="main">
+{{ content }}
+</main>

@@ -1,0 +1,60 @@
+# Bedrock Cyber — Jekyll configuration for GitHub Pages (native build).
+# GitHub Pages runs Jekyll 3.10 with a fixed plugin whitelist; everything
+# here stays inside that. See https://pages.github.com/versions/
+
+title: Bedrock Cyber
+description: >-
+  Answer whatever a customer or a regulator asks, from what your engineers
+  already do. Product security, threat modelling and evidence for teams
+  building critical product solutions.
+
+# Current host. When the site moves to bedrockcyber.co.uk: change this url,
+# add a CNAME file containing the bare domain, and nothing else — every
+# internal link in the site is root-relative, so no content changes.
+url: "https://alibaabaa.github.io"
+
+timezone: Europe/London
+markdown: kramdown
+
+# Posts live in _posts/ and publish at /writing/<slug>/
+permalink: /writing/:title/
+
+# Self-hosted fonts. false = load from Google Fonts (current behaviour).
+# Run scripts/fetch-fonts.sh, then flip to true to serve fonts from
+# /assets/fonts/ with no third-party requests.
+local_fonts: false
+
+# Whitelisted plugins, built server-side by GitHub Pages.
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+# Every post gets the article layout without declaring it.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+
+# Private files: kept in the repo, never published to the site.
+# (css sources are excluded because /css/bedrock.css concatenates them at
+# build time; excluding them here does not stop include_relative reading them.)
+exclude:
+  - README.md
+  - page-template.html
+  - styleguide.html
+  - scripts/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - css/main.css
+  - css/tokens.css
+  - css/base.css
+  - css/typography.css
+  - css/layout.css
+  - css/utilities.css
+  - css/components

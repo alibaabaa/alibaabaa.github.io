@@ -1,0 +1,24 @@
+{% comment %}
+  Closing call to action. One per page, always the last stratum.
+  Defaults suit most pages; override per use:
+  {% include stratum-cta.html lede="Your question." body="Your line." %}
+{% endcomment %}
+<section class="stratum stratum--bedrock" id="start">
+  <span class="datum datum--sunken" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M4 7.6 H20"/><path d="M12 8.4 L5.2 19"/><path d="M12 8.4 L18.8 19"/><path d="M12 8.4 V19"/></svg>
+  </span>
+  <div class="wrap stratum__inner duo">
+    <div class="u-reveal" style="--i:0">
+      <p class="lede lede--lg">{{ include.lede | default: "What are you being asked to prove?" }}</p>
+    </div>
+    <div class="u-reveal" style="--i:1">
+      <div class="prose prose--narrow">
+        <p>{{ include.body | default: "That's the conversation. One call, no charge, no slides." }}</p>
+      </div>
+      <a class="btn u-space-m" href="{{ site.data.nav.cta.url }}">
+        <span class="dot" aria-hidden="true"></span>{{ site.data.nav.cta.label }}
+        <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>

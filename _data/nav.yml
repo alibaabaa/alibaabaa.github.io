@@ -1,0 +1,25 @@
+# Site navigation, defined once. Header and footer both read this file,
+# so the two can never drift apart again. Order here is display order.
+# aria-current is applied automatically by comparing each url to page.url.
+
+header:
+  - label: Writing
+    url: /writing/
+  - label: Services
+    url: /services/
+  - label: About
+    url: /about/
+
+footer:
+  - label: Writing
+    url: /writing/
+  - label: Services
+    url: /services/
+  - label: About
+    url: /about/
+  - label: EU Cyber Resilience Act
+    url: /eu-cyber-resilience-act/
+
+cta:
+  label: Start a conversation
+  url: /contact/

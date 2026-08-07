@@ -1,0 +1,21 @@
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <a class="site-footer__brand" href="/" aria-label="Bedrock Cyber, home">
+        <img src="/assets/logo-reversed.png" alt="Bedrock Cyber" width="520" height="75">
+      </a>
+      <nav class="site-footer__nav" aria-label="Footer">
+        {%- for item in site.data.nav.footer %}
+        <a class="site-footer__link" href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {%- endfor %}
+      </nav>
+    </div>
+    <div class="site-footer__meta">
+      <span class="credential">
+        <span class="credential__mark" aria-hidden="true">CE</span>
+        <span>Cyber Essentials certified</span>
+      </span>
+      <span>&copy; {{ site.time | date: "%Y" }} Bedrock Cyber</span>
+    </div>
+  </div>
+</footer>
