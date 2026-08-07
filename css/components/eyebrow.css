@@ -16,3 +16,10 @@
 /* Slightly more air when it opens a page rather than a section */
 .eyebrow--lead{ margin-bottom:clamp(20px, 3vh, 32px); }
 .eyebrow--lead::before{ margin-bottom:14px; }
+
+/* On a phone the lead eyebrow is long enough to take two lines, which turns a
+   label into a paragraph and sets it competing with the title beneath it.
+   Tighter tracking holds it to one line on a 390px screen. */
+@media (max-width:480px){
+  .eyebrow--lead{ letter-spacing:.1em; }
+}

@@ -28,10 +28,13 @@
   align-items:end;
 }
 
+/* The floor governs everything below about 790px, so raising it is a
+   narrow-screen change only. Instrument Serif ships one weight, so size and
+   leading are the only means of making the title dominate its screen. */
 .fold__title{
   font-family:var(--font-display);
   font-weight:400;
-  font-size:clamp(2.5rem, 6.05vw, 5.6rem);
+  font-size:clamp(3rem, 6.05vw, 5.6rem);
   line-height:.955;
   letter-spacing:-.019em;
   margin:0;
@@ -92,11 +95,4 @@
   .fold__base-inner{ display:none; }
   .fold__hero{ border-bottom:0; }        /* .stratum--pale owns the boundary now */
   .fold__hero-inner{ padding-block:clamp(58px, 10.5vh, 124px); }
-}
-
-@media (max-width:480px){
-  /* Equalised desktop padding costs about 140px on a phone, which is the
-     difference between the fold landing on an eyebrow and landing on a
-     sentence worth reading. Still equal top and bottom, just less of it. */
-  .fold__hero-inner{ padding-block:clamp(32px, 5vh, 44px); }
 }

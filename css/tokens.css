@@ -48,10 +48,3 @@
 @media (max-width:880px){
   :root{ --datum-size:28px; }
 }
-
-/* A band tuned for a 27in display is a third of a phone screen. Below 480px
-   the section padding tightens so a reader arrives at content rather than at
-   the space above it. */
-@media (max-width:480px){
-  :root{ --band:clamp(40px, 6.2vh, 66px); }
-}
