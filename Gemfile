@@ -10,3 +10,8 @@ gem "github-pages", group: :jekyll_plugins
 
 # Ruby 3 no longer bundles webrick, which jekyll 3.x needs for `serve`.
 gem "webrick"
+
+# Windows has no system timezone database, so tzinfo needs one shipped as a
+# gem. Without this, `timezone:` in _config.yml raises DataSourceNotFound.
+# Linux and macOS use the OS database and skip this.
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
