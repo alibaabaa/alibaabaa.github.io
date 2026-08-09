@@ -90,28 +90,7 @@ description: >-
     </div>
   </section>
 
-  <!-- Block 4: one next step, the bedrock -->
-  <section class="stratum stratum--bedrock" id="start" aria-labelledby="step-lede">
-    <span class="datum datum--sunken" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M4 7.6 H20"/><path d="M12 8.4 L5.2 19"/><path d="M12 8.4 L18.8 19"/><path d="M12 8.4 V19"/></svg>
-    </span>
-    <div class="wrap stratum__inner duo">
-      <div class="u-reveal" style="--i:0">
-        <p class="eyebrow label">Where to start</p>
-        <p class="lede lede--lg" id="step-lede">What are you being asked to prove?</p>
-      </div>
-      <div class="u-reveal" style="--i:1">
-        <div class="prose prose--narrow">
-          <p>That's the conversation. One call, no charge, no slides.</p>
-          <p>You describe where you are today and what's being asked of you.</p>
-          <p>If the work is better suited to someone else, you'll hear that on the call rather than in a follow-up email, and a pointer in the right direction.</p>
-        </div>
-        <a class="btn u-space-m" href="{{ site.data.nav.cta.url }}">
-          <span class="dot" aria-hidden="true"></span>{{ site.data.nav.cta.label }}
-          <span class="btn__arrow" aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- Block 4: one next step, the bedrock. Shared with every other page. -->
+  {% include stratum-cta.html %}
 
 </main>

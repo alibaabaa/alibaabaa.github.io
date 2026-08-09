@@ -33,7 +33,8 @@
     var index = Math.max(0, words.indexOf(root.querySelector('.cycle__word.is-active')));
     var widths = [];
     var timer = null;
-    var visible = true;
+    var awake = true;    /* tab in the foreground */
+    var inView = true;   /* headline on screen */
 
     /* Measure once per layout. getBoundingClientRect keeps the subpixel, which
        matters: rounding up puts a visible sliver of space before the full
@@ -73,9 +74,19 @@
       }, BLINK);
     }
 
-    function tick() { if (visible) swap(); timer = window.setTimeout(tick, HOLD); }
-    function start() { if (timer === null) timer = window.setTimeout(tick, LEAD); }
-    function stop() { window.clearTimeout(timer); timer = null; }
+    /* One timer, running for the life of the page, and a swap that is skipped
+       when nobody can see it. The obvious version — clear the timer on exit,
+       restart it on re-entry — looks tidier and is wrong on a phone: the lead
+       is longer than the time it takes to scroll a hero off a small screen, so
+       every re-entry restarted a countdown that never finished and the word
+       never changed once. A timeout every few seconds costs nothing; a
+       headline that only animates on desktop costs the whole idea. */
+    function pump(wait) {
+      timer = window.setTimeout(function () {
+        if (awake && inView) swap();
+        pump(HOLD);
+      }, wait);
+    }
 
     measure();
 
@@ -84,17 +95,15 @@
     window.addEventListener('resize', measure);
 
     document.addEventListener('visibilitychange', function () {
-      visible = !document.hidden;
+      awake = !document.hidden;
     });
 
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { start(); } else { stop(); }
-        });
+        entries.forEach(function (entry) { inView = entry.isIntersecting; });
       }, { threshold: 0 }).observe(root);
-    } else {
-      start();
     }
+
+    pump(LEAD);
   });
 })();
