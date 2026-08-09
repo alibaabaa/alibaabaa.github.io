@@ -12,6 +12,7 @@
 {% include_relative layout.css %}
 {% include_relative components/site-header.css %}
 {% include_relative components/fold.css %}
+{% include_relative components/cycle.css %}
 {% include_relative components/page-head.css %}
 {% include_relative components/eyebrow.css %}
 {% include_relative components/byline.css %}

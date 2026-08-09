@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Cycle — the swapping word in the fold headline
+   --------------------------------------------------------------------------
+   "Security your team can prove." where the last word alternates: prove,
+   trust. The intent is a display refreshing rather than a carousel, so the
+   outgoing word flickers twice before it goes, and both words travel the same
+   direction — out through the top, in from below — which reads as one line of
+   type being replaced rather than two words taking turns.
+
+   The first word carries three jobs at once, which is why "prove" appears in
+   the markup exactly once:
+   - it is the accessible text. Every word after it is aria-hidden, so a
+     screen reader reads the headline as "Security your team can prove." and
+     is not told about a decorative loop it cannot see.
+   - it stays in flow while the others are taken out of it, so the span has a
+     width and a baseline without an invisible copy holding the box open.
+   - it is the visible word at rest.
+
+   Progressive enhancement, in the same shape as .u-reveal:
+   - No JavaScript: the first word is in flow and marked .is-active, so the
+     headline is simply static and correctly sized.
+   - Reduced motion: js/cycle.js bails before the first swap, same result.
+
+   Sizing. With JS the width becomes an explicit measurement per word and
+   transitions between them, so the full stop tracks the word rather than
+   leaving a gap after the shorter one. The first word then overflows the box
+   whenever a shorter word is active, which is invisible because it is also at
+   opacity 0 by then.
+   ========================================================================== */
+
+.cycle{
+  position:relative;
+  display:inline-block;
+  vertical-align:baseline;
+  white-space:nowrap;
+}
+
+/* Measured in js/cycle.js. Unset until then, so the sizer governs. */
+.js .cycle{
+  width:var(--cycle-w, auto);
+  transition:width .52s var(--ease);
+}
+
+/* Resting state is the incoming state: sitting just low, invisible. A word
+   becomes .is-active to rise into place, then .is-leaving to carry on up and
+   out, then drops back to this state with the transition suppressed.
+
+   inline-block matters: transforms do not apply to non-replaced inline
+   elements, so the in-flow first word would not move without it. Its baseline
+   is its own text baseline, so it still sits on the headline's line. */
+.cycle__word{
+  position:absolute;
+  left:0; top:0;
+  display:inline-block;
+  opacity:0;
+  transform:translateY(.17em);
+  transition:opacity .44s var(--ease-out), transform .44s var(--ease-out);
+}
+
+/* The first word only. Left in flow to give the span its width and baseline;
+   transform and opacity do not affect layout, so it can animate like any
+   other while still holding the box. Order-dependent by design — a new word
+   goes after it, never before. */
+.cycle__word:first-child{ position:static; }
+.cycle__word.is-active{ opacity:1; transform:none; }
+.cycle__word.is-leaving{ opacity:0; transform:translateY(-.15em); }
+
+/* Rearming after an exit. Instant, and behind opacity:0 either way. */
+.cycle__word.is-reset{ transition:none; }
+
+/* The flicker. Two dips, the second running straight into the exit rather
+   than returning to full — two transitions of luminance over 300ms on a
+   handful of characters, which keeps it well inside flash guidance while
+   still reading as a panel refreshing. */
+.cycle__word.is-flicker{ animation:cycle-flicker .3s steps(1, end) 1; }
+@keyframes cycle-flicker{
+  0%,  100%{ opacity:1; }
+  16%, 54%{  opacity:.34; }
+  32%, 70%{  opacity:1; }
+}
+
+/* The one techno tell: a hairline that wipes across the word and off again as
+   it changes. Accent blue, which the system reserves for rules and dots and
+   never for type, so the rule stands. Present for well under a second and
+   only during a swap. */
+.cycle__scan{
+  position:absolute;
+  left:0; right:0; bottom:-.055em;
+  height:1px;
+  background:var(--c-accent);
+  opacity:0;
+  transform:scaleX(0);
+  transform-origin:0 50%;
+}
+.cycle.is-swapping .cycle__scan{ animation:cycle-scan .8s var(--ease) 1; }
+@keyframes cycle-scan{
+  0%{   opacity:0;   transform:scaleX(0); transform-origin:0 50%; }
+  20%{  opacity:.5; }
+  46%{  opacity:.5;  transform:scaleX(1); transform-origin:0 50%; }
+  47%{  opacity:.5;  transform:scaleX(1); transform-origin:100% 50%; }
+  100%{ opacity:0;   transform:scaleX(0); transform-origin:100% 50%; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .js .cycle{ transition:none; }
+  .cycle__word{ transition:none; }
+  .cycle__word.is-flicker{ animation:none; }
+  .cycle.is-swapping .cycle__scan{ animation:none; }
+}
