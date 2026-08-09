@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Byline
+   The author credit that closes the article page head.
+
+   Design notes, because this component is easy to get wrong:
+
+   1. It is a credit, not a card. The page head opens with a micro label
+      (WRITING · DATE) and now closes with one, so the title block is framed
+      top and bottom by the same voice. The name therefore takes .label, not
+      a fourth type role invented for it.
+   2. The portrait is the only photographic object on a flat tonal page, so
+      its chroma is pulled back slightly at the asset level to sit inside the
+      warm neutral palette. Slightly. Take it much below 0.85 and the face
+      reads as greyed out rather than composed.
+   3. The disc is 48px. Below about 44 the features collapse into mush at
+      this crop; much above 56 it stops reading as metadata and starts
+      reading as a widget.
+   4. Hover follows .jump-link exactly: faint to ink, transparent hairline to
+      --c-line. One interaction idiom for every micro-label link on the site.
+   ========================================================================== */
+
+.byline{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  /* Tight to the standfirst it credits. This is a caption relationship, not
+     a new section. */
+  margin:clamp(20px, 2.4vh, 26px) 0 0;
+}
+
+/* The page head closes up under the byline. The disc carries the weight that
+   a run of padding would otherwise have to. */
+.page-head__inner--byline{
+  padding-bottom:clamp(26px, 3.4vh, 38px);
+}
+
+.byline__portrait{
+  width:48px; height:48px; flex:none;
+  border-radius:50%;
+  object-fit:cover;
+  background:var(--c-surface-3);
+  /* Inset, so the hairline sits inside the 40px rather than growing it, and
+     so the photograph's edge meets the band through the same line weight
+     used between strata. */
+  box-shadow:inset 0 0 0 1px rgba(20,21,26,.09);
+}
+
+.byline__name{
+  color:var(--c-ink-muted);
+  text-decoration:none;
+  padding-bottom:4px;
+  border-bottom:1px solid transparent;
+  transition:color .3s var(--ease), border-color .3s var(--ease);
+}
+a.byline__name:hover,
+a.byline__name:focus-visible{
+  color:var(--c-ink);
+  border-bottom-color:var(--c-line);
+}
+
+/* Reversed surfaces, should the byline ever sit on bedrock. */
+.stratum--bedrock .byline__name,
+.site-footer .byline__name{ color:var(--c-inv-muted); }
+.stratum--bedrock a.byline__name:hover,
+.site-footer a.byline__name:hover{ color:var(--c-inv-ink); border-bottom-color:var(--c-inv-line); }
+.stratum--bedrock .byline__portrait,
+.site-footer .byline__portrait{ box-shadow:inset 0 0 0 1px rgba(241,238,231,.2); }
+
+@media (max-width:560px){
+  .byline{ gap:12px; }
+  .byline__portrait{ width:44px; height:44px; }
+}

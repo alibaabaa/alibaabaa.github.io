@@ -13,6 +13,15 @@ description: >-
 # internal link in the site is root-relative, so no content changes.
 url: "https://alibaabaa.github.io"
 
+# Byline. One author, so it lives here rather than in each post's front
+# matter. _includes/byline.html reads these. Leave linkedin blank and the
+# name renders as plain text instead of a link.
+author:
+  name: Tom Eggington
+  linkedin: "https://www.linkedin.com/in/tom-eggington/"
+  portrait: /assets/author-tom-eggington.jpg
+  portrait_2x: /assets/author-tom-eggington@2x.jpg
+
 timezone: Europe/London
 markdown: kramdown
 

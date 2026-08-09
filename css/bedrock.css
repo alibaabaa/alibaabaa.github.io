@@ -14,6 +14,7 @@
 {% include_relative components/fold.css %}
 {% include_relative components/page-head.css %}
 {% include_relative components/eyebrow.css %}
+{% include_relative components/byline.css %}
 {% include_relative components/datum.css %}
 {% include_relative components/rule-list.css %}
 {% include_relative components/article-card.css %}
