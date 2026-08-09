@@ -21,6 +21,7 @@
 {% include_relative components/article.css %}
 {% include_relative components/link.css %}
 {% include_relative components/button.css %}
+{% include_relative components/download.css %}
 {% include_relative components/credential.css %}
 {% include_relative components/site-footer.css %}
 {% include_relative utilities.css %}

@@ -68,6 +68,12 @@ before the migration all still hold — see `styleguide.html`. Two additions:
 `css/components/article.css` styles Markdown article bodies (headings are the
 sans; the accent is still never text), and the design rules live on unchanged.
 
+`css/components/download.css` offers a file inside an article. Files live in
+`assets/downloads/`. Paste the markup from `styleguide.html`, correct the
+href, title and the meta line (format, pages, size), and keep the whole thing
+wrapped in a `<div>` — kramdown treats a bare `<a>` as inline and would wrap
+it in a paragraph.
+
 ## Fonts
 
 Currently loaded from Google Fonts. To self-host (removes the third-party
@@ -96,8 +102,11 @@ Every internal link is root-relative, so the move is configuration only:
 
 ## Known placeholders
 
-- `services`, `about`, `contact` and `eu-cyber-resilience-act` pages are
-  drafts, marked `[Draft]` in their copy. Services is a launch dependency.
+- `services`, `about` and `contact` pages are drafts, marked `[Draft]` in
+  their copy. Services is a launch dependency.
+- `eu-cyber-resilience-act.html` is no longer a page: it is a redirect stub
+  holding the old URL open, pointing at the CRA article. Delete it once
+  nothing external links to `/eu-cyber-resilience-act/`.
 - `_posts/2026-07-14-utility-third-party-risk.md` has a placeholder body and
   a guessed date; paste the real piece and fix the filename date.
 - The example post `how-to-publish-on-this-site` should be deleted (or

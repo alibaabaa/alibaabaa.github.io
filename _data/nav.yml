@@ -17,8 +17,10 @@ footer:
     url: /services/
   - label: About
     url: /about/
+  # Points at the article, not the old /eu-cyber-resilience-act/ page — that
+  # URL still resolves, but it is now a redirect to this one.
   - label: EU Cyber Resilience Act
-    url: /eu-cyber-resilience-act/
+    url: /writing/eu-cyber-resilience-act-are-you-ready/
 
 cta:
   label: Start a conversation

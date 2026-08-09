@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Download
+   A file offered inside an article. Hairline-ruled like .rule-list, because
+   it is the same idea: an item set apart from the prose without a box or a
+   shadow. The whole block is the link; the arrow is the only hover motion.
+
+   Markup:
+   <a class="download" href="/assets/downloads/thing.pdf" download>
+     <span class="download__icon" aria-hidden="true">…svg…</span>
+     <span class="download__text">
+       <span class="download__title">Thing</span>
+       <span class="download__meta">PDF &middot; 4 pages &middot; 288 KB</span>
+     </span>
+     <span class="download__arrow" aria-hidden="true">&darr;</span>
+   </a>
+   ========================================================================== */
+
+.download{
+  display:flex; align-items:center; gap:16px;
+  margin:clamp(28px, 3.6vh, 40px) 0;
+  padding:clamp(16px, 2vh, 20px) 0;
+  border-top:1px solid var(--c-line);
+  border-bottom:1px solid var(--c-line);
+  text-decoration:none;
+  color:var(--c-ink);
+}
+
+.download__icon{
+  flex:none;
+  width:34px; height:34px;
+  display:grid; place-items:center;
+  border-radius:2px;
+  background:var(--c-surface-3);
+  transition:background .35s var(--ease);
+}
+.download__icon svg{ width:16px; height:16px; display:block; }
+.download__icon svg *{
+  stroke:var(--c-ink-muted);
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+  transition:stroke .35s var(--ease);
+}
+
+.download__text{ display:flex; flex-direction:column; gap:3px; min-width:0; }
+
+.download__title{
+  font-size:clamp(15.5px, 1.1vw, 17px);
+  font-weight:600;
+  line-height:1.3;
+  letter-spacing:-.004em;
+}
+
+/* Same micro type as .label, without the uppercase shout. */
+.download__meta{
+  font-size:clamp(11.5px, .88vw, 12.5px);
+  letter-spacing:.06em;
+  color:var(--c-ink-faint);
+  line-height:1.4;
+}
+
+.download__arrow{
+  margin-left:auto;
+  flex:none;
+  font-size:17px;
+  color:var(--c-ink-faint);
+  transition:transform .35s var(--ease), color .35s var(--ease);
+}
+
+.download:hover .download__icon,
+.download:focus-visible .download__icon{ background:var(--c-line); }
+.download:hover .download__icon svg *,
+.download:focus-visible .download__icon svg *{ stroke:var(--c-ink); }
+.download:hover .download__arrow,
+.download:focus-visible .download__arrow{
+  transform:translateY(3px);
+  color:var(--c-ink);
+}
+
+/* .prose underlines every link it contains; this one is not running text. */
+.prose a.download{ text-decoration:none; }
+
+@media (max-width:480px){
+  .download{ gap:13px; }
+  .download__icon{ width:30px; height:30px; }
+}

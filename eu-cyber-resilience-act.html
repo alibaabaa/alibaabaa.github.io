@@ -1,22 +1,24 @@
 ---
-layout: page
-title: "The EU Cyber Resilience Act: what it asks of you, and by when."
-eyebrow: Factsheet
-standfirst: A factsheet for suppliers with a hardware or connected-product element.
+# Redirect stub. The CRA content now lives in the article below; this URL is
+# kept alive because it has been linked externally and from the footer.
+# No layout: this file is the whole page. If the CRA ever needs a standing
+# page of its own again, replace this with real front matter and strata.
+layout: null
+sitemap: false
 permalink: /eu-cyber-resilience-act/
+redirect_to: /writing/eu-cyber-resilience-act-are-you-ready/
 ---
-<section class="stratum stratum--pale">
-  <div class="wrap stratum__inner duo">
-    <div class="u-reveal" style="--i:0">
-      <p class="eyebrow label">[Draft]</p>
-      <p class="lede">Obligations, dates, and who they land on.</p>
-    </div>
-    <div class="u-reveal" style="--i:1">
-      <div class="prose">
-        <p>[Draft — the factsheet content. This page is linked from the site footer and the homepage.]</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% include stratum-cta.html %}
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Redirecting… | Bedrock Cyber</title>
+<link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={{ page.redirect_to }}">
+<script>location.replace("{{ page.redirect_to }}" + location.search + location.hash);</script>
+</head>
+<body>
+<p>This page has moved to <a href="{{ page.redirect_to }}">EU Cyber Resilience Act: Are You Ready?</a></p>
+</body>
+</html>
