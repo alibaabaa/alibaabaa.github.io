@@ -1,20 +1,74 @@
 ---
 layout: page
+# The H1 is the CTA label from the header and the closing stratum, arrived at.
+# Every route into this page carries those three words, so the page opens by
+# repeating them rather than by introducing a new idea.
 title: Start a conversation.
 eyebrow: Contact
-standfirst: One call, no charge, no slides. You describe where you are today and what's being asked of you.
+standfirst: "Let's talk about where you are today and what's being asked of you."
+browser_title: "Contact Bedrock Cyber | Start a conversation"
+description: >-
+  Book a call with Tom Eggington at Bedrock Cyber, or send an email. One call,
+  no charge: product security for teams building critical product solutions.
 permalink: /contact/
 ---
-<section class="stratum stratum--pale">
+{% comment %}
+  The routes, and the whole page. Plain wording throughout, on purpose: this
+  is the one page where a reader who has to re-read a line will simply leave
+  instead. No wordplay, no parallel construction, nothing that has to be
+  parsed. The lede names the two options and stops.
+
+  One stratum is the point. A second block explaining the call was tried and
+  cut: by the time someone is here they have already decided, and anything
+  further to read is another chance to reconsider. Resist re-adding it.
+
+  Deliberately no form, either. A form is a third-party POST, a
+  data-processing obligation and a blank set of boxes, on the one page that
+  has to feel effortless.
+{% endcomment %}
+<section class="stratum stratum--pale" aria-labelledby="routes-lede">
   <div class="wrap stratum__inner duo">
     <div class="u-reveal" style="--i:0">
-      <p class="eyebrow label">[Draft]</p>
-      <p class="lede">What are you being asked to prove?</p>
+      <p class="eyebrow label">Get in touch</p>
+      <p class="lede" id="routes-lede">Book a call, or send an email.</p>
     </div>
     <div class="u-reveal" style="--i:1">
       <div class="prose">
-        <p>[Draft — add the contact route: an email address, a booking link, or a short form. If the work is better suited to someone else, you'll hear that on the call rather than in a follow-up email.]</p>
+        <p>Pick a time that suits you, or email. A couple of lines about what you build and who's asking is enough.</p>
       </div>
+      {%- if site.contact.booking %}
+      {% comment %}
+        .btn--ink, not .btn: the base button is pale on ink and would
+        disappear on this stratum. See css/components/button.css.
+      {% endcomment %}
+      <a class="btn btn--ink u-space-m" href="{{ site.contact.booking }}" rel="noopener" target="_blank">
+        <span class="dot" aria-hidden="true"></span>Book a call
+        <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      {%- endif %}
+      {% comment %}
+        Published as plain text on purpose. JavaScript obfuscation defeats
+        copy and paste and screen readers, which is friction, and friction
+        is the one thing this page exists to remove. The subject line is
+        pre-filled so the reader is never staring at an empty message.
+      {% endcomment %}
+  {% comment %}
+    One u-space-m per link, on the <p> only. Putting the utility on both the
+    paragraph and the anchor inside it stacked two margins and opened a gap
+    roughly twice the size of every other on the page.
+  {% endcomment %}
+      <p class="u-space-m">
+        <a class="link-arrow" href="mailto:{{ site.contact.email }}?subject=Starting%20a%20conversation">{{ site.contact.email }} <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
+      </p>
+      <p class="u-space-m">
+        <a class="link-arrow" href="{{ site.author.linkedin }}" rel="me noopener" target="_blank">Or find me on LinkedIn <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
+      </p>
     </div>
   </div>
 </section>
+
+{% comment %}
+  No stratum-cta include here, deliberately: its button points at this
+  page, so including it would send the reader back to where they already
+  are. This page is the destination that block exists to reach.
+{% endcomment %}
