@@ -1,19 +1,22 @@
 ---
 layout: page
-# The H1 stays a claim rather than a name, because the claim is the
-# differentiator and the name is already three lines away in the standfirst,
-# the title tag and the Person schema. See person_schema below.
-title: Engineer, not auditor.
+# The H1 is the name. Every other page on the site leads with a claim, and this
+# one deliberately does not: it is the personal proof page, the page the
+# personal domain points at, and the page that has to rank for the name. A
+# reader who arrived by searching or being told that name gets it back
+# immediately. The differentiation is carried by the standfirst below.
+title: Tom Eggington.
 eyebrow: About
-standfirst: "Bedrock Cyber is Tom Eggington. I wrote software for twelve years before I started securing it."
+standfirst: "I've implemented security programs from inside both small and large connected product organisations. Now I build it for teams who need the function without a dedicated department."
 # Overrides the default "<title> | Bedrock Cyber" so the one page on the site
-# that is about a person leads its title tag with that person's name. This is
-# the page that has to rank for the name.
+# that is about a person leads its title tag with that person's name.
 browser_title: "Tom Eggington — product security consultant | Bedrock Cyber"
+# No claim to a client base here or anywhere else on the page. There isn't one
+# yet, and this is the page whose whole job is being believed.
 description: >-
   Tom Eggington is a product security consultant in Basingstoke, UK, and the
-  founder of Bedrock Cyber. Twelve years as a software engineer, then product
-  security for connected products and critical infrastructure.
+  founder of Bedrock Cyber. He established and ran product security for a
+  multinational manufacturer of connected water infrastructure.
 # Emits the Person JSON-LD block in _includes/head.html. Only this page.
 person_schema: true
 permalink: /about/
@@ -21,40 +24,74 @@ permalink: /about/
 <section class="stratum stratum--pale">
   <div class="wrap stratum__inner duo">
 
+    {% comment %}
+      No lede in this column, on purpose. A lede here has headline weight and
+      sits directly beneath the standfirst in the same column position, so the
+      page reads as though it starts twice and the right column loses its
+      opening. Without one, this column is what it looks like — an identity
+      card — and the first sentence on the right is unambiguously the body.
+
+      Nothing states that Bedrock Cyber is one person either. One face, one
+      name, under "who you would be working with", says it.
+    {% endcomment %}
     <div class="u-reveal" style="--i:0">
       <p class="eyebrow label">Who you would be working with</p>
-      <p class="lede">Product security, from the engineering side.</p>
       <img class="portrait u-space-m"
            src="/assets/tom-eggington.jpg"
            srcset="/assets/tom-eggington.jpg 1x, /assets/tom-eggington@2x.jpg 2x"
            width="560" height="700" loading="lazy" decoding="async"
            alt="Tom Eggington, founder of Bedrock Cyber">
-      <p class="portrait__caption label">Tom Eggington<br>Basingstoke, UK</p>
+      {% comment %}
+        Location only. The name is the H1 one screen up; repeating it here put
+        it on the same screen twice.
+      {% endcomment %}
+      <p class="portrait__caption label">Basingstoke, UK</p>
       {% comment %}
         rel="me" both ways between here and LinkedIn is the human-readable
         half of the sameAs in the Person schema. Keep them pointing at
         each other. Employment history lives there, on purpose: it is
-        verifiable, and it keeps this page short.
+        verifiable, and it keeps this page short. The employer is not named
+        here by choice; anyone who wants it will find it there.
       {% endcomment %}
       <a class="link-arrow u-space-s" href="{{ site.author.linkedin }}" rel="me noopener" target="_blank">LinkedIn <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
     </div>
 
     <div class="u-reveal" style="--i:1">
+      {% comment %}
+        Two paragraphs is the whole page. Order is load-bearing: the mandate
+        first, because it is the only thing here that proves accountability
+        rather than opinion, and the software years second, as the reason the
+        calls were credible to the engineers. Reversed, the page reads as a CV.
+
+        The job title is deliberately mid-sentence rather than opening one.
+        Opening with it made the paragraph a CV entry.
+
+        What this page does not carry, and should not: scope, exclusions,
+        method, price. That is the services page. Anything added here that
+        answers "what do I get" rather than "who is this" is in the wrong place.
+      {% endcomment %}
       <div class="prose">
-        <p>I wrote software for twelve years before I moved into security in 2020: .NET services, cloud platforms, embedded device integration. I know which security requirements a team will quietly route around, because I used to be the one routing around them.</p>
+        <p>I've occupied various security architecture roles, including as the senior security architect at a multinational manufacturer of connected water infrastructure. There I helped establish the programme, and went on to own and run it, with sign-off authority on product launch, and the first ISO&nbsp;27001 certification for the platform.
+        </p>
+        <p>I have professional experience in security strategy, budget planning, and risk management. But also on the ground technical experience in threat modelling, secure software develpoment processes, secure boot and firmware updates on device, bug bounty and disclosure programmes.</p>
 
-        <p>Most recently I was <strong>Senior Digital Product Security Architect</strong> at a multinational manufacturer of connected water infrastructure. I was asked to help establish its product security programme and ended up owning and running it: threat modelling with the software teams, sign-off authority on the product launch gate, secure boot and firmware updates on the devices, the bug bounty and disclosure programme, and the platform's first ISO&nbsp;27001 certification.</p>
-
-        <p>Bedrock Cyber is one person, working with teams across the UK and Europe. I don't do penetration testing; where a piece of work needs it, you'll be pointed at someone who does it well.</p>
+        <p>It's this combination of leadership level and technical experience that means I know what a delivery team will take on and what it will work around, and why I don't hand teams requirements they will ignore.</p>
       </div>
 
+      {% comment %}
+        The relationship is stated in the attribution on purpose. This is a
+        colleague reference, not a client outcome, and a reader who works that
+        out for themselves discounts the whole page. Said plainly it is worth
+        what it is worth: someone senior who watched the work daily.
+        Name and permission still to confirm before this ships.
+      {% endcomment %}
       <figure class="testimonial">
         <blockquote class="testimonial__quote">
           <p>If I were a CTO at a growing company trying to get security right without standing up a full team, he would be my first call.</p>
         </blockquote>
         <figcaption class="testimonial__source label">
           anon TODO
-          <span class="testimonial__role">Senior Director of IT Operations, water infrastructure multinational</span>
+          <span class="testimonial__role">Senior Director of IT Operations, water infrastructure multinational, where we worked together</span>
         </figcaption>
       </figure>
     </div>
