@@ -18,3 +18,12 @@
 .btn__arrow{ display:inline-block; transition:transform .35s var(--ease); }
 .btn:hover{ transform:translateY(-2px); background:#fff; }
 .btn:hover .btn__arrow{ transform:translateX(4px); }
+
+/* The base button is pale on ink: written for the bedrock stratum, invisible
+   anywhere else. .btn--ink is the same button for a pale or warm stratum,
+   which /contact/ needs because its primary action does not sit in a closing
+   block. Must stay below the base rule — same specificity, so source order
+   is what makes the override work. Hover keeps the lift and the arrow but
+   holds its background: there is nowhere darker for ink to go. */
+.btn--ink{ background:var(--c-ink); color:var(--c-inv-ink); }
+.btn--ink:hover{ background:var(--c-ink); }

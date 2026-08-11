@@ -11,7 +11,7 @@ description: >-
 
   {% include site-header.html %}
 
-  <!-- Hero band -->
+  {% comment %} Hero band {% endcomment %}
   <div class="fold__hero">
     <div class="wrap fold__hero-inner">
       <p class="eyebrow eyebrow--lead label u-enter" style="--delay:.08s">For teams building critical product solutions</p>
@@ -22,9 +22,11 @@ description: >-
     </div>
   </div>
 
-  <!-- Base band. Deliberately empty: a tonal step that ends the hero, sized in
-       fold.css. Nothing goes in here — if it needs contents it needs height,
-       and height is what made this band a problem. -->
+  {% comment %}
+    Base band. Deliberately empty: a tonal step that ends the hero, sized in
+    fold.css. Nothing goes in here — if it needs contents it needs height,
+    and height is what made this band a problem.
+  {% endcomment %}
   <div class="fold__base">
     <span class="datum u-enter u-enter--datum" style="--delay:.6s" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M4 7.6 H20"/><path d="M12 8.4 L5.2 19"/><path d="M12 8.4 L18.8 19"/><path d="M12 8.4 V19"/></svg>
@@ -35,7 +37,7 @@ description: >-
 
 <main id="main">
 
-  <!-- Block 2: what I do -->
+  {% comment %} Block 2: what I do {% endcomment %}
   <section class="stratum stratum--pale" id="practice" aria-labelledby="practice-lede">
     <div class="wrap stratum__inner duo">
       <div class="u-reveal" style="--i:0">
@@ -60,7 +62,7 @@ description: >-
     </div>
   </section>
 
-  <!-- Block 3: point of view. Cards fill automatically from _posts/. -->
+  {% comment %} Block 3: point of view. Cards fill automatically from _posts/. {% endcomment %}
   <section class="stratum stratum--warm" aria-labelledby="pov-lede">
     <div class="wrap stratum__inner">
       <div class="u-reveal" style="--i:0">
@@ -81,7 +83,7 @@ description: >-
     </div>
   </section>
 
-  <!-- Block 4: one next step, the bedrock. Shared with every other page. -->
+  {% comment %} Block 4: one next step, the bedrock. Shared with every other page. {% endcomment %}
   {% include stratum-cta.html %}
 
 </main>

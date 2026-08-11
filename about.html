@@ -30,10 +30,12 @@ permalink: /about/
            width="560" height="700" loading="lazy" decoding="async"
            alt="Tom Eggington, founder of Bedrock Cyber">
       <p class="portrait__caption label">Tom Eggington<br>Basingstoke, UK</p>
-      <!-- rel="me" both ways between here and LinkedIn is the human-readable
-           half of the sameAs in the Person schema. Keep them pointing at
-           each other. Employment history lives there, on purpose: it is
-           verifiable, and it keeps this page short. -->
+      {% comment %}
+        rel="me" both ways between here and LinkedIn is the human-readable
+        half of the sameAs in the Person schema. Keep them pointing at
+        each other. Employment history lives there, on purpose: it is
+        verifiable, and it keeps this page short.
+      {% endcomment %}
       <a class="link-arrow u-space-s" href="{{ site.author.linkedin }}" rel="me noopener" target="_blank">LinkedIn <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
     </div>
 

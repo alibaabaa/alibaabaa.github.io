@@ -41,6 +41,23 @@ then compose the body from strata, exactly as before: alternate
 Copy component markup from `styleguide.html`. Add the page to
 `_data/nav.yml` if it belongs in the nav.
 
+## Comments
+
+**Use `{% comment %} … {% endcomment %}`, never `<!-- -->`.** Liquid strips its
+own comments at render, so they stay in the repo and never reach the visitor.
+An HTML comment ships verbatim — every note about why a line is worded the way
+it is, or what not to change, is readable by anyone who views source.
+
+There is no post-processing step that could strip them for us: the native
+GitHub Pages build runs a fixed plugin whitelist, so the source files are the
+only place this can be enforced. Anything else — a minifier, a Jekyll hook —
+means abandoning the native build for an Actions workflow.
+
+The one exception is `page-template.html`, which is excluded from the build and
+opened directly from disk; Liquid tags there would render as visible text, so
+its comments stay as HTML. They are never published because the file is never
+built.
+
 ## Where things live now
 
 ```
@@ -102,8 +119,13 @@ Every internal link is root-relative, so the move is configuration only:
 
 ## Known placeholders
 
-- `services`, `about` and `contact` pages are drafts, marked `[Draft]` in
-  their copy. Services is a launch dependency.
+- `contact.booking` in `_config.yml` is a guessed Cal.com URL. Create the
+  event type and paste the real one — it is a launch dependency. Blanking the
+  key drops the button and its copy cleanly, leaving email as the only route.
+- `contact.email` is `tom@bedrockcyber.co.uk`, which needs a mailbox before
+  the page is published. Until the domain moves, nothing reaches it.
+- `services` and `about` pages are drafts, marked `[Draft]` in their copy.
+  Services is a launch dependency.
 - `eu-cyber-resilience-act.html` is no longer a page: it is a redirect stub
   holding the old URL open, pointing at the CRA article. Delete it once
   nothing external links to `/eu-cyber-resilience-act/`.
