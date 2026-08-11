@@ -119,11 +119,6 @@ Every internal link is root-relative, so the move is configuration only:
 
 ## Known placeholders
 
-- `contact.booking` in `_config.yml` is a guessed Cal.com URL. Create the
-  event type and paste the real one — it is a launch dependency. Blanking the
-  key drops the button and its copy cleanly, leaving email as the only route.
-- `contact.email` is `tom@bedrockcyber.co.uk`, which needs a mailbox before
-  the page is published. Until the domain moves, nothing reaches it.
 - `services` and `about` pages are drafts, marked `[Draft]` in their copy.
   Services is a launch dependency.
 - `eu-cyber-resilience-act.html` is no longer a page: it is a redirect stub

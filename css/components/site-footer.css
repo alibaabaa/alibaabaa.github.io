@@ -5,6 +5,7 @@
    ========================================================================== */
 
 .site-footer{
+  margin-top:auto;   /* takes up the slack on pages shorter than the viewport */
   background:var(--c-ink);
   color:var(--c-inv-muted);
   padding-bottom:env(safe-area-inset-bottom);  /* clear the home indicator */

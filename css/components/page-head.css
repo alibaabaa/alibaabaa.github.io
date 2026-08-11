@@ -21,10 +21,36 @@
   margin:0;
   max-width:18ch;
 }
-.page-head__standfirst{
+.page-head__standfirst,
+.page-actions__note{
   margin:clamp(20px, 3vh, 30px) 0 0;
   max-width:52ch;
   font-size:clamp(15.5px, 1.2vw, 18px);
   line-height:1.55;
   color:var(--c-ink-muted);
 }
+
+/* --- Merged action block -------------------------------------------------
+   A page with one action and nothing else to say reads as thin when the head
+   and a stratum below it repeat the same eyebrow-and-lede shape with a grid
+   built for two columns of substance. /contact/ instead draws the two as one
+   block: the head drops its hairline and bottom padding, and .page-actions
+   continues the same surface underneath. Opt in with head_flush: true in the
+   page's front matter.
+
+   The action block stays inside <main> rather than being injected into the
+   head, so the main landmark is not left empty.
+   ------------------------------------------------------------------------ */
+.page-head--flush{ border-bottom:0; }
+.page-head--flush .page-head__inner{ padding-bottom:0; }
+
+.page-actions{ background:var(--c-surface-2); }
+.page-actions__inner{
+  /* Padding, not the note's own margin. With padding-top:0 there is nothing
+     to stop that margin collapsing out through the top of this box, which
+     drags .page-actions down and shows a pale stripe of body surface across
+     the middle of what is supposed to read as one block. */
+  padding-top:clamp(26px, 3.6vh, 36px);
+  padding-bottom:clamp(56px, 9vh, 104px);
+}
+.page-actions__note{ margin-top:0; }

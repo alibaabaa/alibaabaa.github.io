@@ -11,7 +11,17 @@ html{
 
 html,body{ margin:0; padding:0; }
 
+/* Flex column so a page shorter than the viewport still puts the footer on
+   the bottom edge, instead of ending early and leaving a band of body surface
+   below it. .site-footer takes margin-top:auto to claim the slack. Safe for
+   the fold, which is sized by its own content and never by viewport height,
+   so there is nothing here for flex to shrink. dvh second: browsers that have
+   it use it, and it survives the mobile toolbar collapsing. */
 body{
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  min-height:100dvh;
   background:var(--c-surface-1);
   color:var(--c-ink);
   font-family:var(--font-sans);

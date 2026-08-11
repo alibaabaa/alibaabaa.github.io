@@ -6,69 +6,75 @@ layout: page
 title: Start a conversation.
 eyebrow: Contact
 standfirst: "Let's talk about where you are today and what's being asked of you."
+# Draws the head and the block below it as one. See css/components/page-head.css.
+head_flush: true
 browser_title: "Contact Bedrock Cyber | Start a conversation"
 description: >-
-  Book a call with Tom Eggington at Bedrock Cyber, or send an email. One call,
-  no charge: product security for teams building critical product solutions.
+  Email Tom Eggington at Bedrock Cyber. Product security for teams building
+  critical product solutions.
 permalink: /contact/
 ---
 {% comment %}
-  The routes, and the whole page. Plain wording throughout, on purpose: this
-  is the one page where a reader who has to re-read a line will simply leave
-  instead. No wordplay, no parallel construction, nothing that has to be
-  parsed. The lede names the two options and stops.
+  The whole page: a head and one action, drawn as a single block.
 
-  One stratum is the point. A second block explaining the call was tried and
-  cut: by the time someone is here they have already decided, and anything
-  further to read is another chance to reconsider. Resist re-adding it.
+  It had a stratum of its own, with its own eyebrow and lede. That repeated
+  the exact shape of the page head directly above it, in a two-column grid
+  built for two columns of substance, and left a hole where the second column
+  should have been. There is not enough to say here to fill that, and finding
+  more to say would be the wrong fix. head_flush merges the two instead.
 
-  Deliberately no form, either. A form is a third-party POST, a
-  data-processing obligation and a blank set of boxes, on the one page that
-  has to feel effortless.
+  Plain wording throughout, on purpose: this is the one page where a reader
+  who has to re-read a line will simply leave instead. No wordplay, no
+  parallel construction, nothing that has to be parsed.
+
+  Email only. A scheduling tool was tried and dropped: it is a third party to
+  keep working, and it asks the reader to commit to a slot before they have
+  said a word. Everyone already knows how to send an email.
+
+  No form, either. A form is a third-party POST, a data-processing obligation
+  and a blank set of boxes, on the one page that has to feel effortless.
+
+  And no stratum-cta include: its button points at this page, so it would
+  send the reader back to where they already are. This page is the
+  destination that block exists to reach.
+
+  u-enter, not u-reveal — this is above the fold, so it continues the head's
+  entrance stagger rather than waiting for a scroll that never comes.
 {% endcomment %}
-<section class="stratum stratum--pale" aria-labelledby="routes-lede">
-  <div class="wrap stratum__inner duo">
-    <div class="u-reveal" style="--i:0">
-      <p class="eyebrow label">Get in touch</p>
-      <p class="lede" id="routes-lede">Book a call, or send an email.</p>
-    </div>
-    <div class="u-reveal" style="--i:1">
-      <div class="prose">
-        <p>Pick a time that suits you, or email. A couple of lines about what you build and who's asking is enough.</p>
-      </div>
-      {%- if site.contact.booking %}
-      {% comment %}
-        .btn--ink, not .btn: the base button is pale on ink and would
-        disappear on this stratum. See css/components/button.css.
-      {% endcomment %}
-      <a class="btn btn--ink u-space-m" href="{{ site.contact.booking }}" rel="noopener" target="_blank">
-        <span class="dot" aria-hidden="true"></span>Book a call
+<section class="page-actions">
+  <div class="wrap page-actions__inner">
+
+    <p class="page-actions__note u-enter" style="--delay:.46s">A couple of lines about what you build and who's asking is enough.</p>
+
+    {% comment %}
+      The address is the button label rather than sitting beside one. It gives
+      the only route a button's affordance while keeping the address visible,
+      so it can be read, copied, or typed into whichever client the reader
+      actually uses.
+
+      Plain text on purpose: JavaScript obfuscation defeats copy and paste and
+      screen readers, which is friction, and friction is the one thing this
+      page exists to remove. The subject is pre-filled so the reader is never
+      staring at an empty message.
+
+      .btn--ink, not .btn: the base button is pale on ink and would disappear
+      on this surface. See css/components/button.css.
+
+      u-enter goes on the wrapper, not the button. It animates to
+      transform:none and fills forwards, and an animation's filled value beats
+      a normal declaration — put it on the button itself and it permanently
+      cancels the translateY lift on :hover.
+    {% endcomment %}
+    <p class="u-space-m u-enter" style="--delay:.58s">
+      <a class="btn btn--ink" href="mailto:{{ site.contact.email }}?subject=Starting%20a%20conversation">
+        <span class="dot" aria-hidden="true"></span>{{ site.contact.email }}
         <span class="btn__arrow" aria-hidden="true">&rarr;</span>
       </a>
-      {%- endif %}
-      {% comment %}
-        Published as plain text on purpose. JavaScript obfuscation defeats
-        copy and paste and screen readers, which is friction, and friction
-        is the one thing this page exists to remove. The subject line is
-        pre-filled so the reader is never staring at an empty message.
-      {% endcomment %}
-  {% comment %}
-    One u-space-m per link, on the <p> only. Putting the utility on both the
-    paragraph and the anchor inside it stacked two margins and opened a gap
-    roughly twice the size of every other on the page.
-  {% endcomment %}
-      <p class="u-space-m">
-        <a class="link-arrow" href="mailto:{{ site.contact.email }}?subject=Starting%20a%20conversation">{{ site.contact.email }} <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
-      </p>
-      <p class="u-space-m">
-        <a class="link-arrow" href="{{ site.author.linkedin }}" rel="me noopener" target="_blank">Or find me on LinkedIn <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
-      </p>
-    </div>
+    </p>
+
+    <p class="u-space-m u-enter" style="--delay:.68s">
+      <a class="link-arrow" href="{{ site.author.linkedin }}" rel="me noopener" target="_blank">Or find me on LinkedIn <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
+    </p>
+
   </div>
 </section>
-
-{% comment %}
-  No stratum-cta include here, deliberately: its button points at this
-  page, so including it would send the reader back to where they already
-  are. This page is the destination that block exists to reach.
-{% endcomment %}

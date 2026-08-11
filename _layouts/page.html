@@ -1,7 +1,13 @@
 ---
 layout: default
 ---
-<div class="page-head">
+{% comment %}
+  head_flush: true in a page's front matter draws the head and the body as a
+  single block — the hairline and the bottom padding come off, and the page
+  supplies a .page-actions section that continues the same surface. For pages
+  with one action and nothing else to say. See css/components/page-head.css.
+{% endcomment %}
+<div class="page-head{% if page.head_flush %} page-head--flush{% endif %}">
   <div class="wrap page-head__inner">
     {% if page.eyebrow %}<p class="eyebrow eyebrow--lead label u-enter" style="--delay:.08s">{{ page.eyebrow }}</p>
     {% endif %}<h1 class="page-head__title u-enter" style="--delay:.2s">{{ page.title }}</h1>

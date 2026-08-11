@@ -22,17 +22,10 @@ author:
   portrait: /assets/author-tom-eggington.jpg
   portrait_2x: /assets/author-tom-eggington@2x.jpg
 
-# Contact routes. Defined once here so /contact/ contains no hard-coded
-# address or URL, and so a change of either is a one-line edit.
-#
-# booking is a link-out, never an embed: an embedded scheduler would pull
-# third-party JavaScript and a cookie prompt onto the one page that has to
-# look trustworthy. Leave booking blank and the page drops the button and
-# its surrounding copy automatically, falling back to email alone.
+# Contact. Defined once here so /contact/ contains no hard-coded address,
+# and so changing it is a one-line edit.
 contact:
   email: tom@bedrockcyber.co.uk
-  # PLACEHOLDER — create the event type in Cal.com and paste its URL here.
-  booking: "https://cal.com/tom-eggington/intro-call"
 
 timezone: Europe/London
 markdown: kramdown
