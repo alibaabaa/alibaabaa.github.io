@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Testimonial
+   One quotation, attributed to a named person at a named company. There is
+   no plural version of this component on purpose: a carousel of three is a
+   marketing device, and one verifiable name does more work than three
+   unverifiable ones.
+
+   Design notes:
+
+   1. No box, no card, no quotation marks set as decoration. The quote is
+      lifted out of the flow by a single accent rule on the leading edge —
+      the one place on the site the brand blue is allowed to be a rule.
+   2. The quote takes the display serif at .lede scale but a longer measure,
+      because it is someone speaking rather than a section opening.
+   3. Attribution is the micro label, so the block is framed in the same
+      voice as every other piece of metadata on the site.
+   4. Reversed variant included because this may one day sit on bedrock.
+
+   Markup:
+   <figure class="testimonial">
+     <blockquote class="testimonial__quote"><p>…</p></blockquote>
+     <figcaption class="testimonial__source label">
+       Name<span class="testimonial__role">Role, Company</span>
+     </figcaption>
+   </figure>
+   ========================================================================== */
+
+.testimonial{
+  margin:clamp(30px, 4vh, 44px) 0 0;
+  padding:2px 0 2px clamp(20px, 2.2vw, 30px);
+  border-left:1px solid var(--c-accent);
+  max-width:46ch;
+}
+
+.testimonial__quote{
+  margin:0;
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(1.16rem, 1.62vw, 1.44rem);
+  line-height:1.28;
+  letter-spacing:-.012em;
+  color:var(--c-ink);
+  text-wrap:pretty;
+}
+.testimonial__quote p{ margin:0 0 14px; }
+.testimonial__quote p:last-child{ margin-bottom:0; }
+
+.testimonial__source{
+  margin:clamp(15px, 1.8vh, 19px) 0 0;
+  color:var(--c-ink);
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+/* The role drops to faint so the name carries, without a second type size. */
+.testimonial__role{
+  color:var(--c-ink-faint);
+  text-transform:none;
+  letter-spacing:.055em;
+}
+
+/* Reversed surfaces */
+.stratum--bedrock .testimonial__quote{ color:var(--c-inv-ink); }
+.stratum--bedrock .testimonial__source{ color:var(--c-inv-ink); }
+.stratum--bedrock .testimonial__role{ color:var(--c-inv-faint); }
+
+@media (max-width:880px){
+  .testimonial{ max-width:none; }
+}

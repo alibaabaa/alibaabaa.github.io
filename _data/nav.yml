@@ -5,9 +5,9 @@
 header:
   - label: Writing
     url: /writing/
-  # The page's H1 is "How an engagement works"; the nav label matches its job
-  # rather than promising a service catalogue. The /services/ URL is unchanged.
-  - label: How it works
+  # The page is now framed as services: what can be bought, named. The label
+  # says so plainly and matches the /services/ URL, which never changed.
+  - label: Services
     url: /services/
   - label: About
     url: /about/
@@ -15,7 +15,7 @@ header:
 footer:
   - label: Writing
     url: /writing/
-  - label: How it works
+  - label: Services
     url: /services/
   - label: About
     url: /about/

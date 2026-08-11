@@ -1,21 +1,62 @@
 ---
 layout: page
+# The H1 stays a claim rather than a name, because the claim is the
+# differentiator and the name is already three lines away in the standfirst,
+# the title tag and the Person schema. See person_schema below.
 title: Engineer, not auditor.
 eyebrow: About
-standfirst: "[Draft — replace this copy before launch.]"
+standfirst: "Bedrock Cyber is Tom Eggington. I wrote software for twelve years before I started securing it."
+# Overrides the default "<title> | Bedrock Cyber" so the one page on the site
+# that is about a person leads its title tag with that person's name. This is
+# the page that has to rank for the name.
+browser_title: "Tom Eggington — product security consultant | Bedrock Cyber"
+description: >-
+  Tom Eggington is a product security consultant in Basingstoke, UK, and the
+  founder of Bedrock Cyber. Twelve years as a software engineer, then product
+  security for connected products and critical infrastructure.
+# Emits the Person JSON-LD block in _includes/head.html. Only this page.
+person_schema: true
 permalink: /about/
 ---
 <section class="stratum stratum--pale">
   <div class="wrap stratum__inner duo">
+
     <div class="u-reveal" style="--i:0">
-      <p class="eyebrow label">[Draft]</p>
-      <p class="lede">Who is behind Bedrock Cyber.</p>
+      <p class="eyebrow label">Who you would be working with</p>
+      <p class="lede">Product security, from the engineering side.</p>
+      <img class="portrait u-space-m"
+           src="/assets/tom-eggington.jpg"
+           srcset="/assets/tom-eggington.jpg 1x, /assets/tom-eggington@2x.jpg 2x"
+           width="560" height="700" loading="lazy" decoding="async"
+           alt="Tom Eggington, founder of Bedrock Cyber">
+      <p class="portrait__caption label">Tom Eggington<br>Basingstoke, UK</p>
+      <!-- rel="me" both ways between here and LinkedIn is the human-readable
+           half of the sameAs in the Person schema. Keep them pointing at
+           each other. Employment history lives there, on purpose: it is
+           verifiable, and it keeps this page short. -->
+      <a class="link-arrow u-space-s" href="{{ site.author.linkedin }}" rel="me noopener" target="_blank">LinkedIn <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
     </div>
+
     <div class="u-reveal" style="--i:1">
       <div class="prose">
-        <p>[Draft — background, credentials, point of view.]</p>
+        <p>I wrote software for twelve years before I moved into security in 2020: .NET services, cloud platforms, embedded device integration. I know which security requirements a team will quietly route around, because I used to be the one routing around them.</p>
+
+        <p>Most recently I was <strong>Senior Digital Product Security Architect</strong> at a multinational manufacturer of connected water infrastructure. I was asked to help establish its product security programme and ended up owning and running it: threat modelling with the software teams, sign-off authority on the product launch gate, secure boot and firmware updates on the devices, the bug bounty and disclosure programme, and the platform's first ISO&nbsp;27001 certification.</p>
+
+        <p>Bedrock Cyber is one person, working with teams across the UK and Europe. I don't do penetration testing; where a piece of work needs it, you'll be pointed at someone who does it well.</p>
       </div>
+
+      <figure class="testimonial">
+        <blockquote class="testimonial__quote">
+          <p>If I were a CTO at a growing company trying to get security right without standing up a full team, he would be my first call.</p>
+        </blockquote>
+        <figcaption class="testimonial__source label">
+          Tim Bartlett
+          <span class="testimonial__role">Senior Director of IT Operations, water infrastructure multinational</span>
+        </figcaption>
+      </figure>
     </div>
+
   </div>
 </section>
 

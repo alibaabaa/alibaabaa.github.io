@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Portrait
+   The photograph on the About page. The byline disc is metadata; this is the
+   thing itself, and the only large photographic object on the site.
+
+   Design notes:
+
+   1. Square-cornered, not a disc. At 48px a circle reads as an avatar; at
+      500px it reads as a profile widget from a different website. The
+      rectangle sits in the strata grid the way every other block does.
+   2. 4:5. Taller than the crop feels natural for a face, which is the point
+      — the extra height gives the figure room and stops the block sitting
+      like a passport photo pasted into the column.
+   3. Chroma is pulled back at the asset level, matching the byline. The
+      hairline is the same inset trick for the same reason: the photograph
+      meets the band through the line weight used between strata.
+   4. It caps out well short of the column. A portrait that fills the grid
+      column is a hero image, and this page is not making that claim.
+   ========================================================================== */
+
+.portrait{
+  display:block;
+  width:100%;
+  max-width:340px;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:2px;
+  background:var(--c-surface-3);
+  box-shadow:inset 0 0 0 1px rgba(20,21,26,.09);
+}
+
+/* The caption under the portrait: name and where. Micro-label voice, so it
+   shares the type role with the eyebrow above it rather than inventing a
+   fourth. */
+.portrait__caption{
+  margin:14px 0 0;
+  max-width:340px;
+}
+
+@media (max-width:880px){
+  /* On one column the portrait leads the block, so it loses the width it
+     was holding against a neighbouring column and takes a size that reads
+     as a person rather than a banner. */
+  .portrait{ max-width:210px; }
+  .portrait__caption{ max-width:210px; }
+}

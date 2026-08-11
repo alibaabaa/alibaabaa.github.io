@@ -4,6 +4,47 @@
 <title>{% if page.browser_title %}{{ page.browser_title }}{% elsif page.title %}{{ page.title | strip_html }} | Bedrock Cyber{% else %}Bedrock Cyber{% endif %}</title>
 <meta name="description" content="{{ page.description | default: page.standfirst | default: site.description | strip_newlines }}">
 <link rel="alternate" type="application/rss+xml" title="Bedrock Cyber — Writing" href="/feed.xml">
+{% if page.person_schema %}
+<!-- Person schema. Emitted on /about/ only, set by person_schema: true in that
+     page's front matter. This is what ties the site to the entity search
+     engines already know from LinkedIn: sameAs is the join. Keep the name,
+     the job title and the LinkedIn headline saying compatible things — the
+     value of this block is consistency, not the block itself. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ site.url }}/about/#person",
+  "name": "{{ site.author.name }}",
+  "givenName": "Tom",
+  "familyName": "Eggington",
+  "jobTitle": "Product Security Consultant",
+  "description": "Product security consultant specialising in connected products and critical infrastructure. Twelve years as a software engineer before moving into security.",
+  "url": "{{ site.url }}/about/",
+  "image": "{{ site.url }}/assets/tom-eggington@2x.jpg",
+  "sameAs": ["{{ site.author.linkedin }}"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}/"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Basingstoke",
+    "addressCountry": "GB"
+  },
+  "knowsAbout": [
+    "Product security",
+    "Threat modelling",
+    "ISO/IEC 27001",
+    "EU Cyber Resilience Act",
+    "Secure software development lifecycle",
+    "IoT and embedded device security",
+    "Vulnerability disclosure"
+  ]
+}
+</script>
+{% endif %}
 
 <!-- Favicon. The accent dot on the ink field: the same two tokens the site
      uses everywhere else. SVG first for capable browsers, .ico at the root

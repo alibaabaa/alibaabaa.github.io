@@ -1,14 +1,19 @@
 <!-- Byline. One author, so this is static; edit site.author in _config.yml.
-     Set author.linkedin there to switch the name from plain text to a link.
      .label is deliberate — the name shares the micro-label voice with the
-     eyebrow at the top of the page head. See css/components/byline.css. -->
+     eyebrow at the top of the page head. See css/components/byline.css.
+
+     The name links to /about/, not to LinkedIn. Every article on the site
+     carries this byline, so it is the largest block of internal links there
+     is; pointed outward it was handing all of that to a domain that already
+     outranks this one for the same name. site.author.linkedin still exists —
+     it feeds the sameAs in the Person schema, and the About page links it. -->
 <div class="byline">
   <img class="byline__portrait"
        src="{{ site.author.portrait }}"
        srcset="{{ site.author.portrait }} 1x, {{ site.author.portrait_2x }} 2x"
        width="48" height="48" loading="lazy" decoding="async"
        alt="{{ site.author.name }}">
-  {% if site.author.linkedin %}<a class="byline__name label" href="{{ site.author.linkedin }}" rel="me noopener" target="_blank">{{ site.author.name }}</a>
-  {% else %}<span class="byline__name label">{{ site.author.name }}</span>
+  {% if page.url == "/about/" %}<span class="byline__name label">{{ site.author.name }}</span>
+  {% else %}<a class="byline__name label" href="/about/">{{ site.author.name }}</a>
   {% endif %}
 </div>
