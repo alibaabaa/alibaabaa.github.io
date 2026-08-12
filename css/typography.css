@@ -16,10 +16,18 @@
   text-wrap:pretty;
 }
 .lede--tight{ max-width:19ch; }              /* longer lines, same size     */
-.lede--lg{                                    /* the closing question       */
-  font-size:clamp(1.55rem, 3vw, 2.7rem);
-  line-height:1.08;
-  max-width:19ch;
+
+/* The closing question, and nothing else. It is larger than a section lede
+   because the closing stratum is a single column with no body copy in it:
+   the question and the button are the whole block, so the type carries the
+   weight that a right-hand column used to. Sized to break the default
+   question over two lines on a desktop. If it ever wraps to four, the
+   question is too long for the block rather than the block being too small
+   for the question. */
+.lede--lg{
+  font-size:clamp(1.9rem, 4.6vw, 3.6rem);
+  line-height:1.04;
+  max-width:15ch;
 }
 
 /* --- Body: running prose ------------------------------------------------ */
@@ -47,7 +55,7 @@
 @media (max-width:880px){
   .lede{ max-width:26ch; }
   .lede--tight{ max-width:24ch; }
-  .lede--lg{ max-width:22ch; }
+  .lede--lg{ max-width:18ch; }
 }
 @media (max-width:480px){
   .label{ letter-spacing:.14em; }   /* stop long labels overflowing */

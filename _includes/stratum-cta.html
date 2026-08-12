@@ -3,28 +3,47 @@
   This is the canonical block: the homepage uses it too, so the two cannot
   drift apart. Defaults suit every page written so far; override only if a
   page genuinely needs a different question:
-  {% include stratum-cta.html lede="Your question." body="Your line." %}
+  {% include stratum-cta.html lede="Your question." %}
+
+  Single column, deliberately. This block ran on the .duo grid with three
+  paragraphs of body copy in the right-hand column. Only the first of them
+  said anything — that the call is free — and the other two were there to
+  stop the column looking empty.
+
+  There is no body copy now and there should not be one, because nothing
+  that could go here is true for every reader. Someone on their fifth
+  ISO 27001 cycle, someone holding a customer questionnaire they can already
+  read, and someone who has just lost a tender arrive at completely
+  different points. Any sentence promising what the call produces is either
+  false for two of them or too vague to mean anything, and a caveat about
+  fit belongs on /services/ where a reader can act on it, not directly above
+  the button.
+
+  The weight the paragraphs were carrying comes from type size instead: see
+  .lede--lg in css/typography.css, which exists for this block alone. The
+  empty space to the right of the question is the end of the page. Resist
+  putting a second column back into it.
+
+  There is no `body` parameter any more. If a page ever needs one, that is a
+  sign the page needs a different closing block, not that this one needs a
+  paragraph.
 {% endcomment %}
 <section class="stratum stratum--bedrock" id="start" aria-labelledby="cta-lede">
   <span class="datum datum--sunken" aria-hidden="true">
     <svg viewBox="0 0 24 24"><path d="M4 7.6 H20"/><path d="M12 8.4 L5.2 19"/><path d="M12 8.4 L18.8 19"/><path d="M12 8.4 V19"/></svg>
   </span>
-  <div class="wrap stratum__inner duo">
-    <div class="u-reveal" style="--i:0">
-      <p class="eyebrow label">{{ include.eyebrow | default: "Where to start" }}</p>
-      <p class="lede lede--lg" id="cta-lede">{{ include.lede | default: "What are you being asked to prove?" }}</p>
-    </div>
-    <div class="u-reveal" style="--i:1">
-      <div class="prose prose--narrow">
-        {%- if include.body %}
-        <p>{{ include.body }}</p>
-        {%- else %}
-        <p>That's the conversation. One call, no charge.</p>
-        <p>You describe where you are today and what's being asked of you.</p>
-        <p>If the work is better suited to someone else, you'll hear that on the call rather than in a follow-up email, and a pointer in the right direction.</p>
-        {%- endif %}
-      </div>
-      <a class="btn u-space-m" href="{{ site.data.nav.cta.url }}">
+  <div class="wrap stratum__inner">
+    <p class="eyebrow label u-reveal" style="--i:0">{{ include.eyebrow | default: "Where to start" }}</p>
+    <p class="lede lede--lg u-reveal" style="--i:1" id="cta-lede">{{ include.lede | default: "What are you being asked to prove?" }}</p>
+    {% comment %}
+      u-reveal goes on the wrapper, not on the button, for the same reason
+      u-enter does on /contact/: .u-reveal.is-visible sets transform:none at
+      a higher specificity than .btn:hover, so putting it on the button
+      itself permanently cancels the hover lift. A div, not a p, because a
+      paragraph would add its own bottom margin to the band padding.
+    {% endcomment %}
+    <div class="u-space-l u-reveal" style="--i:2">
+      <a class="btn" href="{{ site.data.nav.cta.url }}">
         <span class="dot" aria-hidden="true"></span>{{ site.data.nav.cta.label }}
         <span class="btn__arrow" aria-hidden="true">&rarr;</span>
       </a>

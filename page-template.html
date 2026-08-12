@@ -85,20 +85,18 @@
     </div>
   </section>
 
-  <!-- Closing call to action. One per page, always the last stratum. -->
+  <!-- Closing call to action. One per page, always the last stratum.
+       Single column, no body copy: see _includes/stratum-cta.html, which is
+       the version that ships. Keep the two in step. -->
   <section class="stratum stratum--bedrock" id="start">
     <span class="datum datum--sunken" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M4 7.6 H20"/><path d="M12 8.4 L5.2 19"/><path d="M12 8.4 L18.8 19"/><path d="M12 8.4 V19"/></svg>
     </span>
-    <div class="wrap stratum__inner duo">
-      <div class="u-reveal" style="--i:0">
-        <p class="lede lede--lg">The closing question for this page.</p>
-      </div>
-      <div class="u-reveal" style="--i:1">
-        <div class="prose prose--narrow">
-          <p>What to expect from the conversation.</p>
-        </div>
-        <a class="btn u-space-m" href="/contact/">
+    <div class="wrap stratum__inner">
+      <p class="eyebrow label u-reveal" style="--i:0">Where to start</p>
+      <p class="lede lede--lg u-reveal" style="--i:1">The closing question for this page.</p>
+      <div class="u-space-l u-reveal" style="--i:2">
+        <a class="btn" href="/contact/">
           <span class="dot" aria-hidden="true"></span>Start a conversation
           <span class="btn__arrow" aria-hidden="true">&rarr;</span>
         </a>
