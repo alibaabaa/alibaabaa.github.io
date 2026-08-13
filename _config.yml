@@ -11,7 +11,7 @@ description: >-
 # Current host. When the site moves to bedrockcyber.co.uk: change this url,
 # add a CNAME file containing the bare domain, and nothing else — every
 # internal link in the site is root-relative, so no content changes.
-url: "https://alibaabaa.github.io"
+url: "https://bedrockcyber.co.uk"
 
 # Byline. One author, so it lives here rather than in each post's front
 # matter. _includes/byline.html reads these. Leave linkedin blank and the
