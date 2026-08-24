@@ -49,6 +49,19 @@
   color:var(--c-inv-faint);
 }
 
+.site-footer__legal{
+  margin-top:20px;
+  padding-top:18px;
+  border-top:1px solid var(--c-inv-line);
+  font-size:12px;
+  letter-spacing:.012em;
+  color:var(--c-inv-faint);
+}
+/* Each particular stays whole; the line breaks between them instead of
+   through the company number. */
+.site-footer__legal > span{ white-space:nowrap; }
+.site-footer__sep{ opacity:.55; padding-inline:5px; }
+
 @media (max-width:880px){
   .site-footer__meta{ margin-top:38px; }
   .site-footer__link{ padding-block:8px 11px; }   /* touch target */

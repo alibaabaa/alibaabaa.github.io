@@ -31,6 +31,22 @@ contact:
   # and so the address published to scanners can be rotated on its own.
   security: security@bedrockcyber.co.uk
 
+# Statutory trading disclosures. Companies Act 2006 s.82 and the Names and
+# Trading Disclosures Regulations 2015 (reg 24(2), reg 25) require a company
+# to state its registered name, the part of the UK in which it is registered
+# and its registered number on its websites. _includes/site-footer.html is
+# the only reader.
+#
+# registered_office is a required particular and is deliberately left unset:
+# it is currently a home address. Fill it in here and the footer renders it
+# with no other change. Same for vat, once registered.
+company:
+  name: Bedrock Cyber Ltd
+  number: "17415783"
+  jurisdiction: England and Wales
+  registered_office:
+  vat:
+
 timezone: Europe/London
 markdown: kramdown
 

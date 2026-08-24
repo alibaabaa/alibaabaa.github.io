@@ -15,7 +15,43 @@
         <span class="credential__mark" aria-hidden="true">CE</span>
         <span>Cyber Essentials certified</span>
       </span>
-      <span>&copy; {{ site.time | date: "%Y" }} Bedrock Cyber</span>
+      <span>&copy; {{ site.time | date: "%Y" }} {{ site.company.name }}</span>
+    </div>
+    {%- comment %}
+      Statutory trading disclosure. Companies Act 2006 s.82 with the Names and
+      Trading Disclosures Regulations 2015 requires the registered name on the
+      site (reg 24(2)) and, with it, the part of the UK of registration and the
+      registered number (reg 25).
+
+      Its own row below the meta line rather than a fourth cell inside it: the
+      meta row is a two-cell justified layout and a third item wraps into a
+      ragged stack on a narrow viewport. A separate rail also gives the office
+      address and VAT number somewhere to go later without a layout decision.
+
+      Every particular is read from site.company, so the values live in
+      _config.yml and appear on the site in exactly one place. The last two
+      are conditional: unset in config, they render nothing at all rather than
+      an empty separator.
+
+      Each particular is its own span so the line breaks between items rather
+      than through the company number. The separators are aria-hidden; the
+      whitespace around them is what a screen reader gets, which is why they
+      sit on their own lines here and must stay that way.
+    {% endcomment -%}
+    <div class="site-footer__legal">
+      <span>{{ site.company.name }}</span>
+      <span class="site-footer__sep" aria-hidden="true">&middot;</span>
+      <span>Registered in {{ site.company.jurisdiction }}</span>
+      <span class="site-footer__sep" aria-hidden="true">&middot;</span>
+      <span>Company no. {{ site.company.number }}</span>
+      {%- if site.company.registered_office %}
+      <span class="site-footer__sep" aria-hidden="true">&middot;</span>
+      <span>Registered office: {{ site.company.registered_office }}</span>
+      {%- endif %}
+      {%- if site.company.vat %}
+      <span class="site-footer__sep" aria-hidden="true">&middot;</span>
+      <span>VAT no. {{ site.company.vat }}</span>
+      {%- endif %}
     </div>
   </div>
 </footer>
