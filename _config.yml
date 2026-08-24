@@ -26,6 +26,10 @@ author:
 # and so changing it is a one-line edit.
 contact:
   email: tom@bedrockcyber.co.uk
+  # Read by /.well-known/security.txt. Kept separate from the address above so
+  # a vulnerability report is never a needle in the general enquiries pile,
+  # and so the address published to scanners can be rotated on its own.
+  security: security@bedrockcyber.co.uk
 
 timezone: Europe/London
 markdown: kramdown
@@ -53,6 +57,13 @@ defaults:
       type: posts
     values:
       layout: article
+
+# Jekyll skips any file or directory whose name begins with a dot, which
+# would silently drop .well-known/ — no error, no output, just a missing
+# security.txt. This line is the only thing publishing it. Delete it and
+# /.well-known/security.txt 404s while the build still reports success.
+include:
+  - .well-known
 
 # Private files: kept in the repo, never published to the site.
 # (css sources are excluded because /css/bedrock.css concatenates them at

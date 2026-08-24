@@ -1,0 +1,13 @@
+---
+# Empty front matter, deliberately. It is the flag that tells Jekyll to run
+# Liquid over this file; it is stripped from the output, so what ships is the
+# plain text RFC 9116 requires and nothing else.
+#
+# Jekyll ignores directories beginning with a dot, so .well-known/ is listed
+# in the include: key of _config.yml. Remove that line and this file silently
+# stops publishing, with no build error to warn you.
+---
+Contact: mailto:{{ site.contact.security }}
+Expires: {{ site.time | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' }}T00:00:00Z
+Preferred-Languages: en
+Canonical: {{ site.url }}/.well-known/security.txt
