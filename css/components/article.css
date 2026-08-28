@@ -32,7 +32,7 @@
 }
 .prose li::marker{ color:var(--c-ink-faint); }
 
-.prose a{
+.prose a a:not(.btn){
   color:var(--c-ink);
   text-decoration:underline;
   text-decoration-color:var(--c-line);
@@ -40,8 +40,8 @@
   text-underline-offset:3px;
   transition:text-decoration-color .3s var(--ease);
 }
-.prose a:hover,
-.prose a:focus-visible{ text-decoration-color:var(--c-ink); }
+.prose a:not(.btn):hover,
+.prose a:not(.btn):focus-visible{ text-decoration-color:var(--c-ink); }
 
 .prose blockquote{
   margin:0 0 18px;
