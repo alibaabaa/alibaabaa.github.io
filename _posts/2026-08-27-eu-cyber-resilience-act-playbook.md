@@ -12,8 +12,8 @@
 #
 # The layout (article) is applied automatically by _config.yml.
 # ============================================================================
-title: "EU Cyber Resilience Act Playbook"
-standfirst: "A planning playbook for implementers of the EU Cyber Resilience Act"
+title: "EU Cyber Resilience Act Preparation"
+standfirst: "Planning and preparation for implementers of the EU Cyber Resilience Act"
 ---
 
 ## What EU CRA means for businesses
