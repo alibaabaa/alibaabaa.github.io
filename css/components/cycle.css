@@ -16,7 +16,7 @@
      width and a baseline without an invisible copy holding the box open.
    - it is the visible word at rest.
 
-   Progressive enhancement, in the same shape as .u-reveal:
+   Progressive enhancement:
    - No JavaScript: the first word is in flow and marked .is-active, so the
      headline is simply static and correctly sized.
    - Reduced motion: js/cycle.js bails before the first swap, same result.

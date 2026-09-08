@@ -1,9 +1,8 @@
 /* Cycling word in the fold headline.
 
-   Progressive enhancement, same contract as reveal.js: the markup already
-   shows the first word, so everything here is optional. If this file never
-   runs, or the browser prefers reduced motion, the headline is static and
-   correct.
+   Progressive enhancement: the markup already shows the first word, so
+   everything here is optional. If this file never runs, or the browser
+   prefers reduced motion, the headline is static and correct.
 
    Three things happen per swap, in this order:
    1. The outgoing word flickers twice, 300ms.

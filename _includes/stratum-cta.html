@@ -33,16 +33,13 @@
     <svg viewBox="0 0 24 24"><path d="M4 7.6 H20"/><path d="M12 8.4 L5.2 19"/><path d="M12 8.4 L18.8 19"/><path d="M12 8.4 V19"/></svg>
   </span>
   <div class="wrap stratum__inner">
-    <p class="eyebrow label u-reveal" style="--i:0">{{ include.eyebrow | default: "Where to start" }}</p>
-    <p class="lede lede--lg u-reveal" style="--i:1" id="cta-lede">{{ include.lede | default: "What are you being asked to prove?" }}</p>
+    <p class="eyebrow label">{{ include.eyebrow | default: "Where to start" }}</p>
+    <p class="lede lede--lg" id="cta-lede">{{ include.lede | default: "What are you being asked to prove?" }}</p>
     {% comment %}
-      u-reveal goes on the wrapper, not on the button, for the same reason
-      u-enter does on /contact/: .u-reveal.is-visible sets transform:none at
-      a higher specificity than .btn:hover, so putting it on the button
-      itself permanently cancels the hover lift. A div, not a p, because a
-      paragraph would add its own bottom margin to the band padding.
+      A div, not a p, because a paragraph would add its own bottom margin to
+      the band padding.
     {% endcomment %}
-    <div class="u-space-l u-reveal" style="--i:2">
+    <div class="u-space-l">
       <a class="btn" href="{{ site.data.nav.cta.url }}">
         <span class="dot" aria-hidden="true"></span>{{ site.data.nav.cta.label }}
         <span class="btn__arrow" aria-hidden="true">&rarr;</span>

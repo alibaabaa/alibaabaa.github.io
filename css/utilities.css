@@ -35,24 +35,11 @@
 }
 @keyframes u-enter-datum{ to{ opacity:.88; transform:translateY(-50%) scale(1); } }
 
-/* --- Scroll reveal -------------------------------------------------------
-   Only applies once js/reveal.js has added .js to <html>, so the content is
-   always visible if JavaScript fails. Stagger with style="--i:2"
-   ------------------------------------------------------------------------ */
-.js .u-reveal{
-  opacity:0;
-  transform:translateY(15px);
-  transition:opacity .85s var(--ease-out), transform .85s var(--ease-out);
-  transition-delay:calc(var(--i, 0) * 95ms);
-}
-.js .u-reveal.is-visible{ opacity:1; transform:none; }
-
 /* --- Reduced motion ------------------------------------------------------
    Last in the last file, so it wins over everything above it.
    ------------------------------------------------------------------------ */
 @media (prefers-reduced-motion:reduce){
   .u-enter{ opacity:1; transform:none; animation:none; }
   .u-enter--datum{ opacity:.88; transform:translateY(-50%); animation:none; }
-  .js .u-reveal{ opacity:1; transform:none; transition:none; }
   *{ transition:none !important; }
 }

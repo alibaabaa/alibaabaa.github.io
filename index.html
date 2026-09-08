@@ -40,12 +40,12 @@ description: >-
   {% comment %} Block 2: what I do {% endcomment %}
   <section class="stratum stratum--pale" id="practice" aria-labelledby="practice-lede">
     <div class="wrap stratum__inner duo">
-      <div class="u-reveal" style="--i:0">
+      <div>
         <p class="eyebrow label">What I do</p>
         <p class="lede" id="practice-lede">Intentional product security, designed and embedded into your delivery process.
         </p>
       </div>
-      <div class="u-reveal" style="--i:1">
+      <div>
         <div class="prose">
           <p>When security practices are designed intentionally, evidence gathering stops being a separate task, and threats become clearer.
           </p>
@@ -65,21 +65,21 @@ description: >-
   {% comment %} Block 3: point of view. Cards fill automatically from _posts/. {% endcomment %}
   <section class="stratum stratum--warm" aria-labelledby="pov-lede">
     <div class="wrap stratum__inner">
-      <div class="u-reveal" style="--i:0">
+      <div>
         <p class="eyebrow label">Published</p>
         <p class="lede lede--tight" id="pov-lede">Security expertise from Bedrock&nbsp;Cyber.</p>
       </div>
 
       <div class="article-grid">
         {%- for post in site.posts limit: 3 %}
-        <a class="article-card u-reveal" style="--i:{{ forloop.index }}" href="{{ post.url }}">
+        <a class="article-card" href="{{ post.url }}">
           <h3 class="article-card__title">{{ post.title }}</h3>
           <p class="article-card__standfirst">{{ post.standfirst }}</p>
         </a>
         {%- endfor %}
       </div>
 
-      <a class="link-arrow u-space-l u-reveal" style="--i:4" href="/writing/">More <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="link-arrow u-space-l" href="/writing/">More <span class="link-arrow__arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 
