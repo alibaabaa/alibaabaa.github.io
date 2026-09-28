@@ -88,10 +88,10 @@ flowchart LR
   end
   C -- "question" --> H
   H -- "answer" --> C
-  H -- "prompt: history, tool definitions, tool results" --> M
-  M -- "reply or tool-call request" --> H
-  S -- "tool names, descriptions, schemas" --> H
-  H -- "tool call and arguments" --> S
+  H -- "prompt: history, tool defs+results" --> M
+  M -- "reply or tool call" --> H
+  S -- "tool metadata" --> H
+  H -- "tool call" --> S
   S -- "tool result" --> H
   D -- "prices" --> S
   style TZ1 stroke-dasharray: 5 5

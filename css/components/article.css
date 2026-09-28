@@ -65,6 +65,55 @@
 }
 .prose pre code{ background:none; padding:0; font-size:13px; line-height:1.6; }
 
+/* Mermaid diagrams, drawn by /js/diagrams.js. Mermaid scales the SVG to
+   the column; overflow is the fallback so a wide one scrolls
+   sideways rather than widening the page. */
+.prose .mermaid{
+  margin:28px 0;
+  overflow-x:auto;
+  text-align:center;
+  cursor:zoom-in;
+  border-radius:3px;
+  transition:background-color .2s var(--ease);
+}
+.prose .mermaid:hover{ background:var(--c-surface-2); }
+.prose .mermaid:focus-visible{ outline:2px solid var(--c-accent); outline-offset:4px; }
+
+/* Enlarged view. The SVG fills the dialog; its viewBox keeps the aspect
+   ratio. Mermaid sets max-width inline, hence !important. */
+.diagram-overlay{
+  width:calc(100vw - 32px);
+  height:calc(100dvh - 32px);
+  max-width:none;
+  max-height:none;
+  margin:auto;
+  padding:clamp(20px, 3vw, 48px);
+  border:0;
+  border-radius:4px;
+  background:var(--c-surface-1);
+  cursor:zoom-out;
+}
+.diagram-overlay::backdrop{ background:rgba(20,21,26,.72); }
+.diagram-overlay svg{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none !important;
+}
+.diagram-overlay__close{
+  position:absolute;
+  top:8px;
+  right:12px;
+  font:400 28px/1 var(--font-sans);
+  color:var(--c-ink-muted);
+  background:none;
+  border:0;
+  padding:4px 8px;
+  cursor:pointer;
+}
+.diagram-overlay__close:hover{ color:var(--c-ink); }
+html:has(.diagram-overlay[open]){ overflow:hidden; }
+
 .prose hr{
   border:0;
   border-top:1px solid var(--c-line);
