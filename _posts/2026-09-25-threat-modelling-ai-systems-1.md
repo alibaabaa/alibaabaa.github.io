@@ -12,13 +12,13 @@
 #
 # The layout (article) is applied automatically by _config.yml.
 # ============================================================================
-title: "Lab: Threat Modelling AI Systems"
+title: "Part 1: Threat Modelling AI Systems"
 standfirst: "Investigating threat modelling approaches for systems that use LLM technology"
 ---
 
 ## Context
 
-Threat modelling is a technique for looking at the architecture of a system or part of a system or feature to look at its design through a security lens. Asking the question of what could go wrong that might have security implications, so that mitigations can be considered.
+Threat modelling is a technique for looking at the architecture of a system or part of a system or feature through a security lens. Asking the question of what could go wrong that might have security implications, so that mitigations can be considered.
 
 Typically this looks like drawing out the components of a system at an appropriate level of detail, before adding boundaries where data moves from one level of trust to another. The boundaries then give something concrete to focus on when thinking about threats.
 
@@ -33,6 +33,8 @@ Threat modelling and product security references are evolving to account for the
 Reading the theory is all well and good, but some things are just better learned in practice and through experience. I started to put together a small proof of concept that uses Model Context Protocol (MCP), a standard for AI applications to connect to external tools and data.
 
 ## Building a basic MCP proof of concept
+
+[Available on Github](https://github.com/alibaabaa/mcp-mvp)
 
 The basic application is intentionally kept simple, with very few moving parts. The focus of the lab is to look at a practical example of threat modelling an MCP system.
 
