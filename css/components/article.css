@@ -76,6 +76,21 @@
   border-radius:3px;
   transition:background-color .2s var(--ease);
 }
+/* Mermaid gives its node and edge labels class="label" and wraps the text
+   in <p>, so the site's .label (uppercase, tracked micro type) and .prose p
+   (body size and margins) would restyle them after Mermaid has measured
+   them. Put them back. The overlay is outside .prose, so it is listed too. */
+.mermaid svg .label,
+.mermaid svg p,
+.diagram-overlay svg .label,
+.diagram-overlay svg p{
+  font-size:inherit;
+  font-weight:inherit;
+  letter-spacing:normal;
+  text-transform:none;
+  line-height:1.5;
+  margin:0;
+}
 .prose .mermaid:hover{ background:var(--c-surface-2); }
 .prose .mermaid:focus-visible{ outline:2px solid var(--c-accent); outline-offset:4px; }
 

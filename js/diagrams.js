@@ -9,7 +9,9 @@
    by scripts/fetch-mermaid.sh). Pages without diagrams load nothing extra.
 
    Colours and font are read from the tokens in css/tokens.css, so diagrams
-   follow the site rather than Mermaid's default theme.
+   follow the site rather than Mermaid's default theme. Site type styles
+   that would otherwise leak into diagram labels are reset in
+   css/components/article.css.
 
    The prose column is narrow, so diagrams render small. Clicking one (or
    Enter/Space on it) opens it in a near full-screen <dialog>. The SVG is
@@ -68,6 +70,15 @@
       startOnLoad: false,
       securityLevel: 'strict',
       theme: 'base',
+      // Mermaid 12 defaults to the ELK layout engine, which lays flowcharts
+      // out very differently from Typora and the Mermaid Live Editor
+      // (both dagre). Pin dagre so what you preview is what gets published.
+      // A single diagram can still opt in to ELK with front matter:
+      //   ---
+      //   config:
+      //     layout: elk
+      //   ---
+      layout: 'dagre',
       themeVariables: {
         fontFamily: v('--font-sans'),
         fontSize: '14px',
