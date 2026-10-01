@@ -65,6 +65,38 @@
 }
 .prose pre code{ background:none; padding:0; font-size:13px; line-height:1.6; }
 
+/* Markdown tables. Text sits top-left in every cell so headings line up with
+   the column below and multi-line rows read from the same baseline. Rows are
+   banded in the next surface tone; the first column is the row's key, so it
+   takes ink. Narrow screens scroll the table sideways rather than crushing
+   the columns. */
+.prose table{
+  width:100%;
+  margin:28px 0;
+  border-collapse:collapse;
+  font-size:clamp(14px, 1vw, 15.5px);
+  line-height:1.55;
+  color:var(--c-ink-muted);
+}
+.prose th,
+.prose td{
+  padding:12px 16px;
+  text-align:left;
+  vertical-align:top;
+}
+.prose th{
+  font-weight:600;
+  color:var(--c-ink);
+  border-bottom:1px solid var(--c-ink-faint);
+}
+.prose td{ border-bottom:1px solid var(--c-line); }
+.prose tbody tr:nth-child(even){ background:var(--c-surface-2); }
+.prose td:first-child{ color:var(--c-ink); font-weight:500; }
+@media (max-width:600px){
+  .prose table{ display:block; overflow-x:auto; }
+  .prose th, .prose td{ padding:10px 12px; }
+}
+
 /* Mermaid diagrams, drawn by /js/diagrams.js. Mermaid scales the SVG to
    the column; overflow is the fallback so a wide one scrolls
    sideways rather than widening the page. */
