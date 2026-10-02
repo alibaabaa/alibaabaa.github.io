@@ -157,6 +157,10 @@ def price_lookup(product: str) -> float:
 
 The MVP works, but as already demonstrated, loose implementations quickly surface poor design and missing boundary controls. As the series progresses, we will examine this specific failure, along with other flows that cross a trust boundary and vulnerabilities that need to be considered.
 
+---
+
+Go to [Part 2](/writing/threat-modelling-ai-systems-2/) 
+
 ## Sources
 
 - [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
