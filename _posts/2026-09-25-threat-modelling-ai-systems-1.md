@@ -137,6 +137,8 @@ fruit> How much is a banana?
 A banana costs $0.25.
 ```
 
+*Note that **reasoning** is turned on in these examples mainly to help support the write up.*
+
 The model gets the question plus the tool definitions. It uses reasoning on these inputs to reply with a structured request to call the price tool. The host makes the call over MCP and returns the result to the model. On the second call the model writes a reply to the user.
 
 The model is smart enough to establish from the tool definition and user input that it should be looking up the price. Its job is to pick the tool with the right argument and then phrase whatever comes back.
