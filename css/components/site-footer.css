@@ -66,3 +66,7 @@
   .site-footer__meta{ margin-top:38px; }
   .site-footer__link{ padding-block:8px 11px; }   /* touch target */
 }
+
+/* Personal view: the contents are hidden (data-personal="hide") and the
+   footer stays as a plain ink bar, sized to the page-head title's line. */
+.is-personal .site-footer{ min-height:clamp(2.1rem, 4.6vw, 4rem); }

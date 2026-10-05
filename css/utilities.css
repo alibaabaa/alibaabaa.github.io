@@ -16,6 +16,12 @@
   clip-path:inset(50%); overflow:hidden; white-space:nowrap;
 }
 
+/* --- Personal view ------------------------------------------------------
+   html.is-personal is set by the inline script in _includes/head.html.
+   ------------------------------------------------------------------------ */
+.is-personal [data-personal="hide"]{ display:none !important; }
+html:not(.is-personal) [data-personal="show"]{ display:none !important; }
+
 /* --- Page load entrance -------------------------------------------------
    Set the stagger in the markup: style="--delay:.2s"
    ------------------------------------------------------------------------ */

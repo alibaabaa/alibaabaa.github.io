@@ -64,3 +64,30 @@
 
 {% comment %} Gates the scroll-reveal hidden state. Must stay inline and stay here. {% endcomment %}
 <script>document.documentElement.classList.add('js');</script>
+
+{% comment %}
+  Personal view. The personal domain forwards to /about/#t; this marks the
+  rest of the tab's visit as personal, so a CV click lands on the person
+  rather than the business. The flag lives in sessionStorage, so it follows
+  every link in that tab without rewriting any of them, and the #t is taken
+  off the address bar once read. Elements opt in with data-personal="hide"
+  or data-personal="show"; the CSS is in utilities.css. Presentation only —
+  everything stays in the HTML. Inline and in the head so it lands before
+  first paint; deferred, the company header would flash on every page.
+  In the personal view only /about/ and articles are reachable; any other
+  page is replaced with /about/ before it draws.
+{% endcomment %}
+<script>
+(function(){
+  var d=document.documentElement, on=location.hash==='#t';
+  try{
+    if(on){ sessionStorage.setItem('personal','1'); history.replaceState(null,'',location.pathname+location.search); }
+    on=on||sessionStorage.getItem('personal')==='1';
+  }catch(e){}
+  if(!on) return;
+  {%- if page.url != "/about/" and page.layout != "article" %}
+  location.replace('/about/'); return;
+  {%- endif %}
+  d.classList.add('is-personal');
+})();
+</script>

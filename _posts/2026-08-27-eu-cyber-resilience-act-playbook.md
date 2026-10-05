@@ -96,8 +96,9 @@ Ask the right questions from the start to set up for success.
 Build your compliance programme so that evidence of your product security comes from what the business already does.
 
 Bedrock Cyber supports organisations in planning for and delivering EU CRA compliance with processes that generate proof without additional burden.
+{: data-personal="hide"}
 
-<p class="u-space-m u-enter" style="--delay:.58s">
+<p data-personal="hide" class="u-space-m u-enter" style="--delay:.58s">
     <a class="btn btn--ink" href="/contact">
     <span class="dot" aria-hidden="true"></span>Start a conversation
     <span class="btn__arrow" aria-hidden="true">&rarr;</span>
