@@ -47,7 +47,7 @@ But in an application that integrates an LLM, we can observe something different
 
 But unlike a traditional system, we must consider the output of one of the internal system components **TZ02** to be untrusted.
 
-At first this decision looks analogous how we would treat a datastore that stores sanitised user input: it's part of our system but we don't fully trust the output. But the important difference is that we have deterministic control over a datastore. In a datastore, if a certain level of sanitisation has been in place from the start, then while we might not trust the data in an execution context, we can still make some level of assertion about its safety. But in the case of an LLM, there are no deterministic controls. The inputs to an LLM result in unpredictable outputs. For this reason, **TZ02** must be considered untrusted.
+At first this decision looks analogous to how we would treat a datastore that stores sanitised user input: it's part of our system but we don't fully trust the output. But the important difference is that we have deterministic control over a datastore. In a datastore, if a certain level of sanitisation has been in place from the start, then while we might not trust the data in an execution context, we can still make some level of assertion about its safety. But in the case of an LLM, there are no deterministic controls. The inputs to an LLM result in unpredictable outputs. For this reason, **TZ02** must be considered untrusted.
 
 The trust boundary between **TZ01** and **TZ03** covers the retrieval of pricing data from a data store and server that we control. For the purposes of this exercise, we will treat this as a traditional data layer, the MCP server being developed in house or at least within our control and known safe. If using a third party MCP server, we would need another trust boundary between the pricing tool (**P03**) and our price directory (**D01**).
 
@@ -68,7 +68,7 @@ We identified **STRIDE** in part one as a well known framework often used for en
 
 While this isn't by any means a comprehensive listing, it illustrates that many of the traditional STRIDE categories still apply. There are ways to map new generative AI threats onto STRIDE.
 
-What it doesn't do is produce a complete enumeration of the new and complex threat categories that large language models introduce. Once any one individual component in a system is coordinating access to external APIs, looking up internal data and making autonomous and unpredictable decisions, it's doing more with more agency than anything STRIDE was originally intended for.
+What it doesn't do is produce a complete enumeration of the new and complex threat categories that large language models introduce. Once any one individual component in a system is coordinating access to external APIs, looking up internal data and making autonomous and unpredictable decisions, it's doing more, and with more agency, than anything STRIDE was originally intended for.
 
 There are different emerging approaches to filling that gap that are beyond the scope of this discussion. MAESTRO is one example of a threat modelling framework with methodology built specifically to address agentic AI.
 

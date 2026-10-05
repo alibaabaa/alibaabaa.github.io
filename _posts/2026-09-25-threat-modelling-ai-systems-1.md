@@ -52,7 +52,7 @@ The model itself can't decide the price, and it can't call on the lookup directo
 
 The LLM in this sample app is Qwen 3.5 at 2 billion parameters (`qwen3.5:2b`), running locally. It's small enough to run on a laptop, and trained for calling tools. 
 
-Running it locally means that everything stays on the own machine, avoiding any risk of breaching any frontier model terms during experimentation.
+Running it locally means that everything stays on the machine, avoiding any risk of breaching any frontier model terms during experimentation.
 
 ## How the pieces connect
 
@@ -143,7 +143,7 @@ The model gets the question plus the tool definitions. It uses reasoning on thes
 
 The model is smart enough to establish from the tool definition and user input that it should be looking up the price. Its job is to pick the tool with the right argument and then phrase whatever comes back.
 
-There's also a warning sign here though. The tool doesn't provide a currency for the price, and so the model opaquely decides that dollars is a reasonable guess, and returns this as part of the answer. This gives a first glimpse of what might be yet to come. This is a UK application, and the prices coming back from the tool should be treated as GBP (£). With nothing to indicate this, the model is making a best guess, and so on its first run, without any attempt to attack it, it has already given away a banana for less that it should have.
+There's also a warning sign here though. The tool doesn't provide a currency for the price, and so the model opaquely decides that dollars is a reasonable guess, and returns this as part of the answer. This gives a first glimpse of what might be yet to come. This is a UK application, and the prices coming back from the tool should be treated as GBP (£). With nothing to indicate this, the model is making a best guess, and so on its first run, without any attempt to attack it, it has already given away a banana for less than it should have.
 
 Let's fix this naively for now by changing the MCP tool description to say that prices are in GBP:
 
