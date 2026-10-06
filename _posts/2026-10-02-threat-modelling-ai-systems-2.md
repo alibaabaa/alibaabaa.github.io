@@ -1,6 +1,6 @@
 ---
 title: "Part 2: Threat Modelling AI Systems"
-standfirst: "Investigating threat modelling approaches for systems that use LLM technology"
+standfirst: "Strategies for identifying vulnerabilities in LLM integrated systems"
 ---
 
 In [Part 1](/writing/threat-modelling-ai-systems-1/) we introduced a minimal chatbot-style application that allows a user to ask for the price of a fruit in natural language, and through integration of an LLM with a price directory, they receive a natural language response with the price.
@@ -26,11 +26,11 @@ flowchart LR
   end
   C -- "question" --> H
   H -- "answer" --> C
-  H -- "prompt: history, tool defs+results" --> M
+  H -- "prompt, tool metadata, prices" --> M
   M -- "reply or tool call" --> H
   S -- "tool metadata" --> H
   H -- "tool call" --> S
-  S -- "tool result" --> H
+  S -- "prices" --> H
   D -- "prices" --> S
   style TZ0 stroke-dasharray: 5 5
   style TZ1 stroke-dasharray: 5 5
