@@ -216,10 +216,6 @@ Without direct access to the price, this particular technique can no longer work
 
 Or have we? A defender's work is never done. There will always be novel techniques and variations on existing attacks. In part two, we touched on the importance of considering business context and risk appetite as part of threat modelling so that resources are being put to best use, weighing potential costs against cost to implement.
 
-## Did we do a good job?
-
-The final tranche of threat modelling is about asking ourselves *did we do a good job?* and so in the next part, we will evaluate the activities undertaken as part of a threat modelling exercise, as part of a regime of continual improvement.
-
 ---
 
 ### Bonus
